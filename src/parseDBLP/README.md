@@ -1,0 +1,9 @@
+# Overview
+
+The codes in this directory are used to extract a DBLP coauthorship graph from DBLP's XML
+
+the coauthor_net_generate.py file parses a DBLP CSV into a graph in the edgelist format
+
+## how to run the code?
+
+??
