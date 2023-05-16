@@ -10,5 +10,5 @@ To convert xml files in a directory to csv files run the code parsedblp.py
 
 The command line to run the file: 
 
-python3 parsedblp.py  --inputdirectory data --outputdirectory data/csvfiles 
+python3 parsedblp.py  --inputdirectory data/xmlfiles --outputdirectory data/csvfiles 
 
