@@ -8,7 +8,7 @@ the coauthor_net_generate.py file parses a DBLP CSV into a graph in the edgelist
 
 To convert xml files in a directory to csv files run the code parsedblp.py 
 
-The command line: 
+The command line to run the file: 
 
 python3 parsedblp.py  --inputdirectory data --outputdirectory data/csvfiles 
 
