@@ -12,3 +12,9 @@ The command line to run the file:
 
 python3 parsedblp.py  --inputdirectory data/xmlfiles --outputdirectory data/csvfiles 
 
+To convert csv files to authorship network
+
+The command line to run the file: 
+
+python3 coauthor_net_generate.py  --filename fname
+
