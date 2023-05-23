@@ -9,6 +9,8 @@ The spectral clustering model is from paper "Understanding Regularized Spectral 
 
 The AMOS spectral clustering algorithm is from paper "AMOS: AN AUTOMATED MODEL ORDER SELECTION ALGORITHM FOR SPECTRAL GRAPH CLUSTERING". The code is from "https://github.com/tgensol/AMOS/tree/master" this link. 
 
+The EgoSplitting clustering algoritm is from paper "Ego-Splitting Framework: from Non-Overlapping to Overlapping Clusters". The code has some minor revision to adjust with current library versions. Methodical sections remained unchanged. 
+
 
 ## how to run the code?
 
