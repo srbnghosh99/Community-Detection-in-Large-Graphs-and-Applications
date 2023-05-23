@@ -7,9 +7,11 @@ The Louvain Algorithm required library from the link to be installed. "https://g
 The spectral clustering model is from paper "Understanding Regularized Spectral Clustering via Graph Conductance". We did some minor revisions in the code to match with current networkx python library version. The mothodical parts remained unchanged. The code is from this github link. "https://github.com/crisbodnar/regularised-spectral-clustering/tree/master" 
 
 
-The AMOS spectral clustering algorithm is from paper "AMOS: AN AUTOMATED MODEL ORDER SELECTION ALGORITHM FOR SPECTRAL GRAPH CLUSTERING". The code is from "https://github.com/tgensol/AMOS/tree/master" this link. 
+The AMOS spectral clustering algorithm is from paper "AMOS: AN AUTOMATED MODEL ORDER SELECTION ALGORITHM FOR SPECTRAL GRAPH CLUSTERING". Github link "https://github.com/tgensol/AMOS/tree/master". 
 
-The EgoSplitting clustering algoritm is from paper "Ego-Splitting Framework: from Non-Overlapping to Overlapping Clusters". The code has some minor revision to adjust with current library versions. Methodical sections remained unchanged. 
+EgoSplitting clustering algoritm is from paper "Ego-Splitting Framework: from Non-Overlapping to Overlapping Clusters". The code has some minor revision to adjust with current library versions. Methodical sections remained unchanged. Github link "https://github.com/benedekrozemberczki/EgoSplitting". 
+
+CommunityGAN clustering algoritm is from paper "CommunityGAN: Community Detection with Generative Adversarial Nets". The code has some minor revision to adjust with current library versions.  Methodical sections remained unchanged. Github link  "https://github.com/SamJia/CommunityGAN"
 
 
 ## how to run the code?
