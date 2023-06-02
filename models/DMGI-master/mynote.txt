@@ -1,0 +1,4 @@
+python3 -m pdb preprocess_dblp.py 4
+
+ValueError: Found array with 0 sample(s) (shape=(0, 64)) while a minimum of 1 is required by KMeans.
+try with large data, may because dataset is too small. 
