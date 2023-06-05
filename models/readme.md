@@ -22,4 +22,7 @@ AGE clustering algoritm is from paper "Adaptive Graph Encoder for Attributed Gra
 
 ## how to run the code?
 
+node2vec -- > 
+python3 src/main.py --input graph/karate.edgelist --output emb/karate.emd. ## Graph embedding
+python3 src/clustering.py. # clusterng using spectral method.
 
