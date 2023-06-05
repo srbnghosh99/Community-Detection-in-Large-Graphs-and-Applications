@@ -11,13 +11,13 @@ from sklearn.cluster import SpectralClustering
 
 
 
-G = nx.read_edgelist("../graph/karate.edgelist", nodetype=int)
+G = nx.read_edgelist("graph/karate.edgelist", nodetype=int)
 embs = dict()
 k = 0
 index = []
 full_list = []
 total_vectors_in_file = 0
-with open("../emb/karate.emb", 'r') as f:
+with open("emb/karate.emb", 'r') as f:
   next(f)
   for i, line in enumerate(f):
     lst = line.split(' ')
