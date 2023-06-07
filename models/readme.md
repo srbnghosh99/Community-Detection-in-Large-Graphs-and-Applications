@@ -34,5 +34,9 @@ AGE(Adaptive graph encoder) -->
 
 python train.py --dataset cora --gnnlayers 8 --upth_st 0.011 --lowth_st 0.1 --upth_ed 0.001 --lowth_ed 0.5
 
+SBM-meet_GNN(Adaptive graph encoder) -->
+
+python3 train.py --dataset citeseer --hidden 32_50 --alpha0 10 --split_idx 0 --deep_decoder 1 --model dglfrm_b --epochs 200
+
 
 
