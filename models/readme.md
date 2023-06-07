@@ -22,7 +22,17 @@ AGE clustering algoritm is from paper "Adaptive Graph Encoder for Attributed Gra
 
 ## how to run the code?
 
+Indivually running the models
 node2vec -- > 
 python3 src/main.py --input graph/karate.edgelist --output emb/karate.emd. ## Graph embedding
+
 python3 src/clustering.py. # clusterng using spectral method.
+
+Louvain Algorithm --> python3 louvain_algorithm.py
+
+AGE(Adaptive graph encoder) -->
+
+python train.py --dataset cora --gnnlayers 8 --upth_st 0.011 --lowth_st 0.1 --upth_ed 0.001 --lowth_ed 0.5
+
+
 
