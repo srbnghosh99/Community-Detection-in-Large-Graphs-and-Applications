@@ -30,6 +30,8 @@ python3 src/clustering.py. # clusterng using spectral method.
 
 Louvain Algorithm --> python3 louvain_algorithm.py
 
+EgoSplitting Algorithm --> python3 src/main.py --edge-path input/authorname_edges.edgelist --output-path output/author_cluster_memberships.json
+
 AGE(Adaptive graph encoder) -->
 
 python train.py --dataset cora --gnnlayers 8 --upth_st 0.011 --lowth_st 0.1 --upth_ed 0.001 --lowth_ed 0.5
