@@ -19,11 +19,22 @@ def author_nameid_map(inputfile,outputfile):
     df3 = pd.DataFrame(result)
     author_namelist = df3[0].drop_duplicates().tolist()
     author_idlist = list(range(1,len(author_namelist)+1)) 
+    print("Total Number of authors ", len(author_idlist))
     res = {author_namelist[i]: author_idlist[i] for i in range(len(author_namelist))}
-    df=df.replace({"Author1": res})
-    df=df.replace({"Author2": res})
-    # df.to_csv("/content/filename.csv")
-    df.to_csv(outputfile,index = False,sep = ' ', header= False)
+    # print(res)
+    df3 = df3[0].drop_duplicates().reset_index()
+    df3['Id'] = df3[0].map(res)
+    df3 = df3.rename(columns={0: "Author"})
+    # print(df3)
+    
+    df3 = df3[['Author','Id']]
+    df3.to_csv("author_id_mapped_file.csv", index = False, sep = ' ')
+    print("Author name and id mapped file created")
+    df['Author1']=df['Author1'].map(res)
+    df['Author2']=df['Author2'].map(res)
+    df.columns = ['node1','node2']
+    df.to_csv(outputfile,index = False,sep = ' ', header= True)
+    print("Coauthor Net generated based on author mapped id")
 
 def parse_args():
    
@@ -36,8 +47,8 @@ def parse_args():
 
 def main():
     inputs=parse_args()
-    print(inputs.inputfile)
-    print(inputs.outputfile)
+    print("Input file name:: ", inputs.inputfile)
+    print("Output file name:: ",inputs.outputfile)
     author_nameid_map(inputs.inputfile,inputs.outputfile)
   
 
