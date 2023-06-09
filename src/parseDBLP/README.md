@@ -7,7 +7,7 @@ the coauthor_net_generate.py file parses a DBLP CSV into a graph in the edgelist
 There should be two ways to create a graph file.
 
 1. from the DBLP xml files for particular conferences
-2. from the main DBLP xmd
+2. from the main DBLP xml
 
 ## How to get the DBLP conference files?
 
@@ -40,7 +40,23 @@ The command line to run author name mapping to identical id:
 python3 author_nameid_map.py --inputfile merge_file.edgelist --outputfile merge_file_idname.edgelist
 
 
+## How to get the DBLP main file.
 
+from here: https://dblp.uni-trier.de/xml/
+
+## How to create the graph of all authors.
+
+There is a DBLPProcess.cpp file to compile.
+
+```make```
+
+should create the binary and
+
+```./DBLPProcess dblp.xml  myout1```
+
+should create the graph in myout1
+
+The code has a dependency to some xml library. read comment at top of cpp file.
 
 # Output
 
