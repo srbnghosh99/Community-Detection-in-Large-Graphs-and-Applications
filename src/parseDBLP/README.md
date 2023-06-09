@@ -28,3 +28,13 @@ python3 author_nameid_map.py --inputfile merge_file.edgelist --outputfile merge_
 
 
 
+
+# Output
+
+The format of the output edgelist file is a standard space separated edge list:
+
+```
+u v count
+```
+
+where u and v are vertex ids (names like erik_saule) and count is the number of common papers.
