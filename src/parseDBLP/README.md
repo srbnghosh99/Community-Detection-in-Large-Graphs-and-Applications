@@ -4,7 +4,20 @@ The codes in this directory are used to extract a DBLP coauthorship graph from D
 
 the coauthor_net_generate.py file parses a DBLP CSV into a graph in the edgelist format
 
-## how to run the code?
+There should be two ways to create a graph file.
+
+1. from the DBLP xml files for particular conferences
+2. from the main DBLP xmd
+
+## How to get the DBLP conference files?
+
+Go to the conference page on DBLP. for instance:
+
+https://dblp.org/db/conf/d-cscl/index.html
+
+Next to the conference name, hit the download button and select XML.
+
+## How to generate a graph file from individual DBLP conference files?
 
 To convert xml files in a directory to csv files run the code parsedblp.py 
 
