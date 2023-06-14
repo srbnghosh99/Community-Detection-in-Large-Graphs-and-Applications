@@ -1,5 +1,3 @@
-
-
 from community import community_louvain
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
