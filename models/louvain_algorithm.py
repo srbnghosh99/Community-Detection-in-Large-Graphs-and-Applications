@@ -12,11 +12,11 @@ import sys
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 
 
-def louvain_algo(inputpath,outputpath):
+def louvain_algo(inputfile,outputfile):
     # load the karate club graph
-    G = nx.karate_club_graph()
+    #G = nx.karate_club_graph()
     # G = nx.read_edgelist("merge_file_freq.edgelist", nodetype=str, data=(("weight", int),))
-    G = nx.read_edgelist(inputpath, nodetype=str, data=(("weight", int),))
+    G = nx.read_edgelist(inputfile, nodetype=str, data=(("weight", int),))
 
     # compute the best partition
     partition = community_louvain.best_partition(G)
@@ -31,10 +31,10 @@ def louvain_algo(inputpath,outputpath):
                             # fieldnames=headerList)
         for key in partition.keys():
             f.write("%s,%s\n"%(key,partition[key]))
-    df = pd.read_csv('test.csv')
+    df = pd.read_csv('louvain_author_community.csv')
 
     df.columns = ['author','community']
-    df.to_csv("test.csv")
+    df.to_csv(outputfile)
     # with open(file, 'w') as f: 
     #     json.dump(partition, f)
     # draw the graph
@@ -51,16 +51,16 @@ def parse_args():
    
     parser = argparse.ArgumentParser(description="Read File")
 
-    parser.add_argument("--inputdirectory",type = str)
-    parser.add_argument("--outputdirectory",type = str)
+    parser.add_argument("--inputfilename",type = str)
+    parser.add_argument("--outputfilename",type = str)
     
     return parser.parse_args()
 
 def main():
     inputs=parse_args()
-    print(inputs.inputdirectory)
-    print(inputs.outputdirectory)
-    louvain_algo(inputs.inputdirectory,inputs.outputdirectory)
+    print(inputs.inputfilename)
+    print(inputs.outputfilename)
+    louvain_algo(inputs.inputfilename,inputs.outputfilename)
   
 
 if __name__ == '__main__':
