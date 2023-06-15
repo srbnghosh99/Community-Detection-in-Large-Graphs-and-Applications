@@ -13,7 +13,8 @@ def load_graph(edgelist_filename: str):
 @app.route('/vertices')
 def vert():
     #TODO should return a JSON list of all vertices
-    pass
+    ret=G.nodes
+    return jsonify(ret)
 
 @app.route('/neighborsof/<id>')
 def neighbor(id: str):
