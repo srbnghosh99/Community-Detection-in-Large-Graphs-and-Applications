@@ -18,10 +18,21 @@ def vert():
     ret=list(G.nodes)
     return jsonify(ret)
 
-@app.route('/neighborsof/<id>')
-def neighbor(id: str):
+@app.route('/neighborsof/<vertex_id>')
+def neighbor(vertex_id: str):
     #TODO should return a JSON list of all neighbors of that vertex
     pass
+
+@app.route('/community/<community_name>/vertex/<vertex_id>')
+def community_of(community_name:str, vertex_id: str):
+    #TODO should return the id of vertex_id in community structure community_name
+    pass
+
+@app.route('/community/<community_name>/all/<int:community_id>')
+def community_all(community_name:str, community_id:int):
+    #TODO should return the ids of all vertices in community_id from community structure community_name
+    pass
+
 
 @app.route('/')
 def index():
@@ -29,6 +40,8 @@ def index():
 
 
 
+
 #load_graph('data/dblp-coauthor.edgelist')
 load_graph('data/sample_HCI_coauthornet.edgelist')
+
 app.run(host='0.0.0.0')
