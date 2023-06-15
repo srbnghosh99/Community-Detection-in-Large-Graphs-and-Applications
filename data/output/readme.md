@@ -15,6 +15,14 @@ The format of the output csv file to show the number of nodes for each community
 community number_of_nodes
 ```
 
+# Overlapping
+The format of the output csv file is a standard space separated node vs communities:
+
+```
+node communities
+```
+
+where node holds unique authors_id and community column shows the list of communities the author node belongs to.
 
 ## Louvain 
 
