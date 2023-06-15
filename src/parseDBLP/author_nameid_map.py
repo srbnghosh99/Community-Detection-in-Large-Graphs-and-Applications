@@ -44,6 +44,16 @@ def author_nameid_map(inputfile,outputfile):
     df.to_csv(outputfile,index = False,sep = ' ', header= False)
     print("Coauthor Net generated based on author mapped id")
 
+def author_nameid_to_graph(input,output):
+    colnames = ['Author1', 'Author2', 'Weight']
+    df = pd.read_csv(input,names=colnames,header = None,sep = ' ')
+    df1 = pd.read_csv("sorted_dblp_author_nameid.csv", sep = ' ')
+    print(df1)
+    author_dic = dict(zip(df1.Author, df1.Id))
+    df['Author1'] = df['Author1'].map(author_dic)
+    df['Author2'] = df['Author2'].map(author_dic)
+    df.to_csv(output, header = False, index = False, sep = ' ')
+    
 def parse_args():
    
     parser = argparse.ArgumentParser(description="Read File")
