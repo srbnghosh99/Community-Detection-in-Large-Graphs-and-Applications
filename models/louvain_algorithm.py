@@ -25,17 +25,24 @@ def louvain_algo(inputfile,outputfile):
     # file = 'louvain_authors.json' 
     # json.dump( partition, open( "data/myfile.json", 'w' ) )
     headerList = ['author','community']
-    with open('louvain_author_community.csv', 'w') as f:
+    with open('test.csv', 'w') as f:
         
         # dw = csv.DictWriter(f, delimiter=',', 
                             # fieldnames=headerList)
         for key in partition.keys():
             f.write("%s,%s\n"%(key,partition[key]))
-    df = pd.read_csv('louvain_author_community.csv')
+    df = pd.read_csv('test.csv')
 
     df.columns = ['author','community']
-    df.to_csv(outputfile)
-    # with open(file, 'w') as f: 
+    df.to_csv(outputfile, index = False, sep = ' ')
+    df = df.sort_values(by=['author'])
+    df1 = pd.read_csv("sorted_dblp_author_nameid.csv", sep = ' ')
+    author_dic = dict(zip(df1.Id, df1.Author))
+    df['author'] = df['author'].map(author_dic)
+    df.community.value_counts().rename_axis('community').reset_index(name='counts').to_csv("louvain_comm_value_counts.csv", sep = ' ', index = False)
+    
+
+# with open(file, 'w') as f: 
     #     json.dump(partition, f)
     # draw the graph
     # pos = nx.spring_layout(G)
