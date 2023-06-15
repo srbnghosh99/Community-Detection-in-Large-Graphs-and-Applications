@@ -32,5 +32,15 @@ output format --> node community
 
 There are total 89388 number of communities generated for graph of collaboration freq greater than 1
 
-Total 58241 communites
+Total number of communites 58241
+
+## Ego Splitting
+
+The output is overlapping community information
+
+output format --> node communities
+
+Number of nodes 1216501
+
+Total number of communites 1353713
 
