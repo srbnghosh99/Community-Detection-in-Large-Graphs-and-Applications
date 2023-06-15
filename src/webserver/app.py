@@ -44,5 +44,6 @@ def index():
 
 #load_graph('data/dblp-coauthor.edgelist')
 load_graph('data/sample_HCI_coauthornet.edgelist')
+#load_community('community_name', 'datafile')
 
 app.run(host='0.0.0.0')
