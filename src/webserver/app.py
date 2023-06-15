@@ -18,10 +18,11 @@ def vert():
     ret=list(G.nodes)
     return jsonify(ret)
 
+# returns a JSON list of all neighbors of that vertex
 @app.route('/neighborsof/<vertex_id>')
 def neighbor(vertex_id: str):
-    #TODO should return a JSON list of all neighbors of that vertex
-    pass
+    ret = list (G.neighbors(vertex_id))
+    return jsonify(ret)
 
 @app.route('/community/<community_name>/vertex/<vertex_id>')
 def community_of(community_name:str, vertex_id: str):
