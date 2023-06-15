@@ -7,12 +7,12 @@ The format of the output csv file is a standard space separated node vs communit
 node community
 ```
 
-where node holds uniques authors_id and community column shows the community_number of the author node belongs to.
+where node holds unique authors_id and community column shows the community_number of the author node belongs to.
 
 The format of the output csv file to show the number of nodes for each community:
 
 ```
-community number of nodes
+community number_of_nodes
 ```
 
 
