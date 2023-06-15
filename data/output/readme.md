@@ -9,7 +9,7 @@ node community
 
 where node holds uniques authors_id and community column shows the community_number of the author node belongs to.
 
-The format of the output csv file to show the number of nodes for each community in:
+The format of the output csv file to show the number of nodes for each community:
 
 ```
 community number of nodes
