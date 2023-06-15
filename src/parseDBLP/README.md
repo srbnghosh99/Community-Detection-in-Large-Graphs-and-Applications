@@ -60,7 +60,9 @@ The code has a dependency to some xml library. read comment at top of cpp file.
 
 ## DBLP graph of all authors informaiton
 
-There are total 3352556 number of nodes and 11892185 number of edges.  
+According to unique names of authors, there are total 3345207 authors in dblp. 
+
+In coauthor graph, there are total 3345207 number of nodes and 11777726 number of edges.  
 
 Authors collaboration more than 1 time generated graph has 1216501 number of nodes and 2393254 number of edges.  
 
