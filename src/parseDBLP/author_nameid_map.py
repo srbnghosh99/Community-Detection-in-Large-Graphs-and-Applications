@@ -12,6 +12,7 @@ from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import os
 
 def author_nameid_map(inputfile,outputfile):
+    ## This function creates a dictionary of string to a unique id from a string based graph
     df = pd.read_csv(inputfile,sep = ' ')
     df1 = df['Author1']
     df2 = df['Author2']
@@ -45,10 +46,12 @@ def author_nameid_map(inputfile,outputfile):
     print("Coauthor Net generated based on author mapped id")
 
 def author_nameid_to_graph(input,output):
+    ## This function convert any string based graph to id based graph from string to id dictionary information
+    
     colnames = ['Author1', 'Author2', 'Weight']
     df = pd.read_csv(input,names=colnames,header = None,sep = ' ')
     df1 = pd.read_csv("sorted_dblp_author_nameid.csv", sep = ' ')
-    print(df1)
+    #print(df1)
     author_dic = dict(zip(df1.Author, df1.Id))
     df['Author1'] = df['Author1'].map(author_dic)
     df['Author2'] = df['Author2'].map(author_dic)
@@ -68,6 +71,7 @@ def main():
     print("Input file name:: ", inputs.inputfile)
     print("Output file name:: ",inputs.outputfile)
     author_nameid_map(inputs.inputfile,inputs.outputfile)
+    author_nameid_to_graph(inputs.inputfile,inputs.outputfile) 
   
 
 if __name__ == '__main__':
