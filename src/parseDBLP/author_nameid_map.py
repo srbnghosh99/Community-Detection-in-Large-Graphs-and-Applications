@@ -9,6 +9,7 @@ Created on Thu Jun 15 01:54:23 EDT 2023
 import pandas as pd 
 import argparse
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+import os
 
 def author_nameid_map(inputfile,outputfile):
     df = pd.read_csv(inputfile,sep = ' ')
@@ -25,19 +26,23 @@ def author_nameid_map(inputfile,outputfile):
     df3 = df3[0].drop_duplicates().reset_index()
     df3['Id'] = df3[0].map(res)
     df3 = df3.rename(columns={0: "Author"})
-    print(df3)
-    
+    #print(df)
+    #print(df3)
+
+    newf = os.path.splitext(inputfile)[0]
+    newf = newf+"_author_nameid.csv"
+ 
     df3 = df3[['Author','Id']]
-    df3.to_csv(outputfile, index = False, sep = ' ')
+    df3.to_csv(newf, index = False, sep = ' ')
     print("Number of authors  ",df3.shape)
     print("Author name and id mapped file created")
 
-    # df['Author1']=df['Author1'].map(res)
-    # print(df)
-    # df['Author2']=df['Author2'].map(res)
+    df['Author1']=df['Author1'].map(res)
+    df['Author2']=df['Author2'].map(res)
+    #print(df)
     # df.columns = ['node1','node2']
-    # df.to_csv(outputfile,index = False,sep = ' ', header= True)
-    # print("Coauthor Net generated based on author mapped id")
+    df.to_csv(outputfile,index = False,sep = ' ', header= False)
+    print("Coauthor Net generated based on author mapped id")
 
 def parse_args():
    
