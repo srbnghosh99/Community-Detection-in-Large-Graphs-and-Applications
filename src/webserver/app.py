@@ -56,7 +56,16 @@ def community_all(community_name:str, community_id:int):
 
     return jsonify(ret)
 
-
+@app.route('/communities')
+def communities():
+    ret = {}
+    try:
+        ret["data"] = list(nonoverlappingcommunity_communitymap.keys())
+        ret["status"] = "OK"
+    except:
+        ret["status"] = "KO"
+    return jsonify(ret)
+        
 @app.route('/')
 def index():
     return 'Web App with Python Flask!'
