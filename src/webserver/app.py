@@ -17,20 +17,25 @@ def load_graph(edgelist_filename: str):
     G = nx.read_edgelist(edgelist_filename, delimiter=" ", data=(("weight", int),))
     print("Finished loading graph at =", datetime.now().strftime("%H:%M:%S"))
 
+# returns a JSON where ["data"] is a list of  vertexid:str
 @app.route('/vertices')
 def vert():
-    ret=list(G.nodes)
+    ret={}
+    ret["data"] = list(G.nodes)
+    ret["status"] = "OK"
     return jsonify(ret)
 
-# returns a JSON list of all neighbors of that vertex
+# returns a JSON where ["data"] is a list of neighbors:str of that vertex
 @app.route('/neighborsof/<vertex_id>')
 def neighbor(vertex_id: str):
-    ret = list (G.neighbors(vertex_id))
+    ret = {}
+    ret["status"] = "OK"
+    ret["data"] = list (G.neighbors(vertex_id))
     return jsonify(ret)
 
+#returns a JSON where ["data"][vertexid] is a communityid:int
 @app.route('/community/<community_name>/vertex/<vertex_id>')
 def community_of(community_name:str, vertex_id: str):
-    #TODO should
     ret = {}
     data = {}
 
@@ -43,24 +48,28 @@ def community_of(community_name:str, vertex_id: str):
     
     return jsonify(ret)
 
+#returns a JSON where ["data"][community_id] is a list of vertexid:str belonging to that community
 @app.route('/community/<community_name>/all/<int:community_id>')
 def community_all(community_name:str, community_id:int):
     ret={}
 
     try:
         communityset = nonoverlappingcommunity_communitymap[community_name][community_id]
-        ret["data"] = list(communityset) #set() are not JSON serializable in python
+        ret["data"] = {}
+        ret["data"][community_id] = list(communityset) #set() are not JSON serializable in python
         ret["status"] = "OK"
     except:
         ret["status"] = "KO"
 
     return jsonify(ret)
 
+#returns a JSON where data is a list of strings of available communities
 @app.route('/communities')
 def communities():
     ret = {}
     try:
-        ret["data"] = list(nonoverlappingcommunity_communitymap.keys())
+        communities_instore = nonoverlappingcommunity_communitymap.keys()
+        ret["data"] = list(communities_instore) #iterkeys not JSON serializable
         ret["status"] = "OK"
     except:
         ret["status"] = "KO"
