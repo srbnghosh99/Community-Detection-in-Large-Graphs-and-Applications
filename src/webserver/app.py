@@ -3,12 +3,16 @@ from flask import jsonify
 import networkx as nx
 from datetime import datetime
 import csv
+from flask import Flask,render_template,request
+import json
 
 app = Flask(__name__)
 G = nx.Graph()
 
-nonoverlappingcommunity_vertexmap={}  #nonoverlappingcommunity_vertexmap["community"]["vertexid"]:int
-nonoverlappingcommunity_communitymap={} #nonoverlappingcommunity_vertexmap["community"][communityid]:list:str
+nonoverlappingcommunity_vertexmap={}  #nonoverlappingcommunity_vertexmap[cdlgoname:str][vertexid:str]:int
+nonoverlappingcommunity_communitymap={} #nonoverlappingcommunity_vertexmap[cdalgoname:str][communityid:int]:list:str
+overlappingcommunity_vertexmap={}  #nonoverlappingcommunity_vertexmap[cdlgoname:str][vertexid:str]:int
+overlappingcommunity_communitymap={} #nonoverlappingcommunity_vertexmap[cdalgoname:str][communityid:int]:list:str
 
 
 def load_graph(edgelist_filename: str):
@@ -16,6 +20,7 @@ def load_graph(edgelist_filename: str):
     print("Starting to load graph at =", datetime.now().strftime("%H:%M:%S"))
     G = nx.read_edgelist(edgelist_filename, delimiter=" ", data=(("weight", int),))
     print("Finished loading graph at =", datetime.now().strftime("%H:%M:%S"))
+    print()
 
 # returns a JSON where ["data"] is a list of  vertexid:str
 @app.route('/vertices')
@@ -68,8 +73,16 @@ def community_all(community_name:str, community_id:int):
 def communities():
     ret = {}
     try:
-        communities_instore = nonoverlappingcommunity_communitymap.keys()
-        ret["data"] = list(communities_instore) #iterkeys not JSON serializable
+        comm_info = {}
+        communities_instore1 = nonoverlappingcommunity_communitymap.keys()
+        lis1 = list(communities_instore1)
+        for i in lis1:
+            comm_info[i] =  len(nonoverlappingcommunity_communitymap[i])
+        communities_instore2 = overlappingcommunity_communitymap.keys()
+        lis2 = list(communities_instore2)
+        for i in lis2:
+            comm_info[i] =  len(overlappingcommunity_communitymap[i])
+        ret["data"] = comm_info
         ret["status"] = "OK"
     except:
         ret["status"] = "KO"
@@ -79,7 +92,16 @@ def communities():
 def index():
     return 'Web App with Python Flask!'
 
+@app.route('/', methods = ['POST', 'GET'])
+def data():
+    if request.method == 'GET':
+        return f"The URL /data is accessed directly. Try going to '/form' to submit form"
+    if request.method == 'POST':
+        form_data = request.form
+        return render_template('data.html',form_data = form_data)
+
 def build_nonoverlappingcommunitymap_fromvertexmap(commname:str):
+    print(str)
     reversemap = {}
     vertexmap = nonoverlappingcommunity_vertexmap[commname]
     for vertexid in vertexmap:
@@ -88,6 +110,18 @@ def build_nonoverlappingcommunitymap_fromvertexmap(commname:str):
             reversemap[commid] = set()
         reversemap[commid].add(vertexid)
     nonoverlappingcommunity_communitymap[commname]=reversemap
+
+def build_overlappingcommunitymap_fromvertexmap(commname:str):
+    print(str)
+    reversemap = {}
+    vertexmap = overlappingcommunity_vertexmap[commname]
+    for vertexid in vertexmap:
+        commid = vertexmap[vertexid]
+        for i in commid:
+            if i not in reversemap:
+                reversemap[i] = set()
+            reversemap[i].add(vertexid)
+    overlappingcommunity_communitymap[commname]=reversemap
 
 
 # loads a community file. Assume that the format of the file is:
@@ -104,10 +138,20 @@ def load_community_nonoverlapping(commname:str, filename:str):
         nonoverlappingcommunity_vertexmap[commname] = comm
         build_nonoverlappingcommunitymap_fromvertexmap(commname)
 
+def load_community_overlapping(commname:str, filename:str):
+    comm = {}
+    print(filename)
+    with open(filename, 'r') as f:
+        comm = json.load(f)
+        overlappingcommunity_vertexmap[commname] = comm
+        build_overlappingcommunitymap_fromvertexmap(commname)
+
 
 #load_graph('data/dblp-coauthor.edgelist')
-load_graph('data/sample_HCI_coauthornet.edgelist')
-load_community_nonoverlapping('Louvain', 'data/louvain_HCI.csv')
+load_graph('sample_HCI_coauthornet.edgelist')
+load_community_nonoverlapping('Louvain', 'louvain_HCI.csv')
+load_community_overlapping('EgoSplitting', 'Egosplitting_HCI_memberships.json')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    # app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=8080)
