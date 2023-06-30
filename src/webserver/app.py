@@ -38,6 +38,21 @@ def neighbor(vertex_id: str):
     ret["data"] = list (G.neighbors(vertex_id))
     return jsonify(ret)
 
+
+def adj_list(graph):
+    adj_list = {}
+    for a in list(graph.nodes):
+        adj_list [a] = list (graph.neighbors(a))
+    return adj_list
+
+@app.route('/wholeadjlist')
+def wholeadjlist():
+    ret = {}
+    ret ["status"]="OK"
+    ret["data"] = adj_list(G)
+    return jsonify(ret)
+
+
 #returns a JSON where ["data"][vertexid] is a communityid:int
 @app.route('/community/<communityalgo_name>/vertex/<vertex_id>')
 def community_of(communityalgo_name:str, vertex_id: str):
@@ -53,6 +68,7 @@ def community_of(communityalgo_name:str, vertex_id: str):
         ret["status"] = "KO"
     
     return jsonify(ret)
+    
 
 #returns a JSON where ["data"][community_id] is a list of vertexid:str belonging to that community
 @app.route('/vertex/<vertex_id>')
