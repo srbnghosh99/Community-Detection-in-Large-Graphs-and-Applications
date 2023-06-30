@@ -52,15 +52,15 @@ function ego_manual(vertexid) {
 
 
 
-export function test() {
-    console.log("test");
-    console.log(d3);
-    ego ("S_Lucey")
+function ego_display(vertexid, domstring) {
+    ego (vertexid)
     	.then((item) => from_adjlist_to_d3structure(item))
 	.then((d3data) =>{
 	    console.log(JSON.stringify(d3data));
-	    add_d3_graph(d3data, "#myviz");
+	    add_d3_graph(d3data, domstring);
 	});
 }
 
-window.addEventListener("load", test);
+export {
+    ego_display
+};

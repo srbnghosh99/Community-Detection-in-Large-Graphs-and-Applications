@@ -1,13 +1,20 @@
 <html>
   <head>
+    <script type="importmap">
+      {
+	  "imports": {
+	      "graphformater": "/static/graphformater.js"
+	  }
+      }
+    </script>
     <script src="https://d3js.org/d3.v7.min.js" type="module"></script>
-    <script src="/static/something.js" type="module"> </script>
   </head>
   <body>
-    <p>
-      something
-    </p>
     <div id="myviz">
     </div>
+    <script type="module">
+      import { ego_display } from "graphformater";
+      ego_display("S_Lucey", "#myviz");
+    </script>
   </body>
 </html>
