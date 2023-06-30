@@ -1,3 +1,4 @@
+import {add_d3_graph} from "/static/d3render.js";
 
 //builds a d3 graph structure out of an adjlist
 function from_adjlist_to_d3structure(adjlist) {
@@ -38,11 +39,17 @@ function ego(vertexid) {
     return loading();
 }
 
-function test() {
+
+
+export function test() {
+    console.log("test");
+    console.log(d3);
     ego ("S_Lucey")
     	.then((item) => from_adjlist_to_d3structure(item))
-	.then((i) =>{console.log(JSON.stringify(i))});
-
+	.then((d3data) =>{
+	    console.log(JSON.stringify(d3data));
+	    add_d3_graph(d3data, "#myviz");
+	});
 }
 
 window.addEventListener("load", test);
