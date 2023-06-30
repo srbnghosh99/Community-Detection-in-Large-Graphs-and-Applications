@@ -43,14 +43,46 @@ def neighbor(vertex_id: str):
 def community_of(community_name:str, vertex_id: str):
     ret = {}
     data = {}
-
+    community = {}
     try:
         data[vertex_id] = nonoverlappingcommunity_vertexmap[community_name][vertex_id]
         ret["status"] = "OK"
         ret["data"] = data
+        
     except:
         ret["status"] = "KO"
     
+    return jsonify(ret)
+
+#returns a JSON where ["data"][community_id] is a list of vertexid:str belonging to that community
+@app.route('/vertex/<vertex_id>')
+def community_all_for_vertex(vertex_id:str):
+    ret={}
+    overlap_comm = {}
+    try:
+        ret["Name"] = vertex_id
+        communities_instore1 = nonoverlappingcommunity_communitymap.keys()
+        lis1 = list(communities_instore1)
+        for i in lis1:
+            ret[i] =  nonoverlappingcommunity_vertexmap[i][vertex_id]
+        communities_instore2 = overlappingcommunity_communitymap.keys()
+        lis2 = list(communities_instore2)
+        for i in lis2:
+            ret[i] =  overlappingcommunity_vertexmap[i][vertex_id]
+            overlap_comm[i]=overlappingcommunity_vertexmap[i][vertex_id]
+            ret['Degree'] = G.degree[vertex_id]
+
+        comm_vertices = []
+        for algo_name, comm_id in overlap_comm.items():
+            for i in comm_id:
+                lis = list(overlappingcommunity_communitymap[algo_name][i])
+                comm_vertices.append(lis)
+            flat_list = [item for sublist in comm_vertices for item in sublist]
+            ret[algo_name] = flat_list
+        ret["status"] = "OK"
+    except:
+        ret["status"] = "KO"
+
     return jsonify(ret)
 
 #returns a JSON where ["data"][community_id] is a list of vertexid:str belonging to that community
@@ -62,6 +94,7 @@ def community_all(community_name:str, community_id:int):
         communityset = nonoverlappingcommunity_communitymap[community_name][community_id]
         ret["data"] = {}
         ret["data"][community_id] = list(communityset) #set() are not JSON serializable in python
+        
         ret["status"] = "OK"
     except:
         ret["status"] = "KO"
