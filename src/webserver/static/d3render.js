@@ -37,7 +37,7 @@ export function add_d3_graph(d3data, domid) {
 	.style("fill", "#69b3a2")
 	.on('mouseover', function (event, d) {
 	    console.log("hover");
-	    infop.text("bar: "+d.id);
+	    infop.text("vertexid: "+d.id);
 	});
     
     // Let's list the force we wanna apply on the network
