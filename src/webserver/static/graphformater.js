@@ -50,8 +50,6 @@ function ego_manual(vertexid) {
     return loading();
 }
 
-
-
 function ego_display(vertexid, domstring) {
     ego (vertexid)
     	.then((item) => from_adjlist_to_d3structure(item))
@@ -62,5 +60,5 @@ function ego_display(vertexid, domstring) {
 }
 
 export {
-    ego_display
+    ego_display,
 };
