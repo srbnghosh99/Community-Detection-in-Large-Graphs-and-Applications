@@ -59,7 +59,7 @@ export function add_d3_graph(d3data, domid) {
 	    .attr("y2", function(d) { return d.target.y; });
 	
 	node
-	    .attr("cx", function (d) { return d.x+6; })
-	    .attr("cy", function(d) { return d.y-6; });
+	    .attr("cx", function (d) { return d.x; })
+	    .attr("cy", function(d) { return d.y; });
     }
 }
