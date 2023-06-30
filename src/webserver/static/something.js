@@ -19,6 +19,16 @@ function from_adjlist_to_d3structure(adjlist) {
 //returns a Promise of an adjlist structure
 function ego(vertexid) {
     const loading = async() => {
+	const response = await fetch('/ego/'+vertexid);
+	const myjson = await response.json();
+	return myjson["data"];
+    }
+    return loading();
+}
+
+//returns a Promise of an adjlist structure
+function ego_manual(vertexid) {
+    const loading = async() => {
 	const response = await fetch('/neighborsof/'+vertexid);
 	const myjson = await response.json();
 
@@ -32,6 +42,7 @@ function ego(vertexid) {
 	    adjlist[id].push(vertexid);
 	    adjlist[vertexid].push(id);
 	});
+	//todo: this is incomplete. missed crosslinks between neighbors of vertexid
 	
 	return adjlist;
     }

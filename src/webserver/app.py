@@ -45,13 +45,27 @@ def adj_list(graph):
         adj_list [a] = list (graph.neighbors(a))
     return adj_list
 
-@app.route('/wholeadjlist')
+#return a JSON such that ["data"] is an adjacency list of the whole graph.
+#That is to say such that ["data"][vertexId:str] is a list of vertex id:str
+@app.route('/wholegraph')
 def wholeadjlist():
     ret = {}
     ret ["status"]="OK"
     ret["data"] = adj_list(G)
     return jsonify(ret)
 
+#return a JSON such that ["data"] is an adjacency list of the ego network of vertex_id.
+# That is to say such that ["data"][vertexId:str] is a list of vertex id:str
+@app.route('/ego/<vertex_id>')
+def egoadjlist(vertex_id:str):
+    ret = {}
+    ret ["status"]="OK"
+    l = list(G.neighbors(vertex_id))
+    l.append(vertex_id)
+    egonet = G.subgraph(l)
+    ret["data"] = adj_list(egonet)
+    return jsonify(ret)
+    
 
 #returns a JSON where ["data"][vertexid] is a communityid:int
 @app.route('/community/<communityalgo_name>/vertex/<vertex_id>')
