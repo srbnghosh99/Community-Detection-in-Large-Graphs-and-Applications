@@ -9,9 +9,9 @@ import json
 app = Flask(__name__)
 G = nx.Graph()
 
-nonoverlappingcommunity_vertexmap={}  #nonoverlappingcommunity_vertexmap[cdlgoname:str][vertexid:str]:int
+nonoverlappingcommunity_vertexmap={}  #nonoverlappingcommunity_vertexmap[cdalgoname:str][vertexid:str]:int
 nonoverlappingcommunity_communitymap={} #nonoverlappingcommunity_vertexmap[cdalgoname:str][communityid:int]:list:str
-overlappingcommunity_vertexmap={}  #nonoverlappingcommunity_vertexmap[cdlgoname:str][vertexid:str]:int
+overlappingcommunity_vertexmap={}  #nonoverlappingcommunity_vertexmap[cdalgoname:str][vertexid:str]:int
 overlappingcommunity_communitymap={} #nonoverlappingcommunity_vertexmap[cdalgoname:str][communityid:int]:list:str
 
 
@@ -39,13 +39,13 @@ def neighbor(vertex_id: str):
     return jsonify(ret)
 
 #returns a JSON where ["data"][vertexid] is a communityid:int
-@app.route('/community/<community_name>/vertex/<vertex_id>')
-def community_of(community_name:str, vertex_id: str):
+@app.route('/community/<communityalgo_name>/vertex/<vertex_id>')
+def community_of(communityalgo_name:str, vertex_id: str):
     ret = {}
     data = {}
 
     try:
-        data[vertex_id] = nonoverlappingcommunity_vertexmap[community_name][vertex_id]
+        data[vertex_id] = nonoverlappingcommunity_vertexmap[communityalgo_name][vertex_id]
         ret["status"] = "OK"
         ret["data"] = data
     except:
@@ -54,12 +54,12 @@ def community_of(community_name:str, vertex_id: str):
     return jsonify(ret)
 
 #returns a JSON where ["data"][community_id] is a list of vertexid:str belonging to that community
-@app.route('/community/<community_name>/all/<int:community_id>')
-def community_all(community_name:str, community_id:int):
+@app.route('/community/<communityalgo_name>/all/<int:community_id>')
+def community_all(communityalgo_name:str, community_id:int):
     ret={}
 
     try:
-        communityset = nonoverlappingcommunity_communitymap[community_name][community_id]
+        communityset = nonoverlappingcommunity_communitymap[communityalgo_name][community_id]
         ret["data"] = {}
         ret["data"][community_id] = list(communityset) #set() are not JSON serializable in python
         ret["status"] = "OK"
@@ -100,28 +100,28 @@ def data():
         form_data = request.form
         return render_template('data.html',form_data = form_data)
 
-def build_nonoverlappingcommunitymap_fromvertexmap(commname:str):
+def build_nonoverlappingcommunitymap_fromvertexmap(communityalgo_name:str):
     print(str)
     reversemap = {}
-    vertexmap = nonoverlappingcommunity_vertexmap[commname]
+    vertexmap = nonoverlappingcommunity_vertexmap[communityalgo_name]
     for vertexid in vertexmap:
         commid = vertexmap[vertexid]
         if commid not in reversemap:
             reversemap[commid] = set()
         reversemap[commid].add(vertexid)
-    nonoverlappingcommunity_communitymap[commname]=reversemap
+    nonoverlappingcommunity_communitymap[communityalgo_name]=reversemap
 
-def build_overlappingcommunitymap_fromvertexmap(commname:str):
+def build_overlappingcommunitymap_fromvertexmap(communityalgo_name:str):
     print(str)
     reversemap = {}
-    vertexmap = overlappingcommunity_vertexmap[commname]
+    vertexmap = overlappingcommunity_vertexmap[communityalgo_name]
     for vertexid in vertexmap:
         commid = vertexmap[vertexid]
         for i in commid:
             if i not in reversemap:
                 reversemap[i] = set()
             reversemap[i].add(vertexid)
-    overlappingcommunity_communitymap[commname]=reversemap
+    overlappingcommunity_communitymap[communityalgo_name]=reversemap
 
 
 # loads a community file. Assume that the format of the file is:
@@ -129,28 +129,28 @@ def build_overlappingcommunitymap_fromvertexmap(commname:str):
 # with a one line header
 # Vertex Community
 # vertexid:str communityid:int
-def load_community_nonoverlapping(commname:str, filename:str):
+def load_community_nonoverlapping(communityalgo_name:str, filename:str):
     comm = {}
     with open(filename, newline='') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=' ')
         for row in reader:
             comm[row['Vertex']] = int(row['Community'])
-        nonoverlappingcommunity_vertexmap[commname] = comm
-        build_nonoverlappingcommunitymap_fromvertexmap(commname)
+        nonoverlappingcommunity_vertexmap[communityalgo_name] = comm
+        build_nonoverlappingcommunitymap_fromvertexmap(communityalgo_name)
 
-def load_community_overlapping(commname:str, filename:str):
+def load_community_overlapping(communityalgo_name:str, filename:str):
     comm = {}
     print(filename)
     with open(filename, 'r') as f:
         comm = json.load(f)
-        overlappingcommunity_vertexmap[commname] = comm
-        build_overlappingcommunitymap_fromvertexmap(commname)
+        overlappingcommunity_vertexmap[communityalgo_name] = comm
+        build_overlappingcommunitymap_fromvertexmap(communityalgo_name)
 
 
 #load_graph('data/dblp-coauthor.edgelist')
-load_graph('sample_HCI_coauthornet.edgelist')
-load_community_nonoverlapping('Louvain', 'louvain_HCI.csv')
-load_community_overlapping('EgoSplitting', 'Egosplitting_HCI_memberships.json')
+load_graph('data/sample_HCI_coauthornet.edgelist')
+load_community_nonoverlapping('Louvain', 'data/louvain_HCI.csv')
+load_community_overlapping('EgoSplitting', 'data/Egosplitting_HCI_memberships.json')
 
 if __name__ == "__main__":
     # app.run(host='0.0.0.0')
