@@ -145,7 +145,7 @@ def influential():
     #how to run histogram html
     return jsonify(ret)
 
-@app.route('/distance/vertex_id1/vertex_id2')
+@app.route('/distance/<vertex_id1>/<vertex_id2>')
 def shortestpath(vertex_id1:str, vertex_id2:str):
     ret = {}
     l = nx.shortest_path(G, vertex_id1, vertex_id2)
