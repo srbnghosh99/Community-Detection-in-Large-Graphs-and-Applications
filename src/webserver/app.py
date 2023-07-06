@@ -265,12 +265,39 @@ def load_community_overlapping(communityalgo_name:str, filename:str):
         build_overlappingcommunitymap_fromvertexmap(communityalgo_name)
 
 
+#
+# expect a POST request formated {'communityalgoname': communityalgoname:str, 'vertexids': [vertexid:str]}
+#
+@app.route('/communitybatch', methods=['POST'])
+def communitybatch():
+    ret={}
+    try:
+        myjson = request.get_json(force=True)
+        algoname = myjson["communityalgoname"]
+        vertexids = myjson['vertexids']
+        print(algoname, vertexids)
+        commdict = {}
+        for vid in vertexids:
+            try :
+                commdict[vid] = nonoverlappingcommunity_vertexmap[algoname][vid]
+            except:
+                pass #it is expected that some vertices are not in a community
+            ret["data"] = commdict
+        ret["status"] = "OK"
+    except:
+        ret = {}
+        ret["status"] = "KO"
+    
+    return jsonify(ret)
+
+    
+        
 # load_graph('dblp-coauthor.edgelist')
-load_graph('sample_HCI_coauthornet.edgelist')
-load_community_nonoverlapping('Louvain', 'louvain_HCI.csv')
+load_graph('data/sample_HCI_coauthornet.edgelist')
+load_community_nonoverlapping('Louvain', 'data/louvain_HCI.csv')
 # load_community_nonoverlapping('Deepwalk', 'assignments/deepwalk_walk1_name.csv')
 # load_community_nonoverlapping('GEMSEC', 'assignments/gemesec_walk1_name.csv')
-load_community_overlapping('EgoSplitting', 'Egosplitting_HCI_memberships.json')
+load_community_overlapping('EgoSplitting', 'data/Egosplitting_HCI_memberships.json')
 
 if __name__ == "__main__":
     # app.run(host='0.0.0.0')

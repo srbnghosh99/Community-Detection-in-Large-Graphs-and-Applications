@@ -3,7 +3,8 @@
     <script type="importmap">
       {
 	  "imports": {
-	      "graphformater": "/static/graphformater.js"
+	      "graphformater": "/static/graphformater.js",
+	      "util": "/static/util.js"
 	  }
       }
     </script>
@@ -14,7 +15,11 @@
     <div id="myviz">
     </div>
     <script type="module">
-      import { ego_display } from "graphformater";
+      import { ego_display,get_community_data } from "graphformater";
+
+
+
+
       let vertexid = "S_Lucey";
       const paramparser = new URLSearchParams(location.search);
       if (paramparser.has('vertexid')) {
@@ -23,6 +28,7 @@
       console.log(vertexid);
       
       ego_display(vertexid, "#myviz");
+      //get_community_data('Louvain', ["S_Lucey", "T_Kanda"])
     </script>
   </body>
 </html>
