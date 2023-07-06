@@ -9,7 +9,6 @@ import pandas as pd
 
 app = Flask(__name__)
 G = nx.Graph()
-df = pd.DataFrame()
 nonoverlappingcommunity_vertexmap={}  #nonoverlappingcommunity_vertexmap[cdlgoname:str][vertexid:str]:int
 nonoverlappingcommunity_communitymap={} #nonoverlappingcommunity_vertexmap[cdalgoname:str][communityid:int]:list:str
 overlappingcommunity_vertexmap={}  #nonoverlappingcommunity_vertexmap[cdlgoname:str][vertexid:str]:int
@@ -18,14 +17,10 @@ overlappingcommunity_communitymap={} #nonoverlappingcommunity_vertexmap[cdalgona
 
 def load_graph(edgelist_filename: str):
     global G
-    global degree_df
     print("Starting to load graph at =", datetime.now().strftime("%H:%M:%S"))
     G = nx.read_edgelist(edgelist_filename, delimiter=" ", data=(("Weight", int),))
-    dict = (sorted(G.degree, key=lambda x: x[1], reverse=True))
-    degree_df = pd.DataFrame.from_dict(dict)
-    degree_df.columns = ['Node', 'Degree']
-    attri = dict(zip(degree_df.Node,degree_df.Degree))
-    nx.set_node_attributes(G, attri, name="degree")
+    attri_dict = (sorted(G.degree, key=lambda x: x[1], reverse=True))
+    nx.set_node_attributes(G, attri_dict, name="degree")
     print("Finished loading graph at =", datetime.now().strftime("%H:%M:%S"))
     print()
 
