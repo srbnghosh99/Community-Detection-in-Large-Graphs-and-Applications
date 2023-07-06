@@ -64,10 +64,16 @@ function ego_display(vertexid, domstring) {
 //communityalgoname is a string
 //vertices is a list of vertexid:str
 function get_community_data (communityalgoname, vertices) {
-    console.log("get_community_data");
+    //console.log("get_community_data");
     const data = { 'communityalgoname': communityalgoname,
 		   'vertexids': vertices };
-    postJSON('/communitybatch', data).then(i => console.log(i));
+    return postJSON('/communitybatch', data)
+	.then(jsondata => {
+	    //console.log(jsondata);
+	    if (jsondata['status'] != "OK")
+		return Promise.reject();
+	    return jsondata['data'];
+	});
 }
 
 
