@@ -1,0 +1,154 @@
+{
+    "directed": false,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "id": "Zhichao_Lu"
+        },
+        {
+            "id": "David_A._Ross"
+        },
+        {
+            "id": "Alireza_Fathi"
+        },
+        {
+            "id": "\"Chiyu_\"\"Max\"\"_Jiang\""
+        },
+        {
+            "id": "K._Madhava_Krishna"
+        },
+        {
+            "id": "Caroline_Pantofaru"
+        },
+        {
+            "id": "Guangda_Lai"
+        },
+        {
+            "id": "Thomas_Kipf"
+        },
+        {
+            "id": "Xiaoqi_Yin"
+        },
+        {
+            "id": "Yin_Li_0003"
+        },
+        {
+            "id": "Kyle_Genova"
+        },
+        {
+            "id": "Abhijit_Kundu"
+        },
+        {
+            "id": "Dmitry_Lagun"
+        },
+        {
+            "id": "Wanyue_Zhang"
+        },
+        {
+            "id": "Angela_Dai"
+        }
+    ],
+    "links": [
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 7,
+            "source": "David_A._Ross",
+            "target": "Caroline_Pantofaru"
+        },
+        {
+            "weight": 3,
+            "source": "David_A._Ross",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 3,
+            "source": "David_A._Ross",
+            "target": "Alireza_Fathi"
+        },
+        {
+            "weight": 4,
+            "source": "Alireza_Fathi",
+            "target": "Xiaoqi_Yin"
+        },
+        {
+            "weight": 3,
+            "source": "Alireza_Fathi",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Caroline_Pantofaru"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 2,
+            "source": "\"Chiyu_\"\"Max\"\"_Jiang\"",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 4,
+            "source": "K._Madhava_Krishna",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 4,
+            "source": "Caroline_Pantofaru",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 2,
+            "source": "Guangda_Lai",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_Kipf",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 4,
+            "source": "Xiaoqi_Yin",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 4,
+            "source": "Xiaoqi_Yin",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 2,
+            "source": "Kyle_Genova",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "Wanyue_Zhang"
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "Dmitry_Lagun"
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "Angela_Dai"
+        }
+    ]
+}
