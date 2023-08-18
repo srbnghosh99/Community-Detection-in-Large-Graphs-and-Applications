@@ -1,0 +1,3676 @@
+{
+    "directed": false,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "id": "Zhichao_Lu"
+        },
+        {
+            "id": "Miao_Liu"
+        },
+        {
+            "id": "Dan_B._Goldman"
+        },
+        {
+            "id": "Alireza_Fathi"
+        },
+        {
+            "id": "Kristen_Grauman"
+        },
+        {
+            "id": "Andreas_Paepcke"
+        },
+        {
+            "id": "Mengyuan_Yan"
+        },
+        {
+            "id": "Thomas_A._Funkhouser"
+        },
+        {
+            "id": "Benjamin_Graham"
+        },
+        {
+            "id": "Kevin_Murphy_0002"
+        },
+        {
+            "id": "Siddharth_Tourani"
+        },
+        {
+            "id": "Jing_Huang"
+        },
+        {
+            "id": "Srikanth_Saripalli"
+        },
+        {
+            "id": "Manuel_Dahnert"
+        },
+        {
+            "id": "Siyang_Li"
+        },
+        {
+            "id": "Henning_Meyer"
+        },
+        {
+            "id": "Yinyu_Nie"
+        },
+        {
+            "id": "Nathan_Reale"
+        },
+        {
+            "id": "Ian_Fischer"
+        },
+        {
+            "id": "Prem_Nair"
+        },
+        {
+            "id": "Alexander_Lerchner"
+        },
+        {
+            "id": "Brojeshwar_Bhowmick"
+        },
+        {
+            "id": "Martial_Hebert"
+        },
+        {
+            "id": "Jasper_R._R._Uijlings"
+        },
+        {
+            "id": "Svetlana_Lazebnik"
+        },
+        {
+            "id": "Soroosh_Yazdani"
+        },
+        {
+            "id": "Avijit_Ashe"
+        },
+        {
+            "id": "Mark_A._Clements"
+        },
+        {
+            "id": "Xuehan_Xiong"
+        },
+        {
+            "id": "Dong_Yu_0001"
+        },
+        {
+            "id": "Rahul_Sawhney"
+        },
+        {
+            "id": "Abhijit_Kundu"
+        },
+        {
+            "id": "Armen_Avetisyan"
+        },
+        {
+            "id": "Brian_Brewington"
+        },
+        {
+            "id": "Vittorio_Ferrari"
+        },
+        {
+            "id": "Unni_Krishnan_R._Nair"
+        },
+        {
+            "id": "Mahesh_Mohan"
+        },
+        {
+            "id": "K._Madhava_Krishna"
+        },
+        {
+            "id": "Chetan_Jakkoju"
+        },
+        {
+            "id": "Arun_Kumar_Singh"
+        },
+        {
+            "id": "Greg_Mori"
+        },
+        {
+            "id": "Wongun_Choi"
+        },
+        {
+            "id": "Bruno_Sinopoli"
+        },
+        {
+            "id": "Vishakh_Duggal"
+        },
+        {
+            "id": "Jie_Yang_0002"
+        },
+        {
+            "id": "Vikas_Singh"
+        },
+        {
+            "id": "Yinda_Zhang_0001"
+        },
+        {
+            "id": "Justus_Thies"
+        },
+        {
+            "id": "Li_Fei-Fei_0001"
+        },
+        {
+            "id": "Jongwoo_Lim"
+        },
+        {
+            "id": "Alexey_Vorobyov"
+        },
+        {
+            "id": "Meha_Kaushik"
+        },
+        {
+            "id": "Zhefan_Ye"
+        },
+        {
+            "id": "Xuecai_Hu"
+        },
+        {
+            "id": "Qi_Guo_0002"
+        },
+        {
+            "id": "Matko_Bosnjak"
+        },
+        {
+            "id": "Kevin_W._Eliceiri"
+        },
+        {
+            "id": "Shubhajit_Roy_Chowdhury"
+        },
+        {
+            "id": "Qin_Huang"
+        },
+        {
+            "id": "Issam_H._Laradji"
+        },
+        {
+            "id": "Michael_Zollhoumlfer"
+        },
+        {
+            "id": "Ayush_Gaud"
+        },
+        {
+            "id": "Milad_Hashemi"
+        },
+        {
+            "id": "Xiatian_Zhu"
+        },
+        {
+            "id": "Larry_S._Davis"
+        },
+        {
+            "id": "Xiaoqi_Yin"
+        },
+        {
+            "id": "Yicheng_Wu"
+        },
+        {
+            "id": "Pratul_P._Srinivasan"
+        },
+        {
+            "id": "Andrea_Tagliasacchi"
+        },
+        {
+            "id": "Yun_Fu_0001"
+        },
+        {
+            "id": "Yinxiao_Li"
+        },
+        {
+            "id": "Richard_S._Zemel"
+        },
+        {
+            "id": "Niloy_J._Mitra"
+        },
+        {
+            "id": "Angjoo_Kanazawa"
+        },
+        {
+            "id": "Shan_Yang"
+        },
+        {
+            "id": "Xiaohua_Zhai"
+        },
+        {
+            "id": "Xun_Xu"
+        },
+        {
+            "id": "Or_Litany"
+        },
+        {
+            "id": "Balaraman_Ravindran"
+        },
+        {
+            "id": "Evgeny_Burnaev"
+        },
+        {
+            "id": "Wenhao_Jiang"
+        },
+        {
+            "id": "Caroline_Pantofaru"
+        },
+        {
+            "id": "Chen_Sun_0002"
+        },
+        {
+            "id": "N._Dinesh_Reddy"
+        },
+        {
+            "id": "Zhicheng_Wang"
+        },
+        {
+            "id": "Saeed_Behzadipour"
+        },
+        {
+            "id": "Manolis_Savva"
+        },
+        {
+            "id": "Avneesh_Sud"
+        },
+        {
+            "id": "Dana_Lynn_Ona_Lansigan"
+        },
+        {
+            "id": "Abhishek_Sarkar"
+        },
+        {
+            "id": "Jonas_Muumlller"
+        },
+        {
+            "id": "Hemanth_Korrapati"
+        },
+        {
+            "id": "Klaus_Greff"
+        },
+        {
+            "id": "Yingyu_Liang"
+        },
+        {
+            "id": "Sarthak_Upadhyay"
+        },
+        {
+            "id": "Abhinav_Gupta_0001"
+        },
+        {
+            "id": "Charles_Ruizhongtai_Qi"
+        },
+        {
+            "id": "Neil_Houlsby"
+        },
+        {
+            "id": "Ran_Cheng"
+        },
+        {
+            "id": "Wei_Zhan"
+        },
+        {
+            "id": "Radhika_Marvin"
+        },
+        {
+            "id": "A._V._S._Sai_Bhargav_Kumar"
+        },
+        {
+            "id": "Matthew_Fisher"
+        },
+        {
+            "id": "Jingwei_Huang"
+        },
+        {
+            "id": "Abhinav_Shrivastava"
+        },
+        {
+            "id": "Tsung-Yi_Lin"
+        },
+        {
+            "id": "Liang-Chieh_Chen"
+        },
+        {
+            "id": "Junaid_Ahmed_Ansari"
+        },
+        {
+            "id": "Narasimhan_Sai_Shankar"
+        },
+        {
+            "id": "Adithyavairavan_Murali"
+        },
+        {
+            "id": "Mahyar_Najibi"
+        },
+        {
+            "id": "Glenn_Fung"
+        },
+        {
+            "id": "Mahdi_Emami"
+        },
+        {
+            "id": "James_M._Rehg"
+        },
+        {
+            "id": "Dhiraj_Gandhi"
+        },
+        {
+            "id": "Yi_Sun_0004"
+        },
+        {
+            "id": "Gopal_Sharma"
+        },
+        {
+            "id": "Visesh_Chari"
+        },
+        {
+            "id": "Ji_Hou"
+        },
+        {
+            "id": "Pooja_Guhan"
+        },
+        {
+            "id": "Matthias_Nieszligner"
+        },
+        {
+            "id": "Harikumar_Kandath"
+        },
+        {
+            "id": "Houman_Masnavi"
+        },
+        {
+            "id": "Rishabh_Khawad"
+        },
+        {
+            "id": "David_P._Williamson"
+        },
+        {
+            "id": "Saurabh_Bagchi"
+        },
+        {
+            "id": "Jiansheng_Qian"
+        },
+        {
+            "id": "Yin_Li_0003"
+        },
+        {
+            "id": "Javier_Hernandez"
+        },
+        {
+            "id": "Can_Guumlmeli"
+        },
+        {
+            "id": "Guangda_Lai"
+        },
+        {
+            "id": "Lv_Guo"
+        },
+        {
+            "id": "Julien_P._C._Valentin"
+        },
+        {
+            "id": "Ruei-Sung_Lin"
+        },
+        {
+            "id": "Yujia_Li"
+        },
+        {
+            "id": "Nagamanikandan_Govindan"
+        },
+        {
+            "id": "Manohar_Paluri"
+        },
+        {
+            "id": "Jing_Li"
+        },
+        {
+            "id": "Daniel_Tarlow"
+        },
+        {
+            "id": "Sergio_Guadarrama"
+        },
+        {
+            "id": "Thomas_Kipf"
+        },
+        {
+            "id": "Ian_Whalen"
+        },
+        {
+            "id": "Siyu_Tang_0001"
+        },
+        {
+            "id": "Dmitry_Lagun"
+        },
+        {
+            "id": "Somali_Chaterji"
+        },
+        {
+            "id": "Xin_Zhao_0012"
+        },
+        {
+            "id": "Dequan_Wang"
+        },
+        {
+            "id": "Michelle_Guo"
+        },
+        {
+            "id": "Vineet_Gandhi"
+        },
+        {
+            "id": "Kalyanmoy_Deb"
+        },
+        {
+            "id": "Vijay_Eathakota"
+        },
+        {
+            "id": "Elise_van_der_Pol"
+        },
+        {
+            "id": "Anurag_Arnab"
+        },
+        {
+            "id": "Andreas_Kipf"
+        },
+        {
+            "id": "Christian_Diller"
+        },
+        {
+            "id": "Nicola_De_Cao"
+        },
+        {
+            "id": "Krishna_Murthy_Jatavallabhula"
+        },
+        {
+            "id": "Xiaodi_Hou"
+        },
+        {
+            "id": "Leila_Takayama"
+        },
+        {
+            "id": "Shihua_Huang"
+        },
+        {
+            "id": "Chuntao_Ding"
+        },
+        {
+            "id": "John_F._Canny"
+        },
+        {
+            "id": "Vivek_Rathod"
+        },
+        {
+            "id": "James_R._Marston"
+        },
+        {
+            "id": "Martin_Bokeloh"
+        },
+        {
+            "id": "Forrester_Cole"
+        },
+        {
+            "id": "Chuan-Sheng_Foo"
+        },
+        {
+            "id": "Yun_Zhang"
+        },
+        {
+            "id": "Angela_Dai"
+        },
+        {
+            "id": "Eugene_Agichtein"
+        },
+        {
+            "id": "Hamid_Reza_Mohammadi_Daniali"
+        },
+        {
+            "id": "Shanti_Medasani"
+        },
+        {
+            "id": "Anoop_Korattikara"
+        },
+        {
+            "id": "Nasser_L._Azad"
+        },
+        {
+            "id": "Brian_Curless"
+        },
+        {
+            "id": "Priyesh_Vijayan"
+        },
+        {
+            "id": "David_A._Ross"
+        },
+        {
+            "id": "Mikhail_Ageev"
+        },
+        {
+            "id": "Deqing_Sun"
+        },
+        {
+            "id": "Jakub_M._Tomczak"
+        },
+        {
+            "id": "Leonidas_J._Guibas"
+        },
+        {
+            "id": "Noah_Weston"
+        },
+        {
+            "id": "Piyoosh_Mukhija"
+        },
+        {
+            "id": "Sean_Ryan_Fanello"
+        },
+        {
+            "id": "Mathilde_Caron"
+        },
+        {
+            "id": "Michael_C._Mozer"
+        },
+        {
+            "id": "Kaiqi_Huang"
+        },
+        {
+            "id": "Kun_Xu_0005"
+        },
+        {
+            "id": "Vidhya_Navalpakkam"
+        },
+        {
+            "id": "Wanyue_Zhang"
+        },
+        {
+            "id": "Jonathan_T._Barron"
+        },
+        {
+            "id": "Xiaoguang_Han_0001"
+        },
+        {
+            "id": "Jonathan_C._Stroud"
+        },
+        {
+            "id": "Ranjith_Unnikrishnan"
+        },
+        {
+            "id": "Vashist_Madiraju"
+        },
+        {
+            "id": "Masayoshi_Tomizuka"
+        },
+        {
+            "id": "Kevin_Swersky"
+        },
+        {
+            "id": "Mehdi_S._M._Sajjadi"
+        },
+        {
+            "id": "Bryan_Seybold"
+        },
+        {
+            "id": "Lijun_He"
+        },
+        {
+            "id": "Li_Shen"
+        },
+        {
+            "id": "Alexey_Dosovitskiy"
+        },
+        {
+            "id": "Tony_Tung"
+        },
+        {
+            "id": "Prateek_Singhal"
+        },
+        {
+            "id": "Jianfeng_Gao"
+        },
+        {
+            "id": "Mohit_Gupta_0001"
+        },
+        {
+            "id": "Liam_Paull"
+        },
+        {
+            "id": "Sriranjan_Rasakatla"
+        },
+        {
+            "id": "Kyle_Genova"
+        },
+        {
+            "id": "Charles_Herrmann"
+        },
+        {
+            "id": "Andreas_Velten"
+        },
+        {
+            "id": "Krishna_Gupta"
+        },
+        {
+            "id": "Bipin_Indurkhya"
+        },
+        {
+            "id": "Supreeth_Achar"
+        },
+        {
+            "id": "Varun_Jampani"
+        },
+        {
+            "id": "Srinath_Sridhar_0002"
+        },
+        {
+            "id": "Manfred_Georg"
+        },
+        {
+            "id": "Mihovil_Bartulovic"
+        },
+        {
+            "id": "Chen-Yu_Lee"
+        },
+        {
+            "id": "Jia_Deng_0001"
+        },
+        {
+            "id": "Hamid_M._Daniali"
+        },
+        {
+            "id": "Kannan_Srinathan"
+        },
+        {
+            "id": "Michael_Milford"
+        },
+        {
+            "id": "Yue_Zhou_0005"
+        },
+        {
+            "id": "Aditya_Teja"
+        },
+        {
+            "id": "Chen-Lin_Zhang"
+        },
+        {
+            "id": "Henry_Hexmoor"
+        },
+        {
+            "id": "Harit_Pandya"
+        },
+        {
+            "id": "Zeyu_Jin"
+        },
+        {
+            "id": "Vighnesh_Birodkar"
+        },
+        {
+            "id": "Chenliang_Xu"
+        },
+        {
+            "id": "Bin_Li_0064"
+        },
+        {
+            "id": "Prem_Kumar_Kalra"
+        },
+        {
+            "id": "Zhonghua_Xi"
+        },
+        {
+            "id": "Yu-Wei_Chao"
+        },
+        {
+            "id": "Ahmad_Mozaffari"
+        },
+        {
+            "id": "Avinash_Sharma"
+        },
+        {
+            "id": "Lu_Yuan"
+        },
+        {
+            "id": "Rui_Huang"
+        },
+        {
+            "id": "\"Chiyu_\"\"Max\"\"_Jiang\""
+        },
+        {
+            "id": "Ruimao_Zhang"
+        },
+        {
+            "id": "Gautam_Sreekumar"
+        },
+        {
+            "id": "Gang_Zeng"
+        },
+        {
+            "id": "Bruce_B._Blasch"
+        },
+        {
+            "id": "Sourish_Chaudhuri"
+        },
+        {
+            "id": "Cheng_He_0001"
+        },
+        {
+            "id": "Kiran_Somasundaram"
+        },
+        {
+            "id": "Junchi_Yan"
+        },
+        {
+            "id": "Nikhil_Soni"
+        },
+        {
+            "id": "Bernhard_Radke"
+        },
+        {
+            "id": "Amit_Kumar_Pandey"
+        },
+        {
+            "id": "Bharath_Gopalakrishnan"
+        },
+        {
+            "id": "Liwei_Wang_0009"
+        },
+        {
+            "id": "Cordelia_Schmid"
+        },
+        {
+            "id": "Falak_Chhaya"
+        },
+        {
+            "id": "Matthew_Dutson"
+        },
+        {
+            "id": "Kwang_Moo_Yi"
+        },
+        {
+            "id": "Irfan_A._Essa"
+        },
+        {
+            "id": "Denver_Dash"
+        },
+        {
+            "id": "Ravi_Kiran_Sarvadevabhatla"
+        },
+        {
+            "id": "Karthik_Raveendran"
+        },
+        {
+            "id": "Daniel_Ritchie"
+        },
+        {
+            "id": "C._V._Jawahar"
+        },
+        {
+            "id": "Angel_X._Chang"
+        },
+        {
+            "id": "Mi_Zhang_0001"
+        },
+        {
+            "id": "William_D._Smart"
+        },
+        {
+            "id": "Aravindh_Mahendran"
+        },
+        {
+            "id": "Yawar_Siddiqui"
+        },
+        {
+            "id": "Aravindhan_K._Krishnan"
+        },
+        {
+            "id": "S._Subhash"
+        },
+        {
+            "id": "Boyang_Deng"
+        },
+        {
+            "id": "J._Krishna_Murthy_0001"
+        },
+        {
+            "id": "Sandeep_Chinchali"
+        },
+        {
+            "id": "Sudheendra_Vijayanarasimhan"
+        },
+        {
+            "id": "Haojian_Jin"
+        },
+        {
+            "id": "Dinesh_Manocha"
+        },
+        {
+            "id": "Vinay_Bettadapura"
+        },
+        {
+            "id": "Yue_Wang_0041"
+        },
+        {
+            "id": "Soheil_Esmaeilzadeh"
+        },
+        {
+            "id": "Shivudu_Bhuvanagiri"
+        },
+        {
+            "id": "Zixuan_Huang"
+        },
+        {
+            "id": "Suryansh_Kumar"
+        },
+        {
+            "id": "Jiajun_Wu_0001"
+        },
+        {
+            "id": "S._Phaniteja"
+        },
+        {
+            "id": "Shuai_Yuan"
+        },
+        {
+            "id": "Jianxin_Wu_0001"
+        },
+        {
+            "id": "Akanksha_Baranwal"
+        },
+        {
+            "id": "Sourav_Garg"
+        },
+        {
+            "id": "Feng_Zheng"
+        },
+        {
+            "id": "Bastian_Leibe"
+        },
+        {
+            "id": "Suril_Vijaykumar_Shah"
+        },
+        {
+            "id": "Liang_Zhao"
+        },
+        {
+            "id": "Gunshi_Gupta"
+        },
+        {
+            "id": "Sudarshan_S._Harithas"
+        }
+    ],
+    "links": [
+        {
+            "weight": 13,
+            "source": "Zhichao_Lu",
+            "target": "Kalyanmoy_Deb"
+        },
+        {
+            "weight": 5,
+            "source": "Zhichao_Lu",
+            "target": "Ran_Cheng"
+        },
+        {
+            "weight": 5,
+            "source": "Zhichao_Lu",
+            "target": "Ian_Whalen"
+        },
+        {
+            "weight": 5,
+            "source": "Zhichao_Lu",
+            "target": "Feng_Zheng"
+        },
+        {
+            "weight": 4,
+            "source": "Zhichao_Lu",
+            "target": "Shihua_Huang"
+        },
+        {
+            "weight": 4,
+            "source": "Zhichao_Lu",
+            "target": "Vivek_Rathod"
+        },
+        {
+            "weight": 3,
+            "source": "Zhichao_Lu",
+            "target": "Chuntao_Ding"
+        },
+        {
+            "weight": 3,
+            "source": "Zhichao_Lu",
+            "target": "Cheng_He_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Yun_Fu_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Yinxiao_Li"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Xuehan_Xiong"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Wenhao_Jiang"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Vighnesh_Birodkar"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Siyang_Li"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Ruimao_Zhang"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Mi_Zhang_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Liang_Zhao"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Jing_Li"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Gautam_Sreekumar"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Gang_Zeng"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Chen-Yu_Lee"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Anurag_Arnab"
+        },
+        {
+            "weight": 2,
+            "source": "Zhichao_Lu",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 6,
+            "source": "Miao_Liu",
+            "target": "James_M._Rehg"
+        },
+        {
+            "weight": 3,
+            "source": "Miao_Liu",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 4,
+            "source": "Dan_B._Goldman",
+            "target": "Brian_Curless"
+        },
+        {
+            "weight": 2,
+            "source": "Dan_B._Goldman",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 2,
+            "source": "Dan_B._Goldman",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 2,
+            "source": "Dan_B._Goldman",
+            "target": "Michael_Zollhoumlfer"
+        },
+        {
+            "weight": 13,
+            "source": "Alireza_Fathi",
+            "target": "Ahmad_Mozaffari"
+        },
+        {
+            "weight": 5,
+            "source": "Alireza_Fathi",
+            "target": "Nasser_L._Azad"
+        },
+        {
+            "weight": 4,
+            "source": "Alireza_Fathi",
+            "target": "Xiaoqi_Yin"
+        },
+        {
+            "weight": 3,
+            "source": "Alireza_Fathi",
+            "target": "Liang-Chieh_Chen"
+        },
+        {
+            "weight": 3,
+            "source": "Alireza_Fathi",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 3,
+            "source": "Alireza_Fathi",
+            "target": "Yue_Wang_0041"
+        },
+        {
+            "weight": 3,
+            "source": "Alireza_Fathi",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 3,
+            "source": "Alireza_Fathi",
+            "target": "Cordelia_Schmid"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Thomas_A._Funkhouser"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Wei_Zhan"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Kevin_Murphy_0002"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Karthik_Raveendran"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Larry_S._Davis"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Mathilde_Caron"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Masayoshi_Tomizuka"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Martin_Bokeloh"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Li_Fei-Fei_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Mahdi_Emami"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Caroline_Pantofaru"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Alexey_Vorobyov"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Abhinav_Shrivastava"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Abhijit_Kundu"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Bastian_Leibe"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Anoop_Korattikara"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "James_M._Rehg"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Jasper_R._R._Uijlings"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Jiajun_Wu_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Hamid_Reza_Mohammadi_Daniali"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Hamid_M._Daniali"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Greg_Mori"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Ian_Fischer"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Saeed_Behzadipour"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Sergio_Guadarrama"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Michelle_Guo"
+        },
+        {
+            "weight": 2,
+            "source": "Alireza_Fathi",
+            "target": "Qin_Huang"
+        },
+        {
+            "weight": 11,
+            "source": "Kristen_Grauman",
+            "target": "Sudheendra_Vijayanarasimhan"
+        },
+        {
+            "weight": 2,
+            "source": "Kristen_Grauman",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Kristen_Grauman",
+            "target": "Larry_S._Davis"
+        },
+        {
+            "weight": 2,
+            "source": "Kristen_Grauman",
+            "target": "James_M._Rehg"
+        },
+        {
+            "weight": 2,
+            "source": "Kristen_Grauman",
+            "target": "Abhinav_Gupta_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Kristen_Grauman",
+            "target": "Li_Fei-Fei_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Andreas_Paepcke",
+            "target": "Caroline_Pantofaru"
+        },
+        {
+            "weight": 2,
+            "source": "Mengyuan_Yan",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 2,
+            "source": "Mengyuan_Yan",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 8,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 6,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Andrea_Tagliasacchi"
+        },
+        {
+            "weight": 6,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Caroline_Pantofaru"
+        },
+        {
+            "weight": 5,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 5,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 4,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Angel_X._Chang"
+        },
+        {
+            "weight": 3,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Christian_Diller"
+        },
+        {
+            "weight": 3,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Manolis_Savva"
+        },
+        {
+            "weight": 3,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Jiajun_Wu_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Jonathan_T._Barron"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Sean_Ryan_Fanello"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Mahyar_Najibi"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Brian_Brewington"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_A._Funkhouser",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Vivek_Rathod"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Vittorio_Ferrari"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_A._Funkhouser",
+            "target": "Yinda_Zhang_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Benjamin_Graham",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 2,
+            "source": "Benjamin_Graham",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Benjamin_Graham",
+            "target": "Ji_Hou"
+        },
+        {
+            "weight": 6,
+            "source": "Kevin_Murphy_0002",
+            "target": "Sergio_Guadarrama"
+        },
+        {
+            "weight": 5,
+            "source": "Kevin_Murphy_0002",
+            "target": "Cordelia_Schmid"
+        },
+        {
+            "weight": 4,
+            "source": "Kevin_Murphy_0002",
+            "target": "Chen_Sun_0002"
+        },
+        {
+            "weight": 3,
+            "source": "Kevin_Murphy_0002",
+            "target": "Vivek_Rathod"
+        },
+        {
+            "weight": 2,
+            "source": "Kevin_Murphy_0002",
+            "target": "Irfan_A._Essa"
+        },
+        {
+            "weight": 2,
+            "source": "Kevin_Murphy_0002",
+            "target": "Li_Fei-Fei_0001"
+        },
+        {
+            "weight": 3,
+            "source": "Siddharth_Tourani",
+            "target": "K._Madhava_Krishna"
+        },
+        {
+            "weight": 2,
+            "source": "Jing_Huang",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Jing_Huang",
+            "target": "Jie_Yang_0002"
+        },
+        {
+            "weight": 2,
+            "source": "Jing_Huang",
+            "target": "Liwei_Wang_0009"
+        },
+        {
+            "weight": 3,
+            "source": "Srikanth_Saripalli",
+            "target": "Aravindhan_K._Krishnan"
+        },
+        {
+            "weight": 2,
+            "source": "Srikanth_Saripalli",
+            "target": "K._Madhava_Krishna"
+        },
+        {
+            "weight": 4,
+            "source": "Manuel_Dahnert",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Manuel_Dahnert",
+            "target": "Ji_Hou"
+        },
+        {
+            "weight": 2,
+            "source": "Manuel_Dahnert",
+            "target": "Armen_Avetisyan"
+        },
+        {
+            "weight": 2,
+            "source": "Siyang_Li",
+            "target": "Vivek_Rathod"
+        },
+        {
+            "weight": 2,
+            "source": "Henning_Meyer",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 2,
+            "source": "Henning_Meyer",
+            "target": "Klaus_Greff"
+        },
+        {
+            "weight": 2,
+            "source": "Henning_Meyer",
+            "target": "Mehdi_S._M._Sajjadi"
+        },
+        {
+            "weight": 5,
+            "source": "Yinyu_Nie",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 4,
+            "source": "Yinyu_Nie",
+            "target": "Xiaoguang_Han_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Yinyu_Nie",
+            "target": "Ji_Hou"
+        },
+        {
+            "weight": 2,
+            "source": "Nathan_Reale",
+            "target": "Caroline_Pantofaru"
+        },
+        {
+            "weight": 2,
+            "source": "Ian_Fischer",
+            "target": "John_F._Canny"
+        },
+        {
+            "weight": 2,
+            "source": "Ian_Fischer",
+            "target": "Sergio_Guadarrama"
+        },
+        {
+            "weight": 2,
+            "source": "Prem_Nair",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 2,
+            "source": "Alexander_Lerchner",
+            "target": "Thomas_Kipf"
+        },
+        {
+            "weight": 18,
+            "source": "Brojeshwar_Bhowmick",
+            "target": "K._Madhava_Krishna"
+        },
+        {
+            "weight": 2,
+            "source": "Brojeshwar_Bhowmick",
+            "target": "Junaid_Ahmed_Ansari"
+        },
+        {
+            "weight": 2,
+            "source": "Brojeshwar_Bhowmick",
+            "target": "J._Krishna_Murthy_0001"
+        },
+        {
+            "weight": 17,
+            "source": "Martial_Hebert",
+            "target": "Abhinav_Gupta_0001"
+        },
+        {
+            "weight": 7,
+            "source": "Martial_Hebert",
+            "target": "Cordelia_Schmid"
+        },
+        {
+            "weight": 6,
+            "source": "Martial_Hebert",
+            "target": "Ranjith_Unnikrishnan"
+        },
+        {
+            "weight": 3,
+            "source": "Martial_Hebert",
+            "target": "Abhinav_Shrivastava"
+        },
+        {
+            "weight": 3,
+            "source": "Martial_Hebert",
+            "target": "Caroline_Pantofaru"
+        },
+        {
+            "weight": 2,
+            "source": "Martial_Hebert",
+            "target": "John_F._Canny"
+        },
+        {
+            "weight": 18,
+            "source": "Jasper_R._R._Uijlings",
+            "target": "Vittorio_Ferrari"
+        },
+        {
+            "weight": 16,
+            "source": "Svetlana_Lazebnik",
+            "target": "Cordelia_Schmid"
+        },
+        {
+            "weight": 3,
+            "source": "Svetlana_Lazebnik",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Svetlana_Lazebnik",
+            "target": "Manolis_Savva"
+        },
+        {
+            "weight": 3,
+            "source": "Soroosh_Yazdani",
+            "target": "Kwang_Moo_Yi"
+        },
+        {
+            "weight": 3,
+            "source": "Soroosh_Yazdani",
+            "target": "Andrea_Tagliasacchi"
+        },
+        {
+            "weight": 2,
+            "source": "Soroosh_Yazdani",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 3,
+            "source": "Avijit_Ashe",
+            "target": "K._Madhava_Krishna"
+        },
+        {
+            "weight": 2,
+            "source": "Mark_A._Clements",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Mark_A._Clements",
+            "target": "Irfan_A._Essa"
+        },
+        {
+            "weight": 4,
+            "source": "Xuehan_Xiong",
+            "target": "Anurag_Arnab"
+        },
+        {
+            "weight": 2,
+            "source": "Xuehan_Xiong",
+            "target": "Chen-Yu_Lee"
+        },
+        {
+            "weight": 10,
+            "source": "Dong_Yu_0001",
+            "target": "Kun_Xu_0005"
+        },
+        {
+            "weight": 4,
+            "source": "Dong_Yu_0001",
+            "target": "Dinesh_Manocha"
+        },
+        {
+            "weight": 2,
+            "source": "Dong_Yu_0001",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 4,
+            "source": "Rahul_Sawhney",
+            "target": "K._Madhava_Krishna"
+        },
+        {
+            "weight": 4,
+            "source": "Abhijit_Kundu",
+            "target": "Xiaoqi_Yin"
+        },
+        {
+            "weight": 4,
+            "source": "Abhijit_Kundu",
+            "target": "Caroline_Pantofaru"
+        },
+        {
+            "weight": 4,
+            "source": "Abhijit_Kundu",
+            "target": "K._Madhava_Krishna"
+        },
+        {
+            "weight": 3,
+            "source": "Abhijit_Kundu",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "Thomas_Kipf"
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "Wanyue_Zhang"
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "Dmitry_Lagun"
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "\"Chiyu_\"\"Max\"\"_Jiang\""
+        },
+        {
+            "weight": 2,
+            "source": "Abhijit_Kundu",
+            "target": "Guangda_Lai"
+        },
+        {
+            "weight": 2,
+            "source": "Armen_Avetisyan",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Brian_Brewington",
+            "target": "Avneesh_Sud"
+        },
+        {
+            "weight": 2,
+            "source": "Brian_Brewington",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 8,
+            "source": "Vittorio_Ferrari",
+            "target": "Bastian_Leibe"
+        },
+        {
+            "weight": 8,
+            "source": "Vittorio_Ferrari",
+            "target": "Cordelia_Schmid"
+        },
+        {
+            "weight": 2,
+            "source": "Vittorio_Ferrari",
+            "target": "Sergio_Guadarrama"
+        },
+        {
+            "weight": 2,
+            "source": "Vittorio_Ferrari",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 2,
+            "source": "Vittorio_Ferrari",
+            "target": "Li_Fei-Fei_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Vittorio_Ferrari",
+            "target": "Caroline_Pantofaru"
+        },
+        {
+            "weight": 2,
+            "source": "Vittorio_Ferrari",
+            "target": "C._V._Jawahar"
+        },
+        {
+            "weight": 3,
+            "source": "Unni_Krishnan_R._Nair",
+            "target": "K._Madhava_Krishna"
+        },
+        {
+            "weight": 2,
+            "source": "Unni_Krishnan_R._Nair",
+            "target": "Vineet_Gandhi"
+        },
+        {
+            "weight": 2,
+            "source": "Unni_Krishnan_R._Nair",
+            "target": "A._V._S._Sai_Bhargav_Kumar"
+        },
+        {
+            "weight": 2,
+            "source": "Mahesh_Mohan",
+            "target": "K._Madhava_Krishna"
+        },
+        {
+            "weight": 34,
+            "source": "K._Madhava_Krishna",
+            "target": "Arun_Kumar_Singh"
+        },
+        {
+            "weight": 14,
+            "source": "K._Madhava_Krishna",
+            "target": "C._V._Jawahar"
+        },
+        {
+            "weight": 13,
+            "source": "K._Madhava_Krishna",
+            "target": "Suril_Vijaykumar_Shah"
+        },
+        {
+            "weight": 12,
+            "source": "K._Madhava_Krishna",
+            "target": "Vineet_Gandhi"
+        },
+        {
+            "weight": 12,
+            "source": "K._Madhava_Krishna",
+            "target": "Abhishek_Sarkar"
+        },
+        {
+            "weight": 10,
+            "source": "K._Madhava_Krishna",
+            "target": "Henry_Hexmoor"
+        },
+        {
+            "weight": 9,
+            "source": "K._Madhava_Krishna",
+            "target": "J._Krishna_Murthy_0001"
+        },
+        {
+            "weight": 9,
+            "source": "K._Madhava_Krishna",
+            "target": "Balaraman_Ravindran"
+        },
+        {
+            "weight": 7,
+            "source": "K._Madhava_Krishna",
+            "target": "Harit_Pandya"
+        },
+        {
+            "weight": 7,
+            "source": "K._Madhava_Krishna",
+            "target": "Dinesh_Manocha"
+        },
+        {
+            "weight": 6,
+            "source": "K._Madhava_Krishna",
+            "target": "Bharath_Gopalakrishnan"
+        },
+        {
+            "weight": 5,
+            "source": "K._Madhava_Krishna",
+            "target": "Prem_Kumar_Kalra"
+        },
+        {
+            "weight": 5,
+            "source": "K._Madhava_Krishna",
+            "target": "Ravi_Kiran_Sarvadevabhatla"
+        },
+        {
+            "weight": 5,
+            "source": "K._Madhava_Krishna",
+            "target": "Sriranjan_Rasakatla"
+        },
+        {
+            "weight": 5,
+            "source": "K._Madhava_Krishna",
+            "target": "N._Dinesh_Reddy"
+        },
+        {
+            "weight": 5,
+            "source": "K._Madhava_Krishna",
+            "target": "Shanti_Medasani"
+        },
+        {
+            "weight": 5,
+            "source": "K._Madhava_Krishna",
+            "target": "Shivudu_Bhuvanagiri"
+        },
+        {
+            "weight": 5,
+            "source": "K._Madhava_Krishna",
+            "target": "Krishna_Murthy_Jatavallabhula"
+        },
+        {
+            "weight": 4,
+            "source": "K._Madhava_Krishna",
+            "target": "Meha_Kaushik"
+        },
+        {
+            "weight": 4,
+            "source": "K._Madhava_Krishna",
+            "target": "Srinath_Sridhar_0002"
+        },
+        {
+            "weight": 4,
+            "source": "K._Madhava_Krishna",
+            "target": "Shubhajit_Roy_Chowdhury"
+        },
+        {
+            "weight": 4,
+            "source": "K._Madhava_Krishna",
+            "target": "Nagamanikandan_Govindan"
+        },
+        {
+            "weight": 4,
+            "source": "K._Madhava_Krishna",
+            "target": "Priyesh_Vijayan"
+        },
+        {
+            "weight": 4,
+            "source": "K._Madhava_Krishna",
+            "target": "Harikumar_Kandath"
+        },
+        {
+            "weight": 4,
+            "source": "K._Madhava_Krishna",
+            "target": "Rishabh_Khawad"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Nikhil_Soni"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Visesh_Chari"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Vijay_Eathakota"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Liam_Paull"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Kannan_Srinathan"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "A._V._S._Sai_Bhargav_Kumar"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Avinash_Sharma"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Ayush_Gaud"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Falak_Chhaya"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Junaid_Ahmed_Ansari"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Krishna_Gupta"
+        },
+        {
+            "weight": 3,
+            "source": "K._Madhava_Krishna",
+            "target": "Michael_Milford"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Sudarshan_S._Harithas"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Supreeth_Achar"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Suryansh_Kumar"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Vishakh_Duggal"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Vashist_Madiraju"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Houman_Masnavi"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Hemanth_Korrapati"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Gunshi_Gupta"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Chetan_Jakkoju"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Bipin_Indurkhya"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Aravindhan_K._Krishnan"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Amit_Kumar_Pandey"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Akanksha_Baranwal"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Aditya_Teja"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "S._Subhash"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "S._Phaniteja"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Sourav_Garg"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Sarthak_Upadhyay"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Sandeep_Chinchali"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Narasimhan_Sai_Shankar"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Prateek_Singhal"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Piyoosh_Mukhija"
+        },
+        {
+            "weight": 2,
+            "source": "K._Madhava_Krishna",
+            "target": "Pooja_Guhan"
+        },
+        {
+            "weight": 11,
+            "source": "Arun_Kumar_Singh",
+            "target": "Bharath_Gopalakrishnan"
+        },
+        {
+            "weight": 3,
+            "source": "Arun_Kumar_Singh",
+            "target": "Vijay_Eathakota"
+        },
+        {
+            "weight": 3,
+            "source": "Arun_Kumar_Singh",
+            "target": "Houman_Masnavi"
+        },
+        {
+            "weight": 3,
+            "source": "Arun_Kumar_Singh",
+            "target": "Meha_Kaushik"
+        },
+        {
+            "weight": 2,
+            "source": "Arun_Kumar_Singh",
+            "target": "Sandeep_Chinchali"
+        },
+        {
+            "weight": 9,
+            "source": "Greg_Mori",
+            "target": "Li_Fei-Fei_0001"
+        },
+        {
+            "weight": 4,
+            "source": "Greg_Mori",
+            "target": "Manolis_Savva"
+        },
+        {
+            "weight": 4,
+            "source": "Wongun_Choi",
+            "target": "Yu-Wei_Chao"
+        },
+        {
+            "weight": 3,
+            "source": "Wongun_Choi",
+            "target": "Caroline_Pantofaru"
+        },
+        {
+            "weight": 2,
+            "source": "Bruno_Sinopoli",
+            "target": "Xiaoqi_Yin"
+        },
+        {
+            "weight": 19,
+            "source": "Jie_Yang_0002",
+            "target": "Yue_Zhou_0005"
+        },
+        {
+            "weight": 2,
+            "source": "Jie_Yang_0002",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 3,
+            "source": "Vikas_Singh",
+            "target": "Glenn_Fung"
+        },
+        {
+            "weight": 2,
+            "source": "Vikas_Singh",
+            "target": "James_M._Rehg"
+        },
+        {
+            "weight": 2,
+            "source": "Vikas_Singh",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Yinda_Zhang_0001",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 24,
+            "source": "Justus_Thies",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 22,
+            "source": "Justus_Thies",
+            "target": "Michael_Zollhoumlfer"
+        },
+        {
+            "weight": 10,
+            "source": "Justus_Thies",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 6,
+            "source": "Justus_Thies",
+            "target": "Yawar_Siddiqui"
+        },
+        {
+            "weight": 2,
+            "source": "Justus_Thies",
+            "target": "Jingwei_Huang"
+        },
+        {
+            "weight": 14,
+            "source": "Li_Fei-Fei_0001",
+            "target": "Jiajun_Wu_0001"
+        },
+        {
+            "weight": 11,
+            "source": "Li_Fei-Fei_0001",
+            "target": "Jia_Deng_0001"
+        },
+        {
+            "weight": 7,
+            "source": "Li_Fei-Fei_0001",
+            "target": "Abhinav_Gupta_0001"
+        },
+        {
+            "weight": 3,
+            "source": "Li_Fei-Fei_0001",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 3,
+            "source": "Li_Fei-Fei_0001",
+            "target": "Manohar_Paluri"
+        },
+        {
+            "weight": 4,
+            "source": "Jongwoo_Lim",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 3,
+            "source": "Alexey_Vorobyov",
+            "target": "Bryan_Seybold"
+        },
+        {
+            "weight": 4,
+            "source": "Zhefan_Ye",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Xuecai_Hu",
+            "target": "Xin_Zhao_0012"
+        },
+        {
+            "weight": 2,
+            "source": "Xuecai_Hu",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 11,
+            "source": "Qi_Guo_0002",
+            "target": "Eugene_Agichtein"
+        },
+        {
+            "weight": 2,
+            "source": "Qi_Guo_0002",
+            "target": "Haojian_Jin"
+        },
+        {
+            "weight": 2,
+            "source": "Qi_Guo_0002",
+            "target": "Mikhail_Ageev"
+        },
+        {
+            "weight": 2,
+            "source": "Qi_Guo_0002",
+            "target": "Dmitry_Lagun"
+        },
+        {
+            "weight": 2,
+            "source": "Matko_Bosnjak",
+            "target": "Thomas_Kipf"
+        },
+        {
+            "weight": 2,
+            "source": "Kevin_W._Eliceiri",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Kevin_W._Eliceiri",
+            "target": "Andreas_Velten"
+        },
+        {
+            "weight": 2,
+            "source": "Kevin_W._Eliceiri",
+            "target": "Bin_Li_0064"
+        },
+        {
+            "weight": 5,
+            "source": "Qin_Huang",
+            "target": "Shuai_Yuan"
+        },
+        {
+            "weight": 2,
+            "source": "Issam_H._Laradji",
+            "target": "Dmitry_Lagun"
+        },
+        {
+            "weight": 13,
+            "source": "Michael_Zollhoumlfer",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 3,
+            "source": "Michael_Zollhoumlfer",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 5,
+            "source": "Ayush_Gaud",
+            "target": "Harit_Pandya"
+        },
+        {
+            "weight": 14,
+            "source": "Milad_Hashemi",
+            "target": "Kevin_Swersky"
+        },
+        {
+            "weight": 2,
+            "source": "Milad_Hashemi",
+            "target": "Thomas_Kipf"
+        },
+        {
+            "weight": 2,
+            "source": "Xiatian_Zhu",
+            "target": "Wanyue_Zhang"
+        },
+        {
+            "weight": 16,
+            "source": "Larry_S._Davis",
+            "target": "Abhinav_Shrivastava"
+        },
+        {
+            "weight": 7,
+            "source": "Larry_S._Davis",
+            "target": "Mahyar_Najibi"
+        },
+        {
+            "weight": 4,
+            "source": "Larry_S._Davis",
+            "target": "Liang_Zhao"
+        },
+        {
+            "weight": 4,
+            "source": "Larry_S._Davis",
+            "target": "Abhinav_Gupta_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Larry_S._Davis",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 4,
+            "source": "Xiaoqi_Yin",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 3,
+            "source": "Xiaoqi_Yin",
+            "target": "Jiansheng_Qian"
+        },
+        {
+            "weight": 2,
+            "source": "Xiaoqi_Yin",
+            "target": "Mihovil_Bartulovic"
+        },
+        {
+            "weight": 2,
+            "source": "Xiaoqi_Yin",
+            "target": "Yi_Sun_0004"
+        },
+        {
+            "weight": 2,
+            "source": "Yicheng_Wu",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 14,
+            "source": "Pratul_P._Srinivasan",
+            "target": "Jonathan_T._Barron"
+        },
+        {
+            "weight": 4,
+            "source": "Pratul_P._Srinivasan",
+            "target": "Boyang_Deng"
+        },
+        {
+            "weight": 3,
+            "source": "Pratul_P._Srinivasan",
+            "target": "Brian_Curless"
+        },
+        {
+            "weight": 2,
+            "source": "Pratul_P._Srinivasan",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 2,
+            "source": "Pratul_P._Srinivasan",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 15,
+            "source": "Andrea_Tagliasacchi",
+            "target": "Kwang_Moo_Yi"
+        },
+        {
+            "weight": 7,
+            "source": "Andrea_Tagliasacchi",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 4,
+            "source": "Andrea_Tagliasacchi",
+            "target": "Dmitry_Lagun"
+        },
+        {
+            "weight": 2,
+            "source": "Andrea_Tagliasacchi",
+            "target": "Kevin_Swersky"
+        },
+        {
+            "weight": 2,
+            "source": "Andrea_Tagliasacchi",
+            "target": "Jonathan_T._Barron"
+        },
+        {
+            "weight": 2,
+            "source": "Andrea_Tagliasacchi",
+            "target": "Jingwei_Huang"
+        },
+        {
+            "weight": 2,
+            "source": "Andrea_Tagliasacchi",
+            "target": "Forrester_Cole"
+        },
+        {
+            "weight": 2,
+            "source": "Andrea_Tagliasacchi",
+            "target": "Boyang_Deng"
+        },
+        {
+            "weight": 2,
+            "source": "Andrea_Tagliasacchi",
+            "target": "Sean_Ryan_Fanello"
+        },
+        {
+            "weight": 3,
+            "source": "Yun_Fu_0001",
+            "target": "Chenliang_Xu"
+        },
+        {
+            "weight": 11,
+            "source": "Richard_S._Zemel",
+            "target": "Kevin_Swersky"
+        },
+        {
+            "weight": 6,
+            "source": "Richard_S._Zemel",
+            "target": "Daniel_Tarlow"
+        },
+        {
+            "weight": 5,
+            "source": "Richard_S._Zemel",
+            "target": "Michael_C._Mozer"
+        },
+        {
+            "weight": 3,
+            "source": "Richard_S._Zemel",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 2,
+            "source": "Richard_S._Zemel",
+            "target": "Yujia_Li"
+        },
+        {
+            "weight": 18,
+            "source": "Niloy_J._Mitra",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 5,
+            "source": "Niloy_J._Mitra",
+            "target": "Daniel_Ritchie"
+        },
+        {
+            "weight": 2,
+            "source": "Niloy_J._Mitra",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Niloy_J._Mitra",
+            "target": "Matthew_Fisher"
+        },
+        {
+            "weight": 2,
+            "source": "Angjoo_Kanazawa",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 3,
+            "source": "Shan_Yang",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 2,
+            "source": "Shan_Yang",
+            "target": "Anurag_Arnab"
+        },
+        {
+            "weight": 10,
+            "source": "Xiaohua_Zhai",
+            "target": "Neil_Houlsby"
+        },
+        {
+            "weight": 2,
+            "source": "Xiaohua_Zhai",
+            "target": "Tsung-Yi_Lin"
+        },
+        {
+            "weight": 2,
+            "source": "Xiaohua_Zhai",
+            "target": "Thomas_Kipf"
+        },
+        {
+            "weight": 4,
+            "source": "Xun_Xu",
+            "target": "Wanyue_Zhang"
+        },
+        {
+            "weight": 4,
+            "source": "Or_Litany",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 3,
+            "source": "Or_Litany",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Or_Litany",
+            "target": "Bastian_Leibe"
+        },
+        {
+            "weight": 2,
+            "source": "Evgeny_Burnaev",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Wenhao_Jiang",
+            "target": "Feng_Zheng"
+        },
+        {
+            "weight": 7,
+            "source": "Caroline_Pantofaru",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 4,
+            "source": "Caroline_Pantofaru",
+            "target": "Leila_Takayama"
+        },
+        {
+            "weight": 4,
+            "source": "Caroline_Pantofaru",
+            "target": "Irfan_A._Essa"
+        },
+        {
+            "weight": 3,
+            "source": "Caroline_Pantofaru",
+            "target": "William_D._Smart"
+        },
+        {
+            "weight": 3,
+            "source": "Caroline_Pantofaru",
+            "target": "Sourish_Chaudhuri"
+        },
+        {
+            "weight": 3,
+            "source": "Caroline_Pantofaru",
+            "target": "Ranjith_Unnikrishnan"
+        },
+        {
+            "weight": 3,
+            "source": "Caroline_Pantofaru",
+            "target": "Zhonghua_Xi"
+        },
+        {
+            "weight": 3,
+            "source": "Caroline_Pantofaru",
+            "target": "Yu-Wei_Chao"
+        },
+        {
+            "weight": 2,
+            "source": "Caroline_Pantofaru",
+            "target": "Vinay_Bettadapura"
+        },
+        {
+            "weight": 2,
+            "source": "Caroline_Pantofaru",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 2,
+            "source": "Caroline_Pantofaru",
+            "target": "Forrester_Cole"
+        },
+        {
+            "weight": 2,
+            "source": "Caroline_Pantofaru",
+            "target": "Brian_Curless"
+        },
+        {
+            "weight": 2,
+            "source": "Caroline_Pantofaru",
+            "target": "Deqing_Sun"
+        },
+        {
+            "weight": 2,
+            "source": "Caroline_Pantofaru",
+            "target": "Radhika_Marvin"
+        },
+        {
+            "weight": 14,
+            "source": "Chen_Sun_0002",
+            "target": "Cordelia_Schmid"
+        },
+        {
+            "weight": 4,
+            "source": "Chen_Sun_0002",
+            "target": "Anurag_Arnab"
+        },
+        {
+            "weight": 4,
+            "source": "Chen_Sun_0002",
+            "target": "Abhinav_Shrivastava"
+        },
+        {
+            "weight": 4,
+            "source": "Chen_Sun_0002",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 3,
+            "source": "Chen_Sun_0002",
+            "target": "Jia_Deng_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Chen_Sun_0002",
+            "target": "Vivek_Rathod"
+        },
+        {
+            "weight": 2,
+            "source": "Chen_Sun_0002",
+            "target": "Manohar_Paluri"
+        },
+        {
+            "weight": 2,
+            "source": "Chen_Sun_0002",
+            "target": "Mi_Zhang_0001"
+        },
+        {
+            "weight": 4,
+            "source": "N._Dinesh_Reddy",
+            "target": "Prateek_Singhal"
+        },
+        {
+            "weight": 2,
+            "source": "Zhicheng_Wang",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 2,
+            "source": "Saeed_Behzadipour",
+            "target": "Ahmad_Mozaffari"
+        },
+        {
+            "weight": 41,
+            "source": "Manolis_Savva",
+            "target": "Angel_X._Chang"
+        },
+        {
+            "weight": 5,
+            "source": "Manolis_Savva",
+            "target": "Matthew_Fisher"
+        },
+        {
+            "weight": 3,
+            "source": "Manolis_Savva",
+            "target": "Daniel_Ritchie"
+        },
+        {
+            "weight": 2,
+            "source": "Manolis_Savva",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 2,
+            "source": "Manolis_Savva",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 4,
+            "source": "Avneesh_Sud",
+            "target": "Forrester_Cole"
+        },
+        {
+            "weight": 2,
+            "source": "Avneesh_Sud",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 2,
+            "source": "Avneesh_Sud",
+            "target": "\"Chiyu_\"\"Max\"\"_Jiang\""
+        },
+        {
+            "weight": 2,
+            "source": "Dana_Lynn_Ona_Lansigan",
+            "target": "\"Chiyu_\"\"Max\"\"_Jiang\""
+        },
+        {
+            "weight": 2,
+            "source": "Abhishek_Sarkar",
+            "target": "Pooja_Guhan"
+        },
+        {
+            "weight": 2,
+            "source": "Jonas_Muumlller",
+            "target": "Thomas_Kipf"
+        },
+        {
+            "weight": 4,
+            "source": "Klaus_Greff",
+            "target": "Thomas_Kipf"
+        },
+        {
+            "weight": 2,
+            "source": "Klaus_Greff",
+            "target": "Alexey_Dosovitskiy"
+        },
+        {
+            "weight": 2,
+            "source": "Klaus_Greff",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 2,
+            "source": "Klaus_Greff",
+            "target": "Michael_C._Mozer"
+        },
+        {
+            "weight": 2,
+            "source": "Yingyu_Liang",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 12,
+            "source": "Abhinav_Gupta_0001",
+            "target": "Dhiraj_Gandhi"
+        },
+        {
+            "weight": 11,
+            "source": "Abhinav_Gupta_0001",
+            "target": "Abhinav_Shrivastava"
+        },
+        {
+            "weight": 4,
+            "source": "Abhinav_Gupta_0001",
+            "target": "Cordelia_Schmid"
+        },
+        {
+            "weight": 4,
+            "source": "Abhinav_Gupta_0001",
+            "target": "Adithyavairavan_Murali"
+        },
+        {
+            "weight": 2,
+            "source": "Abhinav_Gupta_0001",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Abhinav_Gupta_0001",
+            "target": "James_M._Rehg"
+        },
+        {
+            "weight": 3,
+            "source": "Charles_Ruizhongtai_Qi",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 2,
+            "source": "Charles_Ruizhongtai_Qi",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 2,
+            "source": "Charles_Ruizhongtai_Qi",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Neil_Houlsby",
+            "target": "Thomas_Kipf"
+        },
+        {
+            "weight": 2,
+            "source": "Neil_Houlsby",
+            "target": "Aravindh_Mahendran"
+        },
+        {
+            "weight": 27,
+            "source": "Ran_Cheng",
+            "target": "Cheng_He_0001"
+        },
+        {
+            "weight": 6,
+            "source": "Ran_Cheng",
+            "target": "Feng_Zheng"
+        },
+        {
+            "weight": 6,
+            "source": "Ran_Cheng",
+            "target": "Shihua_Huang"
+        },
+        {
+            "weight": 94,
+            "source": "Wei_Zhan",
+            "target": "Masayoshi_Tomizuka"
+        },
+        {
+            "weight": 2,
+            "source": "A._V._S._Sai_Bhargav_Kumar",
+            "target": "Vashist_Madiraju"
+        },
+        {
+            "weight": 6,
+            "source": "Matthew_Fisher",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 3,
+            "source": "Matthew_Fisher",
+            "target": "Daniel_Ritchie"
+        },
+        {
+            "weight": 2,
+            "source": "Matthew_Fisher",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 5,
+            "source": "Jingwei_Huang",
+            "target": "\"Chiyu_\"\"Max\"\"_Jiang\""
+        },
+        {
+            "weight": 2,
+            "source": "Jingwei_Huang",
+            "target": "Dequan_Wang"
+        },
+        {
+            "weight": 2,
+            "source": "Jingwei_Huang",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 2,
+            "source": "Jingwei_Huang",
+            "target": "Srinath_Sridhar_0002"
+        },
+        {
+            "weight": 4,
+            "source": "Tsung-Yi_Lin",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Tsung-Yi_Lin",
+            "target": "Jonathan_T._Barron"
+        },
+        {
+            "weight": 2,
+            "source": "Liang-Chieh_Chen",
+            "target": "Jonathan_T._Barron"
+        },
+        {
+            "weight": 2,
+            "source": "Liang-Chieh_Chen",
+            "target": "Bastian_Leibe"
+        },
+        {
+            "weight": 2,
+            "source": "Junaid_Ahmed_Ansari",
+            "target": "J._Krishna_Murthy_0001"
+        },
+        {
+            "weight": 3,
+            "source": "Narasimhan_Sai_Shankar",
+            "target": "Krishna_Murthy_Jatavallabhula"
+        },
+        {
+            "weight": 2,
+            "source": "Narasimhan_Sai_Shankar",
+            "target": "Ravi_Kiran_Sarvadevabhatla"
+        },
+        {
+            "weight": 2,
+            "source": "Adithyavairavan_Murali",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Adithyavairavan_Murali",
+            "target": "Dhiraj_Gandhi"
+        },
+        {
+            "weight": 2,
+            "source": "Mahyar_Najibi",
+            "target": "Guangda_Lai"
+        },
+        {
+            "weight": 2,
+            "source": "Glenn_Fung",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 4,
+            "source": "Mahdi_Emami",
+            "target": "Ahmad_Mozaffari"
+        },
+        {
+            "weight": 3,
+            "source": "Mahdi_Emami",
+            "target": "Nasser_L._Azad"
+        },
+        {
+            "weight": 9,
+            "source": "James_M._Rehg",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 6,
+            "source": "James_M._Rehg",
+            "target": "Irfan_A._Essa"
+        },
+        {
+            "weight": 4,
+            "source": "James_M._Rehg",
+            "target": "Jianxin_Wu_0001"
+        },
+        {
+            "weight": 3,
+            "source": "James_M._Rehg",
+            "target": "Zixuan_Huang"
+        },
+        {
+            "weight": 2,
+            "source": "James_M._Rehg",
+            "target": "Visesh_Chari"
+        },
+        {
+            "weight": 2,
+            "source": "James_M._Rehg",
+            "target": "Varun_Jampani"
+        },
+        {
+            "weight": 2,
+            "source": "James_M._Rehg",
+            "target": "Manohar_Paluri"
+        },
+        {
+            "weight": 2,
+            "source": "James_M._Rehg",
+            "target": "Deqing_Sun"
+        },
+        {
+            "weight": 2,
+            "source": "Dhiraj_Gandhi",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 2,
+            "source": "Gopal_Sharma",
+            "target": "Kwang_Moo_Yi"
+        },
+        {
+            "weight": 2,
+            "source": "Gopal_Sharma",
+            "target": "Dmitry_Lagun"
+        },
+        {
+            "weight": 7,
+            "source": "Visesh_Chari",
+            "target": "C._V._Jawahar"
+        },
+        {
+            "weight": 2,
+            "source": "Visesh_Chari",
+            "target": "Prateek_Singhal"
+        },
+        {
+            "weight": 4,
+            "source": "Ji_Hou",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Ji_Hou",
+            "target": "Xiaoguang_Han_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Ji_Hou",
+            "target": "Matthias_Nieszligner"
+        },
+        {
+            "weight": 45,
+            "source": "Matthias_Nieszligner",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 10,
+            "source": "Matthias_Nieszligner",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 9,
+            "source": "Matthias_Nieszligner",
+            "target": "Angel_X._Chang"
+        },
+        {
+            "weight": 5,
+            "source": "Matthias_Nieszligner",
+            "target": "Xiaoguang_Han_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Matthias_Nieszligner",
+            "target": "Jonathan_T._Barron"
+        },
+        {
+            "weight": 2,
+            "source": "Matthias_Nieszligner",
+            "target": "Christian_Diller"
+        },
+        {
+            "weight": 2,
+            "source": "Matthias_Nieszligner",
+            "target": "Bastian_Leibe"
+        },
+        {
+            "weight": 2,
+            "source": "Rishabh_Khawad",
+            "target": "J._Krishna_Murthy_0001"
+        },
+        {
+            "weight": 3,
+            "source": "David_P._Williamson",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 19,
+            "source": "Saurabh_Bagchi",
+            "target": "Somali_Chaterji"
+        },
+        {
+            "weight": 6,
+            "source": "Saurabh_Bagchi",
+            "target": "Yin_Li_0003"
+        },
+        {
+            "weight": 5,
+            "source": "Yin_Li_0003",
+            "target": "Liwei_Wang_0009"
+        },
+        {
+            "weight": 4,
+            "source": "Yin_Li_0003",
+            "target": "Yue_Zhou_0005"
+        },
+        {
+            "weight": 3,
+            "source": "Yin_Li_0003",
+            "target": "Xin_Zhao_0012"
+        },
+        {
+            "weight": 3,
+            "source": "Yin_Li_0003",
+            "target": "Somali_Chaterji"
+        },
+        {
+            "weight": 3,
+            "source": "Yin_Li_0003",
+            "target": "Chenliang_Xu"
+        },
+        {
+            "weight": 3,
+            "source": "Yin_Li_0003",
+            "target": "Kaiqi_Huang"
+        },
+        {
+            "weight": 3,
+            "source": "Yin_Li_0003",
+            "target": "Junchi_Yan"
+        },
+        {
+            "weight": 3,
+            "source": "Yin_Li_0003",
+            "target": "Jianxin_Wu_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Yun_Zhang"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Zixuan_Huang"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Kun_Xu_0005"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Lu_Yuan"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Lv_Guo"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Manohar_Paluri"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Kiran_Somasundaram"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Jianfeng_Gao"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Javier_Hernandez"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Chen-Lin_Zhang"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Bin_Li_0064"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Andreas_Velten"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Matthew_Dutson"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Xiaodi_Hou"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Siyu_Tang_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Noah_Weston"
+        },
+        {
+            "weight": 2,
+            "source": "Yin_Li_0003",
+            "target": "Mohit_Gupta_0001"
+        },
+        {
+            "weight": 3,
+            "source": "Can_Guumlmeli",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Julien_P._C._Valentin",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Julien_P._C._Valentin",
+            "target": "Sean_Ryan_Fanello"
+        },
+        {
+            "weight": 4,
+            "source": "Ruei-Sung_Lin",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 4,
+            "source": "Yujia_Li",
+            "target": "Kevin_Swersky"
+        },
+        {
+            "weight": 3,
+            "source": "Yujia_Li",
+            "target": "Daniel_Tarlow"
+        },
+        {
+            "weight": 2,
+            "source": "Yujia_Li",
+            "target": "Thomas_Kipf"
+        },
+        {
+            "weight": 4,
+            "source": "Manohar_Paluri",
+            "target": "C._V._Jawahar"
+        },
+        {
+            "weight": 3,
+            "source": "Jing_Li",
+            "target": "Gang_Zeng"
+        },
+        {
+            "weight": 9,
+            "source": "Daniel_Tarlow",
+            "target": "Kevin_Swersky"
+        },
+        {
+            "weight": 2,
+            "source": "Daniel_Tarlow",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 5,
+            "source": "Sergio_Guadarrama",
+            "target": "John_F._Canny"
+        },
+        {
+            "weight": 2,
+            "source": "Sergio_Guadarrama",
+            "target": "Anurag_Arnab"
+        },
+        {
+            "weight": 4,
+            "source": "Thomas_Kipf",
+            "target": "Bernhard_Radke"
+        },
+        {
+            "weight": 3,
+            "source": "Thomas_Kipf",
+            "target": "Nicola_De_Cao"
+        },
+        {
+            "weight": 3,
+            "source": "Thomas_Kipf",
+            "target": "Alexey_Dosovitskiy"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_Kipf",
+            "target": "Kevin_Swersky"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_Kipf",
+            "target": "Michael_C._Mozer"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_Kipf",
+            "target": "Charles_Herrmann"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_Kipf",
+            "target": "Elise_van_der_Pol"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_Kipf",
+            "target": "Jakub_M._Tomczak"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_Kipf",
+            "target": "Andreas_Kipf"
+        },
+        {
+            "weight": 2,
+            "source": "Thomas_Kipf",
+            "target": "Aravindh_Mahendran"
+        },
+        {
+            "weight": 9,
+            "source": "Dmitry_Lagun",
+            "target": "Eugene_Agichtein"
+        },
+        {
+            "weight": 3,
+            "source": "Dmitry_Lagun",
+            "target": "Mikhail_Ageev"
+        },
+        {
+            "weight": 3,
+            "source": "Dmitry_Lagun",
+            "target": "Vidhya_Navalpakkam"
+        },
+        {
+            "weight": 2,
+            "source": "Dmitry_Lagun",
+            "target": "Kwang_Moo_Yi"
+        },
+        {
+            "weight": 2,
+            "source": "Dmitry_Lagun",
+            "target": "Haojian_Jin"
+        },
+        {
+            "weight": 2,
+            "source": "Dmitry_Lagun",
+            "target": "Shuai_Yuan"
+        },
+        {
+            "weight": 30,
+            "source": "Xin_Zhao_0012",
+            "target": "Kaiqi_Huang"
+        },
+        {
+            "weight": 2,
+            "source": "Dequan_Wang",
+            "target": "\"Chiyu_\"\"Max\"\"_Jiang\""
+        },
+        {
+            "weight": 2,
+            "source": "Vineet_Gandhi",
+            "target": "C._V._Jawahar"
+        },
+        {
+            "weight": 6,
+            "source": "Anurag_Arnab",
+            "target": "Cordelia_Schmid"
+        },
+        {
+            "weight": 2,
+            "source": "Anurag_Arnab",
+            "target": "Aravindh_Mahendran"
+        },
+        {
+            "weight": 2,
+            "source": "Christian_Diller",
+            "target": "Angela_Dai"
+        },
+        {
+            "weight": 2,
+            "source": "Krishna_Murthy_Jatavallabhula",
+            "target": "Srinath_Sridhar_0002"
+        },
+        {
+            "weight": 2,
+            "source": "Leila_Takayama",
+            "target": "William_D._Smart"
+        },
+        {
+            "weight": 6,
+            "source": "Shihua_Huang",
+            "target": "Cheng_He_0001"
+        },
+        {
+            "weight": 13,
+            "source": "John_F._Canny",
+            "target": "Dinesh_Manocha"
+        },
+        {
+            "weight": 3,
+            "source": "John_F._Canny",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 2,
+            "source": "John_F._Canny",
+            "target": "Bryan_Seybold"
+        },
+        {
+            "weight": 2,
+            "source": "John_F._Canny",
+            "target": "Anoop_Korattikara"
+        },
+        {
+            "weight": 2,
+            "source": "James_R._Marston",
+            "target": "David_A._Ross"
+        },
+        {
+            "weight": 2,
+            "source": "Martin_Bokeloh",
+            "target": "Daniel_Ritchie"
+        },
+        {
+            "weight": 8,
+            "source": "Forrester_Cole",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 2,
+            "source": "Chuan-Sheng_Foo",
+            "target": "Wanyue_Zhang"
+        },
+        {
+            "weight": 4,
+            "source": "Angela_Dai",
+            "target": "Leonidas_J._Guibas"
+        },
+        {
+            "weight": 4,
+            "source": "Angela_Dai",
+            "target": "Angel_X._Chang"
+        },
+        {
+            "weight": 3,
+            "source": "Angela_Dai",
+            "target": "Xiaoguang_Han_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Angela_Dai",
+            "target": "Tony_Tung"
+        },
+        {
+            "weight": 2,
+            "source": "Angela_Dai",
+            "target": "Yawar_Siddiqui"
+        },
+        {
+            "weight": 2,
+            "source": "Angela_Dai",
+            "target": "Daniel_Ritchie"
+        },
+        {
+            "weight": 2,
+            "source": "Angela_Dai",
+            "target": "Denver_Dash"
+        },
+        {
+            "weight": 3,
+            "source": "Eugene_Agichtein",
+            "target": "Shuai_Yuan"
+        },
+        {
+            "weight": 16,
+            "source": "Nasser_L._Azad",
+            "target": "Ahmad_Mozaffari"
+        },
+        {
+            "weight": 6,
+            "source": "David_A._Ross",
+            "target": "Sudheendra_Vijayanarasimhan"
+        },
+        {
+            "weight": 4,
+            "source": "David_A._Ross",
+            "target": "Bryan_Seybold"
+        },
+        {
+            "weight": 3,
+            "source": "David_A._Ross",
+            "target": "Jonathan_C._Stroud"
+        },
+        {
+            "weight": 3,
+            "source": "David_A._Ross",
+            "target": "Bruce_B._Blasch"
+        },
+        {
+            "weight": 2,
+            "source": "David_A._Ross",
+            "target": "Manfred_Georg"
+        },
+        {
+            "weight": 2,
+            "source": "David_A._Ross",
+            "target": "Jia_Deng_0001"
+        },
+        {
+            "weight": 22,
+            "source": "Deqing_Sun",
+            "target": "Varun_Jampani"
+        },
+        {
+            "weight": 2,
+            "source": "Deqing_Sun",
+            "target": "Jonathan_T._Barron"
+        },
+        {
+            "weight": 2,
+            "source": "Deqing_Sun",
+            "target": "Charles_Herrmann"
+        },
+        {
+            "weight": 2,
+            "source": "Deqing_Sun",
+            "target": "Jiajun_Wu_0001"
+        },
+        {
+            "weight": 13,
+            "source": "Leonidas_J._Guibas",
+            "target": "Srinath_Sridhar_0002"
+        },
+        {
+            "weight": 2,
+            "source": "Leonidas_J._Guibas",
+            "target": "Angel_X._Chang"
+        },
+        {
+            "weight": 2,
+            "source": "Leonidas_J._Guibas",
+            "target": "\"Chiyu_\"\"Max\"\"_Jiang\""
+        },
+        {
+            "weight": 2,
+            "source": "Leonidas_J._Guibas",
+            "target": "Jiajun_Wu_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Sean_Ryan_Fanello",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 4,
+            "source": "Kun_Xu_0005",
+            "target": "Liwei_Wang_0009"
+        },
+        {
+            "weight": 3,
+            "source": "Wanyue_Zhang",
+            "target": "Lijun_He"
+        },
+        {
+            "weight": 2,
+            "source": "Wanyue_Zhang",
+            "target": "Rui_Huang"
+        },
+        {
+            "weight": 2,
+            "source": "Wanyue_Zhang",
+            "target": "Li_Shen"
+        },
+        {
+            "weight": 2,
+            "source": "Jonathan_T._Barron",
+            "target": "Varun_Jampani"
+        },
+        {
+            "weight": 2,
+            "source": "Jonathan_T._Barron",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 2,
+            "source": "Jonathan_T._Barron",
+            "target": "Alexey_Dosovitskiy"
+        },
+        {
+            "weight": 2,
+            "source": "Jonathan_T._Barron",
+            "target": "Mehdi_S._M._Sajjadi"
+        },
+        {
+            "weight": 2,
+            "source": "Mehdi_S._M._Sajjadi",
+            "target": "Kyle_Genova"
+        },
+        {
+            "weight": 3,
+            "source": "Bryan_Seybold",
+            "target": "Sudheendra_Vijayanarasimhan"
+        },
+        {
+            "weight": 4,
+            "source": "Alexey_Dosovitskiy",
+            "target": "Aravindh_Mahendran"
+        },
+        {
+            "weight": 6,
+            "source": "Jianfeng_Gao",
+            "target": "Lu_Yuan"
+        },
+        {
+            "weight": 14,
+            "source": "Mohit_Gupta_0001",
+            "target": "Andreas_Velten"
+        },
+        {
+            "weight": 2,
+            "source": "Kyle_Genova",
+            "target": "Zeyu_Jin"
+        },
+        {
+            "weight": 2,
+            "source": "Kyle_Genova",
+            "target": "Varun_Jampani"
+        },
+        {
+            "weight": 2,
+            "source": "Kyle_Genova",
+            "target": "Boyang_Deng"
+        },
+        {
+            "weight": 2,
+            "source": "Charles_Herrmann",
+            "target": "Varun_Jampani"
+        },
+        {
+            "weight": 4,
+            "source": "Supreeth_Achar",
+            "target": "C._V._Jawahar"
+        },
+        {
+            "weight": 5,
+            "source": "Srinath_Sridhar_0002",
+            "target": "Daniel_Ritchie"
+        },
+        {
+            "weight": 8,
+            "source": "Kannan_Srinathan",
+            "target": "C._V._Jawahar"
+        },
+        {
+            "weight": 19,
+            "source": "Michael_Milford",
+            "target": "Sourav_Garg"
+        },
+        {
+            "weight": 5,
+            "source": "Yue_Zhou_0005",
+            "target": "Junchi_Yan"
+        },
+        {
+            "weight": 9,
+            "source": "Chen-Lin_Zhang",
+            "target": "Jianxin_Wu_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Zhonghua_Xi",
+            "target": "Cordelia_Schmid"
+        },
+        {
+            "weight": 2,
+            "source": "Yu-Wei_Chao",
+            "target": "Sudheendra_Vijayanarasimhan"
+        },
+        {
+            "weight": 2,
+            "source": "\"Chiyu_\"\"Max\"\"_Jiang\"",
+            "target": "Soheil_Esmaeilzadeh"
+        },
+        {
+            "weight": 2,
+            "source": "Junchi_Yan",
+            "target": "Feng_Zheng"
+        },
+        {
+            "weight": 2,
+            "source": "Nikhil_Soni",
+            "target": "Aravindh_Mahendran"
+        },
+        {
+            "weight": 2,
+            "source": "Cordelia_Schmid",
+            "target": "Jiajun_Wu_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Irfan_A._Essa",
+            "target": "Vinay_Bettadapura"
+        },
+        {
+            "weight": 5,
+            "source": "Ravi_Kiran_Sarvadevabhatla",
+            "target": "C._V._Jawahar"
+        },
+        {
+            "weight": 2,
+            "source": "Ravi_Kiran_Sarvadevabhatla",
+            "target": "Sourav_Garg"
+        },
+        {
+            "weight": 3,
+            "source": "Daniel_Ritchie",
+            "target": "Angel_X._Chang"
+        },
+        {
+            "weight": 2,
+            "source": "J._Krishna_Murthy_0001",
+            "target": "Gunshi_Gupta"
+        }
+    ]
+}
