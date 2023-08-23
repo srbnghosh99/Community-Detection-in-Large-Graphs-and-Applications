@@ -1,0 +1,245 @@
+{
+    "directed": false,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "id": "Matthew_Mcquaigue"
+        },
+        {
+            "id": "Timothy_D._R._Hartley"
+        },
+        {
+            "id": "Kamer_Kaya"
+        },
+        {
+            "id": "Denis_Trystram"
+        },
+        {
+            "id": "Onur_Kuumlccediluumlktunccedil"
+        },
+        {
+            "id": "Erdeniz_Ouml._Bas"
+        },
+        {
+            "id": "Zheng_Zhou_0003"
+        },
+        {
+            "id": "Md._Maruf_Hossain"
+        },
+        {
+            "id": "Haofeng_Jia"
+        },
+        {
+            "id": "Hasan_Metin_Aktulga"
+        },
+        {
+            "id": "Uumlmit_V._Ccedilatalyuumlrek"
+        },
+        {
+            "id": "Erik_Saule"
+        },
+        {
+            "id": "Doruk_Bozdag"
+        },
+        {
+            "id": "Kalpathi_R._Subramanian"
+        },
+        {
+            "id": "Ahmet_Erdem_Sariyuumlce"
+        },
+        {
+            "id": "David_Burlinson"
+        },
+        {
+            "id": "Dinesh_Panchananam"
+        },
+        {
+            "id": "Jamie_Payton"
+        },
+        {
+            "id": "Alec_Goncharow"
+        },
+        {
+            "id": "Chao_Yang_0001"
+        },
+        {
+            "id": "Pierre-Franccedilois_Dutot"
+        },
+        {
+            "id": "Emmanuel_Jeannot"
+        }
+    ],
+    "links": [
+        {
+            "weight": 2,
+            "source": "Matthew_Mcquaigue",
+            "target": "Alec_Goncharow"
+        },
+        {
+            "weight": 2,
+            "source": "Matthew_Mcquaigue",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 2,
+            "source": "Matthew_Mcquaigue",
+            "target": "David_Burlinson"
+        },
+        {
+            "weight": 2,
+            "source": "Matthew_Mcquaigue",
+            "target": "Jamie_Payton"
+        },
+        {
+            "weight": 10,
+            "source": "Timothy_D._R._Hartley",
+            "target": "Uumlmit_V._Ccedilatalyuumlrek"
+        },
+        {
+            "weight": 2,
+            "source": "Timothy_D._R._Hartley",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 23,
+            "source": "Kamer_Kaya",
+            "target": "Uumlmit_V._Ccedilatalyuumlrek"
+        },
+        {
+            "weight": 22,
+            "source": "Kamer_Kaya",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 5,
+            "source": "Kamer_Kaya",
+            "target": "Ahmet_Erdem_Sariyuumlce"
+        },
+        {
+            "weight": 8,
+            "source": "Denis_Trystram",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 4,
+            "source": "Denis_Trystram",
+            "target": "Pierre-Franccedilois_Dutot"
+        },
+        {
+            "weight": 6,
+            "source": "Onur_Kuumlccediluumlktunccedil",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 3,
+            "source": "Erdeniz_Ouml._Bas",
+            "target": "Uumlmit_V._Ccedilatalyuumlrek"
+        },
+        {
+            "weight": 3,
+            "source": "Erdeniz_Ouml._Bas",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 2,
+            "source": "Zheng_Zhou_0003",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 2,
+            "source": "Md._Maruf_Hossain",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 5,
+            "source": "Haofeng_Jia",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 13,
+            "source": "Hasan_Metin_Aktulga",
+            "target": "Chao_Yang_0001"
+        },
+        {
+            "weight": 3,
+            "source": "Hasan_Metin_Aktulga",
+            "target": "Uumlmit_V._Ccedilatalyuumlrek"
+        },
+        {
+            "weight": 3,
+            "source": "Hasan_Metin_Aktulga",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 14,
+            "source": "Uumlmit_V._Ccedilatalyuumlrek",
+            "target": "Erik_Saule"
+        },
+        {
+            "weight": 7,
+            "source": "Uumlmit_V._Ccedilatalyuumlrek",
+            "target": "Doruk_Bozdag"
+        },
+        {
+            "weight": 12,
+            "source": "Erik_Saule",
+            "target": "Kalpathi_R._Subramanian"
+        },
+        {
+            "weight": 9,
+            "source": "Erik_Saule",
+            "target": "Ahmet_Erdem_Sariyuumlce"
+        },
+        {
+            "weight": 4,
+            "source": "Erik_Saule",
+            "target": "Emmanuel_Jeannot"
+        },
+        {
+            "weight": 4,
+            "source": "Erik_Saule",
+            "target": "Jamie_Payton"
+        },
+        {
+            "weight": 2,
+            "source": "Erik_Saule",
+            "target": "Doruk_Bozdag"
+        },
+        {
+            "weight": 2,
+            "source": "Erik_Saule",
+            "target": "Dinesh_Panchananam"
+        },
+        {
+            "weight": 2,
+            "source": "Erik_Saule",
+            "target": "David_Burlinson"
+        },
+        {
+            "weight": 2,
+            "source": "Erik_Saule",
+            "target": "Chao_Yang_0001"
+        },
+        {
+            "weight": 2,
+            "source": "Erik_Saule",
+            "target": "Alec_Goncharow"
+        },
+        {
+            "weight": 2,
+            "source": "Erik_Saule",
+            "target": "Pierre-Franccedilois_Dutot"
+        },
+        {
+            "weight": 11,
+            "source": "Kalpathi_R._Subramanian",
+            "target": "Jamie_Payton"
+        },
+        {
+            "weight": 3,
+            "source": "Kalpathi_R._Subramanian",
+            "target": "David_Burlinson"
+        }
+    ]
+}
