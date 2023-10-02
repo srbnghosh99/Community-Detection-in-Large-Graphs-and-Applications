@@ -40,7 +40,8 @@ SBM-meet_GNN(Adaptive graph encoder) -->
 
 python3 train.py --dataset citeseer --hidden 32_50 --alpha0 10 --split_idx 0 --deep_decoder 1 --model dglfrm_b --epochs 200
 
-GEMSEC -> Creating a GEMSEC embedding of the default dataset with the default hyperparameter settings. Saving the embedding, cluster centres and the log file at the default path.
+GEMSEC -> 
+Creating a GEMSEC embedding of the default dataset with the default hyperparameter settings. Saving the embedding, cluster centres and the log file at the default path.
 $ python src/embedding_clustering.py
 Creating a DeepWalk embedding of the default dataset with the default hyperparameter settings. Saving the embedding, cluster centres and the log file at the default path.
 $ python src/embedding_clustering.py --model DeepWalk
