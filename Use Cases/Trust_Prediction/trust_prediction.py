@@ -2,7 +2,7 @@ import networkx as nx
 import seaborn as sns
 from pathlib import Path
 import csv
-import matplotlib.pyplot as plt  # Optional, for plotting
+import matplotlib.pyplot as plt
 import ast
 import argparse
 import sys
@@ -15,88 +15,38 @@ import itertools
 import random
 import statistics
 from sklearn.metrics import accuracy_score
-
-column_names = ['Column1','Column2']
-G = nx.read_edgelist('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv',delimiter=' ', nodetype=int)
-#ciao = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv",sep = ' ',names=column_names)
-#louvain = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/community_clusters/renumbered_graph_ciao_label_prop.csv',sep= ',')
-cd_algo = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/label_propagation_ciao_trustnet.csv")
-cc = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/propensity_subgraph/centerclusters.csv')
-rating = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/ciao_rating.csv')
-# print(ciao,cc,rating)
-# print()
-# print(louvain)
+from tqdm import tqdm
+import time
 
 
-# Create lists to store ground truth and predicted values
-#ground_truth = []
-#predicted_values = []
-
-user_pairs = list(itertools.combinations(G.nodes(), 2))
-#user_pairs = [e for e in G.edges]
-#user_pairs = list(nx.all_pairs(G))
-#print(user_pairs)
-
-# Shuffle the user pairs randomly
-random.shuffle(user_pairs)
-
-# Calculate the size for the 'N' set (e.g., 50% of the pairs)
-N_size = int(0.50 * len(user_pairs))
-#
-## Take the first N_size pairs for setting trust values to 0
-N = user_pairs[:N_size]
-print('pairs', len(N))
-#
-## Set trust values to 0 for pairs in 'N'
-#for i, j in user_pairs[N_size:]:
-#    G[i][j]['trust_value'] = 0
-#
-## Set trust values to 1 for the remaining pairs
-#for i, j in N:
-#    G[i][j]['trust_value'] = 1
-#
-#
-#pairs_with_zero_trust = [(i, j) for i, j, data in G.edges(data=True) if data.get('trust_value', 0) == 0]
-#for i, j in G.edges():
-#    ground_truth.append(G[i][j]['trust_value'])
-    
-cols=['Node1', 'Node2', 'TrustValue']
-lst = []
-for i, j in G.edges():
-    lst.append([i, j, 1])
-ground_truth = pd.DataFrame(lst, columns=cols)
-
-
-# Print the pairs with trust value 0
-#for i, j in pairs_with_zero_trust:
-#    print(f"Pair with trust value 0: ({i}, {j})")
-    
-    
-
-
-#try:
-#    df = pd.read_csv(file_path, sep=',')
-#    print('File is comma-separated')
-#except pd.errors.ParserError:
-#    # If reading with comma as the delimiter fails, try space
-#    try:
-#        df = pd.read_csv(file_path, sep=' ')
-#        print('File is space-separated')
-#    except pd.errors.ParserError:
-#        print('Delimiter could not be determined')
-        
-user_ratings = rating.groupby('userid')['rating'].agg(list).reset_index()
-user_ratings['rating_vector'] = user_ratings['rating'].apply(np.array)
-
-print(user_ratings)
-print(user_ratings[user_ratings['userid'] == 1362])
-
-
-
-# def calculate_similarity(user_vector, center_vector):
-#     return np.dot(user_vector, center_vector) / (np.linalg.norm(user_vector) * np.linalg.norm(center_vector))
 
 def calculate_rating_similarity(rating_vector_i, rating_vector_j):
+    len_i = len(rating_vector_i)
+    len_j = len(rating_vector_j)
+    max_len = max(len_i, len_j)
+    # Compute the numerator as the dot product
+    # common_keys = set(ratings_i.keys()).intersection(ratings_j.keys())
+    # numerator = sum(ratings_i[k] * ratings_j[k] for k in common_keys)
+
+
+    # numerator = sum(rating_vector_i[k] * rating_vector_j[k] for k in range(len(rating_vector_i)))
+    # Zero-pad the shorter vectors to make them equal in length
+    rating_vector_i = np.pad(rating_vector_i, (0, max_len - len_i))
+    rating_vector_j = np.pad(rating_vector_j, (0, max_len - len_j))
+
+    dot_product = np.sum(rating_vector_i * rating_vector_j)
+    norm_i = np.sqrt(np.sum(rating_vector_i**2))
+    norm_j = np.sqrt(np.sum(rating_vector_j**2))
+    # Check for zero norm to avoid division by zero
+    if norm_i == 0 or norm_j == 0:
+        raise ValueError("Vector norms must be non-zero for similarity calculation.")
+    
+    rating_similarity = dot_product / (norm_i * norm_j)
+    return rating_similarity
+
+def calculate_rating_similarity2(rating_vector_i, rating_vector_j):
+    comm_id_i = cd_algo[cd_algo['Node'] == i]['Community'].iloc[0]
+    comm_id_j = cd_algo[cd_algo['Node'] == j]['Community'].iloc[0]
     len_i = len(rating_vector_i)
     len_j = len(rating_vector_j)
 
@@ -118,130 +68,275 @@ def calculate_rating_similarity(rating_vector_i, rating_vector_j):
     return rating_similarity
 
 
-lst = []
+#def prediction(G,cd_algo,cc,rating,overlap):
+def prediction(graphfile,communityfile,community_center,ratingfile,overlap):
+    column_names = ['Column1','Column2']
+    
+    G = nx.read_edgelist(graphfile,delimiter=' ', nodetype=int)
+    #G = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv",sep = ' ',names=column_names)
+    #louvain = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/community_clusters/renumbered_graph_ciao_label_prop.csv',sep= ',')
+    cd_algo = pd.read_csv(communityfile,sep = ',')
+    cc = pd.read_csv(community_center)
+    rating = pd.read_csv(ratingfile)
+#    print(cd_algo, cc, ratingfile)
+    print(ratingfile)
+    
+    '''
+    G = nx.read_edgelist('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv',delimiter=' ', nodetype=int)
+    #G = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv",sep = ' ',names=column_names)
+    #louvain = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/community_clusters/renumbered_graph_ciao_label_prop.csv',sep= ',')
+    cd_algo = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/community_clusters/louvain_ciao.csv",sep = ' ')
+    cc = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/propensity_subgraph_louvain/centerclusters.csv')
+    rating = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/ciao_rating.csv')
 
-centrality_measure_list = cc.colums
-for cmeasure in centrality_measure_list:
-    for i, j in N:
-    #    i = row['Column1']
-    #    j = row['Column2']
-    #    print(i,j)
-        comm_id_i = cd_algo[cd_algo['Node'] == i]['Community'].iloc[0]
-    #    print('cluster number', comm_id_i)
-        representative_node_of_i = cc[cc['Cluster'] == comm_id_i][cmeasure].iloc[0]
-    #    print('representative_node_of_i',representative_node_of_i)
-        comm_id_j = cd_algo[cd_algo['Node'] == i]['Community'].iloc[0]
-        representative_node_of_j = cc[cc['Cluster'] == comm_id_j][cmeasure].iloc[0]
-        user_vector = user_ratings[user_ratings['userid'] == i]['rating_vector'].iloc[0]
-        center_vector_i = user_ratings[user_ratings['userid'] == representative_node_of_i]['rating_vector'].iloc[0]
-        
-        Rici = calculate_rating_similarity(user_vector,center_vector_i)
-        user_vector = user_ratings[user_ratings['userid'] == j]['rating_vector'].iloc[0]
-        center_vector_j = user_ratings[user_ratings['userid'] == representative_node_of_j]['rating_vector'].iloc[0]
-        Rjcj = calculate_rating_similarity(user_vector,center_vector_j)
-        CiCj = calculate_rating_similarity(center_vector_i,center_vector_j)
-
-        # print(i,j)
-    #    print(representative_node_of_i,representative_node_of_j,CiCj)
-        # this one for non overlapping cluster. For ovelapping sum up with other cluster center as well.
-        valuelist = [Rici,Rjcj,CiCj]
-    #    print(statistics.mean(valuelist))
-    #    predicted_values
-        
-
-        predicted_value = (statistics.mean([Rici, Rjcj, CiCj]))
-        lst.append([i,j,predicted_value])
-
-        # Append ground truth and predicted values
-    #    ground_truth.append(G[i][j]['trust_value'])
-    #    predicted_values.append(predicted_value)
-        
-    # Convert predicted values to binary (0 or 1)
-
-    predicted_values = pd.DataFrame(lst, columns=cols)
-    print(predicted_values)
-    predicted_values['TrustValue'] = predicted_values['TrustValue'].apply(lambda avg: 1 if avg > 0.60 else 0)
-    #predicted_values.to_csv("predicted_values.csv")
-    #ground_truth.to_csv("ground_truth.csv")
-
-    common_pairs = pd.merge(ground_truth, predicted_values, on=['Node1', 'Node2'], how='inner')
-    print(common_pairs.shape)
-    # Extract ground truth and predicted values for common pairs
-    ground_truth_common = common_pairs['TrustValue_x'].tolist()
-    predicted_values_common = common_pairs['TrustValue_y'].tolist()
-
-    # Calculate accuracy for common pairs
-    accuracy_common = accuracy_score(ground_truth_common, predicted_values_common)
-    print("Centrality Measure", cmeasure)
-    print("Accuracy for Common Pairs:", accuracy_common)
-
-
-#predicted_values_binary = [1 if avg > 0.86 else 0 for avg in predicted_values]
 
     
-#    # Assuming you have a function predict_trust_value(i, j) that predicts trust values
-#    predicted_values = [predict_trust_value(i, j) for i, j in user_pairs]
-#
-#    # Extract actual trust values
-#    actual_values = [G[i][j]['trust_value'] for i, j in user_pairs]
-#
-#    # Compare predictions with ground truth
-#    correct_predictions = sum(predicted == actual for predicted, actual in zip(predicted_values, actual_values))
-#
-#    # Calculate accuracy
-#    accuracy = correct_predictions / len(user_pairs)
-#
-#    print("Accuracy:", accuracy)
+    ciao = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv",sep = ' ',names=column_names)
+    cd_algo = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/ego_splitting_ciao.csv")
+    cc = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/propensity_subgraph_egosplit/centerclusters_egosplit.csv')
+    rating = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/ciao_rating.csv')
+    # print(rating.shape)
+
+    #G = nx.read_edgelist('/Users/shrabanighosh/Downloads/data/trust_prediction/epinions/renumbered_graph_epinions.csv',delimiter=' ', nodetype=int)
+    #cd_algo = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/epinions/ego_splitting_epinions.csv")
+    #cc = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/epinions/propensity_subgraph_egosplit/centerclusters_egosplit.csv')
+    #rating = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/epinions/epinions_rating.csv')
+    #print(rating.shape)
+    '''
+
+    '''
+    user_pairs = list(itertools.combinations(G.nodes(), 2))
+
+    # Shuffle the user pairs randomly
+    random.shuffle(user_pairs)
+
+    # Calculate the size for the 'N' set (e.g., 50% of the pairs)
+    N_size = int(0.0050 * len(user_pairs))
+    #
+    ## Take the first N_size pairs for setting trust values to 0
+    N = user_pairs[:N_size]
+    print('pairs', len(N))
+    '''
+
+    x = [50,60,70,80,90]
+
+    df = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/ground_truth.csv')
+    ground_truth = df.sample(frac=0.5, random_state=42)
+
+    '''
+    cols=['Node1', 'Node2', 'TrustValue']
+    ground_truth_1 = pd.DataFrame(G.edges(), columns=['Node1', 'Node2'])
+    ground_truth_1['TrustValue'] = 1
+
+    percentage = x[0]
+    sampled_df = df.sample(frac=percentage)
+    #rest_df = df.drop(sampled_df.index)
+
+    #not_in_edges = [(i, j) for i, j in user_pairs if (i, j) not in G.edges()]
+
+    ground_truth_0 = pd.DataFrame(not_in_edges, columns=['Node1', 'Node2'])
+
+    ground_truth_0['TrustValue'] = 0
+
+    # shuffled_df = ground_truth_0.sample(frac=1, random_state=42)  # Use random_state for reproducibility
+    #shuffled_df = df_C.sample(frac=1).reset_index(drop=True)
+    #ground_truth_0 = shuffled_df.sample(n=84543, random_state=42)
+    ground_truth_0 = ground_truth_0.sample(n=284590, random_state=42)
 
 
-    # break 
+    print("ground_truth_0",ground_truth_0)
+    print("ground_truth_1",ground_truth_1)
+
+
+    ground_truth = pd.concat([ground_truth_1, ground_truth_0])
+
+    print("ground_truth",ground_truth.shape)
+
+    '''
+            
+    user_ratings = rating.groupby('userid')['rating'].agg(list).reset_index()
+    user_ratings['rating_vector'] = user_ratings['rating'].apply(np.array)
+
+#    print('cd_algo',cd_algo)
+
+
+    lst = []
+    centrality_measure_list = ['MaxClosenessNode','MaxSameAsDegreeCentralityNode','MaxBetweennessNode','MaxOutCentralityNode','MaxinCentralityNode','RandomNode']
+    cols=['Node1', 'Node2', 'TrustValue']
+    if (overlap == 'overlapping'):
+        print(overlap)
+        centrality_measure_list = ['MaxOutCentralityNode','MaxinCentralityNode','RandomNode']
+        print(cd_algo['Node'].max())
+        for cmeasure in centrality_measure_list:
+            for index, row in tqdm(ground_truth.iterrows(), total=len(ground_truth)):
+                i = row['Node1']
+                j = row['Node2']
+            # for i, j in tqdm(N,desc="Processing pairs"):
+                comm_id_i = cd_algo[cd_algo['Node'] == i]['Community'].iloc[0]
+                comm_id_j = cd_algo[cd_algo['Node'] == j]['Community'].iloc[0]
+                # print(len(comm_id_i), len(comm_id_j))
+                if (len(comm_id_i) == 2 or len(comm_id_j) == 2):   # some nodes not assigned to any community
+                    continue
+                comm_id_i = [int(x) for x in comm_id_i.strip('[]').split(', ')]
+                comm_id_j = [int(x) for x in comm_id_j.strip('[]').split(', ')]
+                avg_predicted_values = []
+                # print('comm_id_i',{comm_id_i}, comm_id_j, {comm_id_j})
+                # combinations = list(itertools.product(comm_id_i, comm_id_i))
+                # print(len(comm_id_i), len(comm_id_j))
+                # for id1, id2 in zip(comm_id_i, comm_id_j):
+                # calculate RiCi (i to community centers i belongs to)
+                user_vector_i = user_ratings[user_ratings['userid'] == i]['rating_vector'].iloc[0]
+                user_vector_j = user_ratings[user_ratings['userid'] == j]['rating_vector'].iloc[0]
+                sum = 0
+
+                for c_i in comm_id_i:
+                    for c_j in comm_id_j:
+                        representative_node_c_i = cc[cc['Cluster'] == c_i][cmeasure].iloc[0]
+                        representative_node_c_j = cc[cc['Cluster'] == c_j][cmeasure].iloc[0]
+                        center_vector_c_i = user_ratings[user_ratings['userid'] == representative_node_c_i]['rating_vector'].iloc[0]
+                        center_vector_c_j = user_ratings[user_ratings['userid'] == representative_node_c_j]['rating_vector'].iloc[0]
+                        R_ic_i = calculate_rating_similarity(user_vector_i, center_vector_c_i)
+                        R_jc_j = calculate_rating_similarity(user_vector_j, center_vector_c_j)
+                        R_c_i_c_j = calculate_rating_similarity(center_vector_c_i, center_vector_c_j)
+                        predicted_value = np.mean([R_ic_i, R_jc_j, R_c_i_c_j])
+                        avg_predicted_values.append(predicted_value)
+
+                # for cmid in comm_id_i:
+                #     representative_node = cc[cc['Cluster'] == cmid][cmeasure].iloc[0]
+                #     center_vector = user_ratings[user_ratings['userid'] == representative_node]['rating_vector'].iloc[0]
+                #     sum += calculate_rating_similarity(user_vector_i,center_vector)
+                #     sum 
+
+
+
+                # for id1, id2 in combinations:
+                #     representative_node_of_i = cc[cc['Cluster'] == id1][cmeasure].iloc[0]
+                #     representative_node_of_j = cc[cc['Cluster'] == id2][cmeasure].iloc[0]
+                #     user_vector = user_ratings[user_ratings['userid'] == i]['rating_vector'].iloc[0]
+                #     center_vector_i = user_ratings[user_ratings['userid'] == representative_node_of_i]['rating_vector'].iloc[0]
+                    
+                #     Rici = calculate_rating_similarity(user_vector,center_vector_i)
+                #     user_vector = user_ratings[user_ratings['userid'] == j]['rating_vector'].iloc[0]
+                #     center_vector_j = user_ratings[user_ratings['userid'] == representative_node_of_j]['rating_vector'].iloc[0]
+                #     Rjcj = calculate_rating_similarity(user_vector,center_vector_j)
+                #     CiCj = calculate_rating_similarity(center_vector_i,center_vector_j)
+                #     # print(i,j)
+                # #    print(representative_node_of_i,representative_node_of_j,CiCj)
+                #     # this one for non overlapping cluster. For ovelapping sum up with other cluster center as well.
+                #     valuelist = [Rici,Rjcj,CiCj]
+                #     predicted_value = (statistics.mean([Rici, Rjcj, CiCj]))
+                #     avg_predicted_values.append(predicted_value)
+                max_predict = max(avg_predicted_values)
+                lst.append([i,j,max_predict])
+
+            predicted_values = pd.DataFrame(lst, columns=cols)
+            print('predicted_values', predicted_values)
+            predicted_values['TrustValue_new'] = predicted_values['TrustValue'].apply(lambda avg: 1 if avg > 0.80 else 0)
+            
+            common_pairs = pd.merge(ground_truth, predicted_values, on=['Node1', 'Node2'], how='inner')
+            print(common_pairs.shape)
+            common_pairs = common_pairs.rename(columns={'TrustValue_x': 'ground_truth', 'TrustValue_new': 'predicted_value','TrustValue_y':'score'})
+            filename =  cmeasure + "_predict_ground_truth.csv"
+            common_pairs.to_csv(filename)
+            
+            # Extract ground truth and predicted values for common pairs
+            ground_truth_common = common_pairs['ground_truth'].tolist()
+            predicted_values_common = common_pairs['predicted_value'].tolist()
+          
+
+            # Calculate accuracy for common pairs
+            accuracy_common = accuracy_score(ground_truth_common, predicted_values_common)
+            print("Centrality Measure", cmeasure)
+            print("Accuracy for Common Pairs:", accuracy_common)
     
+    else:
+        print(overlap)
+        print(cd_algo)
+#        centrality_measure_list = ['MaxOutCentralityNode','MaxinCentralityNode','RandomNode']
+        centrality_measure_list = ['MaxSameAsDegreeCentralityNode','MaxBetweennessNode','MaxOutCentralityNode','MaxinCentralityNode','RandomNode']
+        # centrality_measure_list = ['MaxOutCentralityNode']
+        print(cd_algo['Node'].max())
+        for cmeasure in centrality_measure_list:
+            for index, row in tqdm(ground_truth.iterrows(), total=len(ground_truth)):
+                i = row['Node1']
+                j = row['Node2']
+            # for i, j in tqdm(N,desc="Processing pairs"):
+                id1 = cd_algo[cd_algo['Node'] == i]['Community'].iloc[0]
+                id2 = cd_algo[cd_algo['Node'] == j]['Community'].iloc[0]
+                # print(len(comm_id_i), len(comm_id_j))
+                # if (len(comm_id_i) == 2 or len(comm_id_j) == 2):   # some nodes not assigned to any community
+                #     continue
+                # comm_id_i = [int(x) for x in comm_id_i.strip('[]').split(', ')]
+                # comm_id_j = [int(x) for x in comm_id_j.strip('[]').split(', ')]
+                avg_predicted_values = []
+                # combinations = list(itertools.product(comm_id_i, comm_id_i))
+                # print(len(comm_id_i), len(comm_id_j))
+                # for id1, id2 in zip(comm_id_i, comm_id_j):
+                # for id1, id2 in combinations:
+                representative_node_of_i = cc[cc['Cluster'] == id1][cmeasure].iloc[0]
+                representative_node_of_j = cc[cc['Cluster'] == id2][cmeasure].iloc[0]
+                user_vector = user_ratings[user_ratings['userid'] == i]['rating_vector'].iloc[0]
+                center_vector_i = user_ratings[user_ratings['userid'] == representative_node_of_i]['rating_vector'].iloc[0]
+                
+                Rici = calculate_rating_similarity(user_vector,center_vector_i)
+                user_vector = user_ratings[user_ratings['userid'] == j]['rating_vector'].iloc[0]
+                center_vector_j = user_ratings[user_ratings['userid'] == representative_node_of_j]['rating_vector'].iloc[0]
+                Rjcj = calculate_rating_similarity(user_vector,center_vector_j)
+                CiCj = calculate_rating_similarity(center_vector_i,center_vector_j)
 
+                    # print(i,j)
+                #    print(representative_node_of_i,representative_node_of_j,CiCj)
+                    # this one for non overlapping cluster. For ovelapping sum up with other cluster center as well.
+                valuelist = [Rici,Rjcj,CiCj]
+                predicted_value = (statistics.mean([Rici, Rjcj, CiCj]))
+                avg_predicted_values.append(predicted_value)
+                max_predict = max(avg_predicted_values)
+                lst.append([i,j,max_predict])
 
+            predicted_values = pd.DataFrame(lst, columns=cols)
+            print('predicted_values', predicted_values)
+            predicted_values['TrustValue_new'] = predicted_values['TrustValue'].apply(lambda avg: 1 if avg > 0.60 else 0)
+            
+            common_pairs = pd.merge(ground_truth, predicted_values, on=['Node1', 'Node2'], how='inner')
+            print(common_pairs.shape)
+            common_pairs = common_pairs.rename(columns={'TrustValue_x': 'ground_truth', 'TrustValue_new': 'predicted_value','TrustValue_y':'score'})
+            filename =  cmeasure + "_predict_ground_truth.csv"
+            common_pairs.to_csv(filename)
+            
+            # Extract ground truth and predicted values for common pairs
+            ground_truth_common = common_pairs['ground_truth'].tolist()
+            predicted_values_common = common_pairs['predicted_value'].tolist()
+          
 
-
-
-'''
-
-# Calculate the rating similarities for each user with their corresponding community centers
-user_community_similarities = {}
-
-for user, ratings in user_ratings.items():
-    user_community_similarities[user] = {}
-    for label in user_labels[user]:
-        center = community_centers[label]
-        similarity = calculate_similarity(ratings, center)
-        user_community_similarities[user][label] = similarity
-
-# Calculate the rating similarities between all community centers
-community_similarity_matrix = np.zeros((len(community_centers), len(community_centers)))
-
-for i, label_i in enumerate(community_centers):
-    for j, label_j in enumerate(community_centers):
-        center_i = community_centers[label_i]
-        center_j = community_centers[label_j]
-        similarity = calculate_similarity(center_i, center_j)
-        community_similarity_matrix[i, j] = similarity
-
-# Calculate the final trust value between users as the maximum overlap of community similarities
-def calculate_final_trust(user1, user2):
-    user1_similarities = user_community_similarities[user1]
-    user2_similarities = user_community_similarities[user2]
+            # Calculate accuracy for common pairs
+            accuracy_common = accuracy_score(ground_truth_common, predicted_values_common)
+            print("Centrality Measure", cmeasure)
+            print("Accuracy for Common Pairs:", accuracy_common)
     
-    max_overlap = 0
-    for label in user_labels[user1]:
-        if label in user_labels[user2]:
-            overlap = min(user1_similarities[label], user2_similarities[label])
-            max_overlap = max(max_overlap, overlap)
     
-    return max_overlap
+def parse_args():
+   parser = argparse.ArgumentParser(description="Read File")
+   parser.add_argument("--graphfile",type = str)
+   parser.add_argument("--communityfile",type = str)
+   parser.add_argument("--community_center",type = str)
+   parser.add_argument("--ratingfile",type = str)
+   parser.add_argument("--overlap",type = str)
+   return parser.parse_args()
 
-# Example usage
-user1 = 'user_i'
-user2 = 'user_j'
-final_trust_value = calculate_final_trust(user1, user2)
-for index, row in ciao.iterrows():
-    i = row['Column1']
-    comm_id = louvain[louvain['Node'] == i]['Community'].iloc[0]
-    
-'''
+
+def main():
+   inputs=parse_args()
+   start_time = time.time()
+   prediction(inputs.graphfile,inputs.communityfile,inputs.community_center,inputs.ratingfile,inputs.overlap)
+   end_time = time.time()
+   elapsed_time_seconds = end_time - start_time
+
+    # Convert elapsed time to hours and minutes
+   elapsed_hours = int(elapsed_time_seconds // 3600)
+   elapsed_minutes = int((elapsed_time_seconds % 3600) // 60)
+
+    # print("Start Time:", start_time)
+    # print("End Time:", end_time)
+   print("Elapsed Time:", elapsed_hours, "hours", elapsed_minutes, "minutes")
+if __name__ == '__main__':
+    main()
