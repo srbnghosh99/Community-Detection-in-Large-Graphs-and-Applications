@@ -23,12 +23,13 @@ AGE clustering algoritm is from paper "Adaptive Graph Encoder for Attributed Gra
 ## how to run the code?
 
 Indivually running the models
+
+Spectral Clustering --> python3 spectral_clustering.py --inputfilename filename_directory --outputfilename filename_diectory 
+
+Louvain Algorithm --> python3 louvain_algorithm.py --inputfilename filename_directory --outputfilename filename_diectory 
+
 node2vec -- > 
 python3 src/main.py --input graph/karate.edgelist --output emb/karate.emd. ## Graph embedding
-
-python3 src/clustering.py. # clusterng using spectral method.
-
-Louvain Algorithm --> python3 louvain_algorithm.py
 
 EgoSplitting Algorithm --> python3 src/main.py --edge-path input/authorname_edges.edgelist --output-path output/author_cluster_memberships.json
 
