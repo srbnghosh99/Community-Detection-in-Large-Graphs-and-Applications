@@ -1,5 +1,15 @@
 ## Run Commands
+
+# Process downloaded rawfile 
 python3 process_rawfile.py --dataset epinions --directory /Users/shrabanighosh/Downloads/data/recommendation_system
+
+
+# run different community detection algorithms. for overlapping convert json file to csv and process the 
+python3  jsontocsv.py --inputfilename /Users/shrabanighosh/Downloads/data/recommendation_system/ciao/ego_splitting_res2.5_min10.json --outputfilename /Users/shrabanighosh/Downloads/data/recommendation_system/ciao/ego_splitting_res2.5_min10.csv
+
+python3 overlapping_processing.py --inputfilename /Users/shrabanighosh/Downloads/data/recommendation_system/ciao/ego_splitting_res2.5_min10.csv
+
+python3  /Users/shrabanighosh/Downloads/data/jsontocsv.py --inputfilename /Users/shrabanighosh/Downloads/data/recommendation_system/ciao/ego_splitting_res2.5_min10.json --outputfilename /Users/shrabanighosh/Downloads/data/recommendation_system/ciao/ego_splitting_res2.5_min10.csv
 
 python3 social_recommendation_system.py --graph /Users/shrabanighosh/Downloads/data/recommendation_system/epinions/renumbered_graph_epinions.csv --cdfile /Users/shrabanighosh/Downloads/data/recommendation_system/epinions/ego_splitting_epinions_res2.5_min5.csv --outdir /Users/shrabanighosh/Downloads/data/recommendation_system/epinions/ego_splitting_epinions_res2.5_min5/ --overlap overlapping
 
