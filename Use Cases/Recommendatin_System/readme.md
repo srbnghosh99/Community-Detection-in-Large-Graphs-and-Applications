@@ -1,10 +1,10 @@
 ## Run Commands
 
-# Process downloaded rawfile 
+### Process downloaded rawfile 
 python3 process_rawfile.py --dataset epinions --directory /Users/shrabanighosh/Downloads/data/recommendation_system
 
 
-# run different community detection algorithms. for overlapping convert json file to csv and process the 
+### run different community detection algorithms. for overlapping convert json file to csv and process the 
 python3  jsontocsv.py --inputfilename /Users/shrabanighosh/Downloads/data/recommendation_system/ciao/ego_splitting_res2.5_min10.json --outputfilename /Users/shrabanighosh/Downloads/data/recommendation_system/ciao/ego_splitting_res2.5_min10.csv
 
 python3 overlapping_processing.py --inputfilename /Users/shrabanighosh/Downloads/data/recommendation_system/ciao/ego_splitting_res2.5_min10.csv
