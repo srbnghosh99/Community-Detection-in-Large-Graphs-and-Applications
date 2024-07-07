@@ -1,5 +1,5 @@
 ## Run Commands
-python3 /Users/shrabanighosh/Downloads/data/recommendation_system/process_rawfile.py --dataset epinions --directory /Users/shrabanighosh/Downloads/data/recommendation_system
+python3 process_rawfile.py --dataset epinions --directory /Users/shrabanighosh/Downloads/data/recommendation_system
 
 python3 social_recommendation_system.py --graph /Users/shrabanighosh/Downloads/data/recommendation_system/epinions/renumbered_graph_epinions.csv --cdfile /Users/shrabanighosh/Downloads/data/recommendation_system/epinions/ego_splitting_epinions_res2.5_min5.csv --outdir /Users/shrabanighosh/Downloads/data/recommendation_system/epinions/ego_splitting_epinions_res2.5_min5/ --overlap overlapping
 
