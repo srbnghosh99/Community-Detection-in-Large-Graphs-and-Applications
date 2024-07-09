@@ -79,6 +79,34 @@ class EgoNetSplitter(object):
         self.overlapping_partitions = {node: [] for node in self.graph.nodes()}
         for node, membership in self.partitions.items():
             self.overlapping_partitions[self.personality_map[node]].append(membership)
+        
+        # Optional: Merge small clusters to reduce the number of clusters
+        self._merge_small_clusters()
+    
+    def _merge_small_clusters(self):
+        # Example: Merging small clusters
+        min_cluster_size = 2  # Set a minimum cluster size threshold
+        cluster_sizes = {}
+        for membership in self.partitions.values():
+            if membership in cluster_sizes:
+
+                cluster_sizes[membership] += 1
+            else:
+                cluster_sizes[membership] = 1
+        # print(cluster_sizes)
+
+        small_clusters = {k for k, v in cluster_sizes.items() if v < min_cluster_size}
+        # print(small_clusters)
+        if small_clusters:
+            largest_cluster = max(cluster_sizes, key=cluster_sizes.get)
+            for node, membership in self.partitions.items():
+                if membership in small_clusters:
+                    self.partitions[node] = largest_cluster
+
+            # Rebuild the overlapping partitions
+            self.overlapping_partitions = {node: [] for node in self.graph.nodes()}
+            for node, membership in self.partitions.items():
+                self.overlapping_partitions[self.personality_map[node]].append(membership)
 
     def fit(self, graph):
         """
@@ -98,4 +126,5 @@ class EgoNetSplitter(object):
         Return types:
             * **memberships** *(dictionary of lists)* - Cluster memberships.
         """
+        print(self.overlapping_partitions)
         return self.overlapping_partitions
