@@ -1,3 +1,4 @@
+#  <#Title#>
 
 import json
 import pandas as pd
@@ -19,14 +20,6 @@ from datetime import datetime, timedelta
 import time
 
 
-
-# Objective function components
-# objective_function(bu_grad, bi_grad, pu_grad, p_tilde_c_grad, qi_grad, lambda_)
-# def objective_function(bu, bi, pu, p_tilde_c, qi, lambda_):
-
-#     regularization = lambda_ * (np.sum(bu**2) + np.sum(bi**2) + np.sum(np.linalg.norm(pu, axis=1)**2) + 
-#                                 np.sum(np.linalg.norm(p_tilde_c, axis=1)**2) + np.sum(np.linalg.norm(qi, axis=1)**2))
-#     return regularization
 
 def objective_function(bu, bi, pu, p_tilde_c, qi, lambda_):
     pu = np.atleast_2d(pu)
@@ -443,8 +436,7 @@ def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,outpu
                 total_loss = 0
                 regularization_loss = 0
                 bu = bi = 0
-                # bu_grad = np.zeros(num_users)
-                # bi_grad = np.zeros(num_items)
+
                 qi = np.zeros(model.n_factors)
                 pu = np.zeros(model.n_factors)
 
@@ -453,11 +445,6 @@ def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,outpu
                 pu_grad = np.zeros((total_num_users, latent_dim))
                 qi_grad = np.zeros((total_num_items, latent_dim))
 
-                # Initialize gradients
-                # bu_grad = np.zeros(num_users)
-                # bi_grad = np.zeros(num_items)
-                # pu_grad = np.zeros((num_items, latent_dim))
-                # qi_grad = np.zeros((num_items, latent_dim))
 
                 model.fit(trainset)
                 fold += 1
@@ -473,14 +460,11 @@ def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,outpu
                 comm = node_propensity_df[node_propensity_df['userid'] == userid]['Community'].iloc[0]
                 # 'Closeness',  'SameAsDegreeCentrality', 'Betweenness'
                 propensity_variable = 'Betweenness'
-                # print('propensity_variable', propensity_variable)
+
                 propensity = node_propensity_df[node_propensity_df['userid'] == userid][propensity_variable].iloc[0]
-                # print("propensity",propensity)
                 result = 0
                 p_tilde_c_grad = propensity * community_preference_vector_df[community_preference_vector_df['Community'] == comm]['Rating_mean'].iloc[0]
-                # for index, prop in enumerate(propensity):
-                #     comm = communities[index]
-                # print('community_preference_vector_df',community_preference_vector_df)
+
                 if trainset.knows_user(userid):
                         # print('userid',userid)
                         inner_user_id = get_Iu(userid,trainset)
@@ -527,9 +511,6 @@ def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,outpu
         # Create a DataFrame
         df = pd.DataFrame({'Predicted Rating': predicted_ratings, 'Actual Rating': actual_ratings})
         df.to_csv(output_dir + dataset + '_accuracy.csv',index = False)
-        # # Display the DataFrame
-        # print(df)
-
         # df = pd.read_csv(output_dir+dataset+ "_accuracy.csv")
         # # Calculate Root Mean Squared Error (RMSE)
         predicted_ratings = df['Predicted Rating'].tolist()
@@ -564,10 +545,6 @@ def parse_args():
 
 def main():
     inputs=parse_args()
-#    print(inputs.cdfile)
-#    print(inputs.inputdir)
-#    print(inputs.outputdir)
-#    node_propensity(inputs.dataset,inputs.inputdir,inputs.outputdir)
     start_time = time.time()
     node_propensity(inputs.dataset,inputs.trustnet,inputs.ratingfile,inputs.communityfile,inputs.inputdir,inputs.output_dir,inputs.overlap)
     end_time = time.time()
@@ -577,8 +554,6 @@ def main():
     elapsed_hours = int(elapsed_time_seconds // 3600)
     elapsed_minutes = int((elapsed_time_seconds % 3600) // 60)
 
-    # print("Start Time:", start_time)
-    # print("End Time:", end_time)
     print("Elapsed Time:", elapsed_hours, "hours", elapsed_minutes, "minutes")
   
 
