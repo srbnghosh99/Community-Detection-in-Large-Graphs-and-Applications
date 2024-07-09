@@ -1,4 +1,3 @@
-import igraph as ig
 import matplotlib.pyplot as plt
 import pandas as pd
 from networkx.readwrite import json_graph
@@ -13,7 +12,7 @@ import os
 import argparse
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import shutil
-
+import time
 
 
 closeness = []
@@ -41,23 +40,6 @@ def clear_folder(outdirectory):
         print(f"The folder {outdirectory} does not exist.")
 
 def node_propensity(inDirectory,outdirectory):
-
-
-    # List of folder names you want to create
-    # folder_names = ['betweenness', 'MaxDegree', 'MaxTrustor', 'MaxTrustee','Random']
-
-    # # # Create the folders
-    # for folder_name in folder_names:
-    #     current_directory = os.getcwd()
-    #     folder_path = os.path.join(current_directory, folder_name)
-        
-    #     # Check if the folder already exists before creating it
-    #     if not os.path.exists(folder_path):
-    #         os.makedirs(folder_path)
-    #         print(f"Folder '{folder_name}' created successfully at '{folder_path}'.")
-    #     else:
-    #         print(f"Folder '{folder_name}' already exists at '{folder_path}'.")
-
     files = os.listdir(inDirectory)
     clear_folder(outdirectory)
 
@@ -67,12 +49,13 @@ def node_propensity(inDirectory,outdirectory):
         if os.path.isfile(os.path.join(inDirectory, file_name)):
             # Full path to the file
             input_file_name = os.path.join(inDirectory, file_name)
+            print('input_file_name',input_file_name)
             # with open(json_file, 'r') as file:
             #     data = json.load(file)
             node_script_path = '/Users/shrabanighosh/Downloads/ngraph.centrality-main/myscript_copy.js'
             # Get the directory of the Node.js script
             script_directory = os.path.dirname(os.path.abspath(node_script_path))
-            print("Script Directory:", script_directory)
+#            print("Script Directory:", script_directory)
             # Replace 'file_name.json' and 'output_file.json' with your actual parameters
     
             output_file_name = outdirectory +'/' +file_name
@@ -88,65 +71,26 @@ def node_propensity(inDirectory,outdirectory):
                 print(f"Error executing Node.js script: {e}")
 
 
-    # detected_community_df = pd.read_csv("ciao_trustnet_ego_splitting_membership.csv")
-    # print(detected_community_df)
-    # detected_community_df['Community'] = detected_community_df['Community'].apply(ast.literal_eval)
-    # for index, row in detected_community_df.iterrows():
-    #     node = str(row['Node'])
-    #     community = row['Community']
-    #     #    print(detected_community_df)
-    # #    print(community[0])
-    # #    folder_path = "propensity"
-    # #    file_names = os.listdir(folder_path)
-    # #    print(len(file_names))
-    #     a = []
-    #     b = []
-    #     c = []
-    #     for comm in community:
-    #         json_file = "propensity/comm_" + str(comm) + "_measure.json"
-    #         with open(json_file, 'r') as file:
-    #             data = json.load(file)
-    # #            print(data)
-    # #            print(data[node])
-    #             a.append(data[node]['closeness'])
-    #             b.append(data[node]['sameAsDegreeCentrality'])
-    #             c.append(data[node]['betweenness'])
-    #     closeness.append(a)
-    #     sameAsDegreeCentrality.append(b)
-    #     betweenness.append(c)
-        
-
-    # detected_community_df['Closeness'] = closeness
-    # detected_community_df['SameAsDegreeCentrality'] = sameAsDegreeCentrality
-    # detected_community_df['Betweenness'] = betweenness
-
-    # print(detected_community_df)
-
-    # detected_community_df.to_csv("node_propensity_dataframe.csv",index = False)
-    
-    
-    
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description="Read File")
     parser.add_argument("--inDirectory",type = str)
     parser.add_argument("--outDirectory",type = str)
-#    parser.add_argument("--outputfilename",type = str)
     return parser.parse_args()
 
 def main():
+    start_time = time.time()
     inputs=parse_args()
     print(inputs.inDirectory)
     print(inputs.outDirectory)
     node_propensity(inputs.inDirectory,inputs.outDirectory)
+    end_time = time.time()
+    elapsed_time_seconds = end_time - start_time
+    elapsed_hours = int(elapsed_time_seconds // 3600)
+    elapsed_minutes = int((elapsed_time_seconds % 3600) // 60)
+
+    print("Elapsed Time:", {elapsed_hours}, "hours", {elapsed_minutes}, "minutes")
   
 
 if __name__ == '__main__':
     main()
-
-#code run 
-#    
-# python3 node_propensity.py --inDirectory /Users/shrabanighosh/Downloads/data/trust_prediction/ciao/louvain
-#     --outDirectory /Users/shrabanighosh/Downloads/data/trust_prediction/ciao/propensity_subgraph
 
