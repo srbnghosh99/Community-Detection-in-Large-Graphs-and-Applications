@@ -13,15 +13,15 @@ python3 overlapping_processing.py --inputfilename /recommendation_system/ciao/eg
 
 ### Create community json files
 
-python3 social_recommendation_system.py --graph /recommendation_system/epinions/renumbered_graph_epinions.csv --cdfile /recommendation_system/epinions/ego_splitting_epinions_res2.5_min5.csv --outdir /recommendation_system/epinions/ego_splitting_epinions_res2.5_min5/ --overlap overlapping
+python3 social_recommendation_system.py --graph /recommendation_system/ciao/renumbered_graph_epinions.csv --cdfile /recommendation_system/ciao/ego_splitting_res2.5_min10.csv --outdir /recommendation_system/ciao/ego_splitting_res2.5_min10/ --overlap overlapping
 
 ### Create the node propensity for each community in json format
 
-python3 /trust_prediction/node_propensity.py --inDirectory /recommendation_system/epinions/ego_splitting_epinions_res2.5_min5 --outDirectory /recommendation_system/epinions/propensity_res2.5_min5
+python3 /trust_prediction/node_propensity.py --inDirectory /recommendation_system/ciao/ego_splitting_res2.5_min10 --outDirectory /recommendation_system/ciao/propensity_res2.5_min10
 
 ### Convert the json file in csv format
 
-python3 node_propensity.py --cdfile /recommendation_system/epinions/ego_splitting_epinions_res2.5_min5.csv --inputdir /recommendation_system/epinions/propensity_res2.5_min5 --outputdir /recommendation_system/epinions/propensity_res2.5_min5 --overlap overlapping
+python3 node_propensity.py --cdfile /recommendation_system/ciao/ego_splitting_res2.5_min5.csv --inputdir /recommendation_system/ciao/propensity_res2.5_min10 --outputdir /recommendation_system/ciao/propensity_res2.5_min10 --overlap overlapping
 
 ### Compute rating prediction
-python3 rating_prediction.py --dataset epinions --trustnet /recommendation_system/epinions/renumbered_graph_epinions.csv --ratingfile /recommendation_system/epinions/epinions_rating.csv --communityfile /recommendation_system/epinions/ego_splitting_epinions_res2.5_min5.csv --inputdir /recommendation_system/epinions --output_dir /recommendation_system/epinions/propensity_res2.5_min5/ --overlap overlapping
+python3 rating_prediction.py --dataset ciao --trustnet /recommendation_system/epinions/renumbered_graph_ciao.csv --ratingfile /recommendation_system/ciao/ciao_rating.csv --communityfile /recommendation_system/ciao/ego_splitting_res2.5_min10.csv --inputdir /recommendation_system/ciao --output_dir /recommendation_system/ciao/propensity_res2.5_min10/ --overlap overlapping
