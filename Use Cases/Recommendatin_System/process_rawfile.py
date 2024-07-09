@@ -28,7 +28,7 @@ def raw_file_read(directory,dataset):
     print(rating_df)
     print(trustnet_df)
     trustnet_df.to_csv(csv_fname,index = False)
-    print("done")
+    
 
     ### Renumber nodes
     G = nx.read_edgelist(csv_fname,delimiter=' ', nodetype=int)
@@ -44,6 +44,7 @@ def raw_file_read(directory,dataset):
     # Write the renumbered graph to a file
     output_file = "renumbered_graph_" + dataset + ".csv"
     nx.write_edgelist(G_renumbered, output_file, delimiter=' ', data=False)
+    print("done")
 
 
 
