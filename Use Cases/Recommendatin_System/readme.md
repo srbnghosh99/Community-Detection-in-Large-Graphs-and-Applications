@@ -1,5 +1,7 @@
 ## Run Commands
 
+###  Download the mat files from this link --> "https://www.cse.msu.edu/~tangjili/datasetcode/truststudy.htm"
+
 ### Process downloaded rawfile 
 python3 process_rawfile.py --dataset epinions --directory /Users/shrabanighosh/Downloads/data/recommendation_system
 
