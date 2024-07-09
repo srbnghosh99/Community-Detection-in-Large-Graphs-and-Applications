@@ -24,4 +24,4 @@ python3 /trust_prediction/node_propensity.py --inDirectory /recommendation_syste
 python3 node_propensity.py --cdfile /recommendation_system/ciao/ego_splitting_res2.5_min5.csv --inputdir /recommendation_system/ciao/propensity_res2.5_min10 --outputdir /recommendation_system/ciao/propensity_res2.5_min10 --overlap overlapping
 
 ### Compute rating prediction
-python3 rating_prediction.py --dataset ciao --trustnet /recommendation_system/epinions/renumbered_graph_ciao.csv --ratingfile /recommendation_system/ciao/ciao_rating.csv --communityfile /recommendation_system/ciao/ego_splitting_res2.5_min10.csv --inputdir /recommendation_system/ciao --output_dir /recommendation_system/ciao/propensity_res2.5_min10/ --overlap overlapping
+python3 rating_prediction.py --dataset ciao --trustnet /recommendation_system/ciao/renumbered_graph_ciao.csv --ratingfile /recommendation_system/ciao/ciao_rating.csv --communityfile /recommendation_system/ciao/ego_splitting_res2.5_min10.csv --inputdir /recommendation_system/ciao --output_dir /recommendation_system/ciao/propensity_res2.5_min10/ --overlap overlapping
