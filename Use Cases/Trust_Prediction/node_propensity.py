@@ -52,7 +52,7 @@ def node_propensity(inDirectory,outdirectory):
             print('input_file_name',input_file_name)
             # with open(json_file, 'r') as file:
             #     data = json.load(file)
-            node_script_path = '/Users/shrabanighosh/Downloads/ngraph.centrality-main/myscript_copy.js'
+            node_script_path = '/Users/shrabanighosh/Downloads/ngraph.centrality-main/myscript.js'
             # Get the directory of the Node.js script
             script_directory = os.path.dirname(os.path.abspath(node_script_path))
 #            print("Script Directory:", script_directory)
