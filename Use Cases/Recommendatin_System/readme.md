@@ -1,5 +1,7 @@
 ## Run Commands
 
+### python --version ---> Python 3.8.16
+
 ###  Download the mat files from this link --> "https://www.cse.msu.edu/~tangjili/datasetcode/truststudy.htm"
 
 ### Process downloaded rawfile 
