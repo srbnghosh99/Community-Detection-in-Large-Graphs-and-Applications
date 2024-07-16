@@ -60,7 +60,7 @@ def parse_args():
 
 def main():
     inputs=parse_args()
-    raw_file_read(inputs.directory,inputs.dataset)
+    raw_file_read(inputs.dataset)
 
 
 
