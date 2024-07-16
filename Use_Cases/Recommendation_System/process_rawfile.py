@@ -11,9 +11,10 @@ import networkx as nx
 #  Download the mat files from this link --> "https://www.cse.msu.edu/~tangjili/datasetcode/truststudy.htm"
 
 
-def raw_file_read(directory,dataset):
+def raw_file_read(dataset):
 
     # mat_fname = "/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/rating.mat"
+    directory = directory = os.getcwd()
     mat_fname = pjoin(directory,dataset, 'rating.mat')
     mat_contents = sio.loadmat(mat_fname)
     rating_array = mat_contents['rating']
@@ -55,12 +56,12 @@ def raw_file_read(directory,dataset):
 def parse_args():
     parser = argparse.ArgumentParser(description="Read File")
     parser.add_argument("--dataset",type = str)
-    parser.add_argument("--directory",type = str)
+    #parser.add_argument("--directory",type = str)
     return parser.parse_args()
 
 def main():
     inputs=parse_args()
-    raw_file_read(inputs.directory,inputs.dataset)
+    raw_file_read(inputs.dataset)
 
 
 
