@@ -290,7 +290,7 @@ def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,outpu
                 regularization_loss = objective_function(bu_grad, bi_grad, pu_grad, p_tilde_c_grad, qi_grad, lambda_)
                 total_loss = squarred_error_sum + regularization_loss
                 print('count',count)
-                print('total_loss',total_loss)
+                #print('total_loss',total_loss)
                 iteration_losses.append(total_loss)
             # Create a DataFrame
             df = pd.DataFrame({'Predicted Rating': predicted_ratings, 'Actual Rating': actual_ratings})
