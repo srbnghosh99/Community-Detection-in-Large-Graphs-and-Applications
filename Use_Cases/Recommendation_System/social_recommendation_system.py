@@ -81,9 +81,9 @@ def create_community_propensity(dataset, graph_file, cd_file, outdirectory, over
         for index, row in detected_community_df.iterrows():
             nodes = row['Node']
             community = row['Community']
-            print(community)
+#            print(community)
             for c in community:
-                print(c)
+#                print(c)
                 if c in community_mapping:
                     community_mapping[c].append(nodes)
                 else:
