@@ -1,10 +1,10 @@
 ## Run Commands
 
-### python --version ---> Python 3.8.16
+#### python --version ---> Python 3.8.16
 
 
-### To run this bash file, this module "https://github.com/srbnghosh99/Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality" is required.
-### use the myscript.js file directory from the module under "Trust_Prediction" python file node_propensity.py
+#### To run this bash file, this module "https://github.com/srbnghosh99/Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality" is required.
+#### use the myscript.js file directory from the module under "Trust_Prediction" python file node_propensity.py
 
 run bash file
 
