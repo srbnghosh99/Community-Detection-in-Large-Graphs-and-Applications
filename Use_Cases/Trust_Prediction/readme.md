@@ -2,7 +2,7 @@
 
 python3 subgraph_create.py --graphfile /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/renumbered_graph_epinions.csv --inputfilename /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/louvain_epinions_trustnet.csv --overlapping nonoverlapping --outdirectory /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/louvain
 
-
+### To run this python file, this module "https://github.com/srbnghosh99/Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality" is required. 
 python3 node_propensity.py --inDirectory /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/louvain --outDirectory /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/propensity_subgraph_louvain
 
 
