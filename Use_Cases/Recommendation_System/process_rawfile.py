@@ -46,8 +46,8 @@ def raw_file_read(dataset):
     mapping = {node: new_number + 1 for new_number, node in enumerate(remaining_nodes)}
     G_renumbered = nx.relabel_nodes(G, mapping)
     # Write the renumbered graph to a file
-    output_file = "renumbered_graph_" + dataset + ".csv"
-    filename = pjoin(directory,dataset, output_file)
+    filename  = "renumbered_graph_" + dataset + ".csv"
+    output_file = pjoin(directory,dataset, filename)
     
     nx.write_edgelist(G_renumbered, output_file, delimiter=' ', data=False)
     print("Done")
