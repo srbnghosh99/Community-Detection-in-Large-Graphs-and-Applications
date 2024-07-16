@@ -18,6 +18,7 @@ from sklearn.utils import shuffle
 from tqdm import tqdm 
 from datetime import datetime, timedelta
 import time
+from os.path import dirname, join as pjoin
 
 
 
@@ -59,7 +60,14 @@ def get_Iu(uid,trainset):
     except ValueError: # user was not part of the trainset
         return 0
 
-def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,output_dir,overlap):   
+def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,output_dir,overlap):
+    directory = os.getcwd()
+    trustnetfile = pjoin(directory,dataset, trustnetfile)
+    ratingfile = pjoin(directory,dataset, ratingfile)
+    communityfile = pjoin(directory,dataset, communityfile)
+    inputdir = pjoin(directory,dataset, inputdir)
+    output_dir = pjoin(directory,dataset, output_dir)
+
     rating = pd.read_csv(ratingfile)
     detected_community_df = pd.read_csv(communityfile)
     trustnet = pd.read_csv(trustnetfile, sep = ' ')
@@ -123,7 +131,7 @@ def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,outpu
         user_interests_df = pd.read_csv(output_dir + dataset +"_user_interests_df.csv")
         community_preference_vector_df = pd.read_csv(output_dir + dataset + "_community_preference_vector_df.csv")
         #column_names = ['userid', 'Closeness', 'SameAsDegreeCentrality','Betweenness']
-        node_propensity_df = pd.read_csv(output_dir + "epinions_node_propensity_dataframe.csv") 
+        node_propensity_df = pd.read_csv(output_dir + "/node_propensity_dataframe_test.csv") 
         node_propensity_df.rename(columns={'Node':'userid'}, inplace=True) 
         print(node_propensity_df.columns)
         print('node_propensity_df',node_propensity_df)

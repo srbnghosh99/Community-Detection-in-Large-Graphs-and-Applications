@@ -14,6 +14,7 @@ from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from datetime import datetime, timedelta
 import time
 import os
+from os.path import dirname, join as pjoin
 
 def clear_folder(outdirectory):
     print('Clear Folder')
@@ -45,7 +46,14 @@ def create_folder(outdirectory):
 
 
 
-def create_community_propensity(graph_file, cd_file, outdirectory, overlap):
+def create_community_propensity(dataset, graph_file, cd_file, outdirectory, overlap):
+
+    directory = os.getcwd()
+    # mat_fname = "/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/rating.mat"
+    graph_file = pjoin(directory,dataset, graph_file)
+    cd_file = pjoin(directory,dataset, cd_file)
+    outdirectory = pjoin(directory,dataset, outdirectory)
+    
     create_folder(outdirectory)
     clear_folder(outdirectory)
     start_time = datetime.now()
@@ -68,12 +76,14 @@ def create_community_propensity(graph_file, cd_file, outdirectory, overlap):
     if (overlap == 'overlapping'):
         detected_community_df['Community'] = detected_community_df['Community'].apply(ast.literal_eval)
         print(detected_community_df)
+        
+      
         for index, row in detected_community_df.iterrows():
             nodes = row['Node']
             community = row['Community']
-            # print(community)
+            print(community)
             for c in community:
-                # print(c)
+                print(c)
                 if c in community_mapping:
                     community_mapping[c].append(nodes)
                 else:
@@ -82,6 +92,9 @@ def create_community_propensity(graph_file, cd_file, outdirectory, overlap):
         community_df = pd.DataFrame(list(community_mapping.items()), columns=['Community', 'Nodes'])
         community_df['count'] = community_df['Nodes'].apply(len)
         community_df = community_df.sort_values(by='count', ascending=False)
+        
+        
+#        community_df = detected_community_df
         list_of_communities = community_df['Community'].tolist()
         print(community_df)
         print(list_of_communities)
@@ -136,7 +149,8 @@ def create_community_propensity(graph_file, cd_file, outdirectory, overlap):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Read File")
-    parser.add_argument("--graph",type = str)
+    parser.add_argument("--dataset",type = str)
+    parser.add_argument("--graphfile",type = str)
     parser.add_argument("--cdfile",type = str)
     parser.add_argument("--outdir",type = str)
     parser.add_argument("--overlap",type = str)
@@ -146,10 +160,10 @@ def main():
 
     start_time = time.time()
     inputs=parse_args()
-    print(inputs.graph)
+    print(inputs.graphfile)
     print(inputs.cdfile)
     print(inputs.outdir)
-    create_community_propensity(inputs.graph,inputs.cdfile,inputs.outdir,inputs.overlap)
+    create_community_propensity(inputs.dataset,inputs.graphfile,inputs.cdfile,inputs.outdir,inputs.overlap)
     # Get the end time
     end_time = time.time()
     elapsed_time_seconds = end_time - start_time

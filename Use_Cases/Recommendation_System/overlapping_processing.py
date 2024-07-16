@@ -3,9 +3,14 @@ import ast
 from collections import OrderedDict
 import argparse
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+import os
+from os.path import dirname, join as pjoin
 
 
-def processing(inputfilename):
+def processing(dataset,inputfilename):
+    
+    directory = os.getcwd()
+    inputfilename = pjoin(directory,dataset, inputfilename)
     df = pd.read_csv(inputfilename)
 #    print(df)
     df['Community'] = df['Community'].apply(lambda x: list(set(ast.literal_eval(x))))
@@ -44,13 +49,14 @@ def processing(inputfilename):
     
 def parse_args():
     parser = argparse.ArgumentParser(description="Read File")
+    parser.add_argument("--dataset",type = str)
     parser.add_argument("--inputfilename",type = str)
     return parser.parse_args()
 
 def main():
     inputs=parse_args()
-#    print(input.inputfilename)
-    processing(inputs.inputfilename)
+    print(inputs.dataset)
+    processing(inputs.dataset,inputs.inputfilename)
 
 if __name__ == "__main__":
     main()

@@ -6,13 +6,15 @@ import sys
 import re
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import networkx as nx
+import os
 
 # READ MAT FILES
 #  Download the mat files from this link --> "https://www.cse.msu.edu/~tangjili/datasetcode/truststudy.htm"
 
 
 def raw_file_read(directory,dataset):
-
+    
+    directory = os.getcwd()
     # mat_fname = "/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/rating.mat"
     mat_fname = pjoin(directory,dataset, 'rating.mat')
     mat_contents = sio.loadmat(mat_fname)
@@ -70,4 +72,4 @@ if __name__ == '__main__':
 
 #python3 /Users/shrabanighosh/Downloads/data/jsontocsv.py --inputfilename /recommendation_system/ciao/ego_splitting_res2.5_min10.json --outputfilename recommendation_system/ciao/ego_splitting_res2.5_min10.csv
 
-python3 /Users/shrabanighosh/Downloads/data/recommendation_system/overlapping_processing.py --inputfilename
+#python3 /Users/shrabanighosh/Downloads/data/recommendation_system/overlapping_processing.py --inputfilename

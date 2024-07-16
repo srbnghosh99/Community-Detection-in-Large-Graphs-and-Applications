@@ -1,0 +1,138 @@
+{
+  "654": {
+    "node": 654,
+    "closeness": 0.5714285714285714,
+    "sameAsDegreeCentrality": 6,
+    "betweenness": 5.616666666666666,
+    "inCentrality": 4,
+    "outCentrality": 2
+  },
+  "1480": {
+    "node": 1480,
+    "closeness": 0.6956521739130435,
+    "sameAsDegreeCentrality": 9,
+    "betweenness": 8.783333333333333,
+    "inCentrality": 1,
+    "outCentrality": 8
+  },
+  "3525": {
+    "node": 3525,
+    "closeness": 0.5714285714285714,
+    "sameAsDegreeCentrality": 5,
+    "betweenness": 1.4222222222222223,
+    "inCentrality": 0,
+    "outCentrality": 5
+  },
+  "3945": {
+    "node": 3945,
+    "closeness": 0.5925925925925926,
+    "sameAsDegreeCentrality": 6,
+    "betweenness": 2.172222222222222,
+    "inCentrality": 2,
+    "outCentrality": 4
+  },
+  "4137": {
+    "node": 4137,
+    "closeness": 0.6153846153846154,
+    "sameAsDegreeCentrality": 6,
+    "betweenness": 2.922222222222222,
+    "inCentrality": 1,
+    "outCentrality": 5
+  },
+  "4150": {
+    "node": 4150,
+    "closeness": 0.5714285714285714,
+    "sameAsDegreeCentrality": 5,
+    "betweenness": 0.3333333333333333,
+    "inCentrality": 4,
+    "outCentrality": 1
+  },
+  "4152": {
+    "node": 4152,
+    "closeness": 0.6666666666666666,
+    "sameAsDegreeCentrality": 8,
+    "betweenness": 18.53333333333333,
+    "inCentrality": 7,
+    "outCentrality": 1
+  },
+  "4398": {
+    "node": 4398,
+    "closeness": 0.7619047619047619,
+    "sameAsDegreeCentrality": 11,
+    "betweenness": 9.233333333333334,
+    "inCentrality": 6,
+    "outCentrality": 5
+  },
+  "4476": {
+    "node": 4476,
+    "closeness": 0.5,
+    "sameAsDegreeCentrality": 3,
+    "betweenness": 0,
+    "inCentrality": 3,
+    "outCentrality": 0
+  },
+  "4520": {
+    "node": 4520,
+    "closeness": 0.7619047619047619,
+    "sameAsDegreeCentrality": 11,
+    "betweenness": 15.75,
+    "inCentrality": 5,
+    "outCentrality": 6
+  },
+  "4867": {
+    "node": 4867,
+    "closeness": 0.41025641025641024,
+    "sameAsDegreeCentrality": 1,
+    "betweenness": 0,
+    "inCentrality": 0,
+    "outCentrality": 1
+  },
+  "5102": {
+    "node": 5102,
+    "closeness": 0.5333333333333333,
+    "sameAsDegreeCentrality": 4,
+    "betweenness": 1.5,
+    "inCentrality": 3,
+    "outCentrality": 1
+  },
+  "5103": {
+    "node": 5103,
+    "closeness": 0.6666666666666666,
+    "sameAsDegreeCentrality": 9,
+    "betweenness": 5.866666666666666,
+    "inCentrality": 6,
+    "outCentrality": 3
+  },
+  "5104": {
+    "node": 5104,
+    "closeness": 0.7272727272727273,
+    "sameAsDegreeCentrality": 10,
+    "betweenness": 5.866666666666666,
+    "inCentrality": 7,
+    "outCentrality": 3
+  },
+  "5566": {
+    "node": 5566,
+    "closeness": 0.6666666666666666,
+    "sameAsDegreeCentrality": 8,
+    "betweenness": 6.455555555555556,
+    "inCentrality": 8,
+    "outCentrality": 0
+  },
+  "5890": {
+    "node": 5890,
+    "closeness": 0.5714285714285714,
+    "sameAsDegreeCentrality": 5,
+    "betweenness": 1.9777777777777776,
+    "inCentrality": 0,
+    "outCentrality": 5
+  },
+  "6401": {
+    "node": 6401,
+    "closeness": 0.5925925925925926,
+    "sameAsDegreeCentrality": 7,
+    "betweenness": 3.5666666666666664,
+    "inCentrality": 0,
+    "outCentrality": 7
+  }
+}

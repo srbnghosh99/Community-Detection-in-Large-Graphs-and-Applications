@@ -1,6 +1,5 @@
 # <#Title#>
 
-import igraph as ig
 import matplotlib.pyplot as plt
 import pandas as pd
 from networkx.readwrite import json_graph
@@ -15,10 +14,15 @@ import argparse
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import os
 import time
+from os.path import dirname, join as pjoin
 
 
-
-def node_propensity(cdfile,inputdir,outputdir,overlap):
+def node_propensity(dataset,cdfile,inputdirectory,outdirectory,overlap):
+    directory = os.getcwd()
+    cdfile = pjoin(directory,dataset, cdfile)
+    inputdirectory = pjoin(directory,dataset, inputdirectory)
+    outdirectory = pjoin(directory,dataset, outdirectory)
+    
     detected_community_df = pd.read_csv(cdfile)
     closeness = []
     sameAsDegreeCentrality = []
@@ -27,7 +31,7 @@ def node_propensity(cdfile,inputdir,outputdir,overlap):
     outCentrality = []
     nodes = []
     community_name = []
-    print(detected_community_df)
+    # print(detected_community_df)
     
     # detected_community_df['Node'] = detected_community_df['Node'].apply(ast.literal_eval)
     count = 0
@@ -44,7 +48,7 @@ def node_propensity(cdfile,inputdir,outputdir,overlap):
             e = []
             for comm in community:
 
-                json_file = inputdir +  "/comm_" + str(comm) + ".json"
+                json_file = inputdirectory +  "/comm_" + str(comm) + ".json"
                 # print(json_file)
                 with open(json_file, 'r') as file:
                     data = json.load(file)
@@ -66,7 +70,7 @@ def node_propensity(cdfile,inputdir,outputdir,overlap):
 
 
         print(detected_community_df)
-        filename = outputdir + "/node_propensity_dataframe_test.csv"
+        filename = outdirectory + "/node_propensity_dataframe_test.csv"
         print(filename)
         detected_community_df.to_csv(filename,index = False)
 
@@ -74,11 +78,11 @@ def node_propensity(cdfile,inputdir,outputdir,overlap):
         json_files = []
 
         # Iterate over the files in the directory
-        for filename in os.listdir(inputdir):
+        for filename in os.listdir(inputdirectory):
             # Check if the file is a JSON file
             if filename.endswith('.json'):
                 # Add the file to the list
-                json_files.append(os.path.join(inputdir, filename))
+                json_files.append(os.path.join(inputdirectory, filename))
         print(len(json_files))
         # json_file = inputdir +  "/comm_" + str(community) + ".json"
         for json_file in json_files:
@@ -119,6 +123,7 @@ def node_propensity(cdfile,inputdir,outputdir,overlap):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Read File")
+    parser.add_argument("--dataset",type = str)
     parser.add_argument("--cdfile",type = str)
     parser.add_argument("--inputdir",type = str)
     parser.add_argument("--outputdir",type = str)
@@ -131,7 +136,7 @@ def main():
     print(inputs.cdfile)
     print(inputs.inputdir)
     print(inputs.outputdir)
-    node_propensity(inputs.cdfile,inputs.inputdir,inputs.outputdir,inputs.overlap)
+    node_propensity(inputs.dataset,inputs.cdfile,inputs.inputdir,inputs.outputdir,inputs.overlap)
     end_time = time.time()
     elapsed_time_seconds = end_time - start_time
     elapsed_hours = int(elapsed_time_seconds // 3600)
