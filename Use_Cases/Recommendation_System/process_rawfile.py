@@ -14,6 +14,7 @@ import networkx as nx
 def raw_file_read(dataset):
 
     # mat_fname = "/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/rating.mat"
+    directory = directory = os.getcwd()
     mat_fname = pjoin(directory,dataset, 'rating.mat')
     mat_contents = sio.loadmat(mat_fname)
     rating_array = mat_contents['rating']
