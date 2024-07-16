@@ -13,7 +13,7 @@ curl -O http://www.cse.msu.edu/~tangjili/datasetcode/ciao.zip
 
 unzip ciao.zip
 
-python3 process_rawfile.py --dataset ciao --directory ./
+python3 process_rawfile.py --dataset ciao
 
 python3 ../jsontocsv.py --dataset ciao --inputfilename ego_splitting_res2.5_min10.json
 
