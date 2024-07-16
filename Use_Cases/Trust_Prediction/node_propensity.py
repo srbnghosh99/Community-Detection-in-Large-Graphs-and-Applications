@@ -7,12 +7,13 @@ import seaborn as sns
 from pathlib import Path
 import csv
 import ast
-import subprocess# 
-import os
+import subprocess
 import argparse
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import shutil
 import time
+import os
+from os.path import dirname, join as pjoin
 
 
 closeness = []
@@ -21,7 +22,15 @@ betweenness = []
 inCentrality = []
 outCentrality = []
 
-
+def create_folder(outdirectory):
+    print('create folder')
+    try:
+        os.mkdir(outdirectory)
+        print(f"Directory '{outdirectory}' created successfully")
+    except FileExistsError:
+        print(f"Directory '{outdirectory}' already exists")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 def clear_folder(outdirectory):
     # Check if the folder exists
@@ -39,9 +48,16 @@ def clear_folder(outdirectory):
     else:
         print(f"The folder {outdirectory} does not exist.")
 
-def node_propensity(inDirectory,outdirectory):
+def node_propensity(dataset,inDirectory,outdirectory):
+    
+    directory = os.getcwd()
+    inDirectory = pjoin(directory,dataset, inDirectory)
+    outdirectory = pjoin(directory,dataset, outdirectory)
+    
     files = os.listdir(inDirectory)
+    create_folder(outdirectory)
     clear_folder(outdirectory)
+    
 
     # Iterate through the files
     for file_name in files:
@@ -52,7 +68,7 @@ def node_propensity(inDirectory,outdirectory):
             print('input_file_name',input_file_name)
             # with open(json_file, 'r') as file:
             #     data = json.load(file)
-            node_script_path = '/Users/shrabanighosh/Downloads/ngraph.centrality-main/myscript.js'
+            node_script_path = '/Users/shrabanighosh/Downloads/ngraph.centrality-main/myscript_copy.js'
             # Get the directory of the Node.js script
             script_directory = os.path.dirname(os.path.abspath(node_script_path))
 #            print("Script Directory:", script_directory)
@@ -73,6 +89,7 @@ def node_propensity(inDirectory,outdirectory):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Read File")
+    parser.add_argument("--dataset",type = str)
     parser.add_argument("--inDirectory",type = str)
     parser.add_argument("--outDirectory",type = str)
     return parser.parse_args()
@@ -82,7 +99,7 @@ def main():
     inputs=parse_args()
     print(inputs.inDirectory)
     print(inputs.outDirectory)
-    node_propensity(inputs.inDirectory,inputs.outDirectory)
+    node_propensity(inputs.dataset,inputs.inDirectory,inputs.outDirectory)
     end_time = time.time()
     elapsed_time_seconds = end_time - start_time
     elapsed_hours = int(elapsed_time_seconds // 3600)
