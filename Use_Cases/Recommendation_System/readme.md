@@ -4,7 +4,7 @@
 
 
 #### To run this bash file, this module "https://github.com/srbnghosh99/Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality" is required.
-#### use the myscript.js file directory from the module under "Trust_Prediction" python file node_propensity.py
+#### Put the directory of the myscript.js file from the module under "Trust_Prediction" python file node_propensity.py
 
 run bash file
 
