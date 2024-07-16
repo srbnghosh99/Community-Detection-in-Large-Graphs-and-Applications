@@ -5,6 +5,7 @@ import sys
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import pandas as pd
 import ast
+import os
 
 #convert overlapping and non-overlapping community outputs in csv files.
 # Specify the path to your JSON file and CSV output file
@@ -12,8 +13,11 @@ import ast
 #csv_file_path = 'author_names_communities_1.csv'
 
 
-def jsontocsv(json_file_path,csv_file_path):
+def jsontocsv(dataset,inputfilename):
 # Open and read the JSON file
+
+    current_directory = os.getcwd()
+    json_file_path = os.path.join(current_directory, dataset, inputfilename)
     with open(json_file_path, 'r') as json_file:
         data = json.load(json_file)
 
@@ -38,12 +42,18 @@ def jsontocsv(json_file_path,csv_file_path):
 
     #     csvwriter.writeheader()
     #     csvwriter.writerows(rows)
+    base_filename = os.path.splitext(inputfilename)[0]  # Remove extension
+    csv_file_name = base_filename + ".csv"
+    
+    csv_file_path = os.path.join(current_directory, dataset, csv_file_name)
+    
     with open(csv_file_path, 'w', newline='') as csvfile:
         fieldnames = ["Node", "Community"]
         csvwriter = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         csvwriter.writeheader()
         csvwriter.writerows(rows)
+    
     
     df = pd.read_csv(csv_file_path)
 #    df['Community'] = df['Community'].apply(ast.literal_eval)
@@ -53,16 +63,17 @@ def jsontocsv(json_file_path,csv_file_path):
 def parse_args():
    
     parser = argparse.ArgumentParser(description="Read File")
-
+    
+    parser.add_argument("--dataset",type = str)
     parser.add_argument("--inputfilename",type = str)
-    parser.add_argument("--outputfilename",type = str)
+#    parser.add_argument("--outputfilename",type = str)
     return parser.parse_args()
 
 def main():
     inputs=parse_args()
+    print(inputs.dataset)
     print(inputs.inputfilename)
-    print(inputs.outputfilename)
-    jsontocsv(inputs.inputfilename,inputs.outputfilename)
+    jsontocsv(inputs.dataset,inputs.inputfilename)
   
 
 if __name__ == '__main__':
