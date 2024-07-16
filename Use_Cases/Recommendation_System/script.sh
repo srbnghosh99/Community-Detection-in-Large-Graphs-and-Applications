@@ -9,7 +9,7 @@
 #    curl -O "$url"
 #done
 
-curl -O https://www.cse.msu.edu/~tangjili/datasetcode/ciao.zip
+curl -O http://www.cse.msu.edu/~tangjili/datasetcode/ciao.zip
 
 python3 process_rawfile.py --dataset ciao
 
