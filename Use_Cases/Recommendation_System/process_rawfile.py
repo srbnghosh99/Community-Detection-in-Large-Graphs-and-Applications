@@ -68,6 +68,6 @@ if __name__ == '__main__':
     main()
 
 
-python3 /Users/shrabanighosh/Downloads/data/jsontocsv.py --inputfilename /recommendation_system/ciao/ego_splitting_res2.5_min10.json --outputfilename recommendation_system/ciao/ego_splitting_res2.5_min10.csv
+#python3 /Users/shrabanighosh/Downloads/data/jsontocsv.py --inputfilename /recommendation_system/ciao/ego_splitting_res2.5_min10.json --outputfilename recommendation_system/ciao/ego_splitting_res2.5_min10.csv
 
 python3 /Users/shrabanighosh/Downloads/data/recommendation_system/overlapping_processing.py --inputfilename
