@@ -12,7 +12,7 @@ import os
 #  Download the mat files from this link --> "https://www.cse.msu.edu/~tangjili/datasetcode/truststudy.htm"
 
 
-def raw_file_read(directory,dataset):
+def raw_file_read(dataset):
     
     directory = os.getcwd()
     # mat_fname = "/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/rating.mat"
@@ -57,12 +57,11 @@ def raw_file_read(directory,dataset):
 def parse_args():
     parser = argparse.ArgumentParser(description="Read File")
     parser.add_argument("--dataset",type = str)
-    parser.add_argument("--directory",type = str)
     return parser.parse_args()
 
 def main():
     inputs=parse_args()
-    raw_file_read(inputs.directory,inputs.dataset)
+    raw_file_read(inputs.dataset)
 
 
 
