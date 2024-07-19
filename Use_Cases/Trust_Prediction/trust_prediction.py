@@ -17,6 +17,8 @@ import statistics
 from sklearn.metrics import accuracy_score
 from tqdm import tqdm
 import time
+import os
+from os.path import dirname, join as pjoin
 
 
 
@@ -68,91 +70,31 @@ def calculate_rating_similarity2(rating_vector_i, rating_vector_j):
     return rating_similarity
 
 
-#def prediction(G,cd_algo,cc,rating,overlap):
-def prediction(graphfile,communityfile,community_center,ratingfile,overlap):
+
+def prediction(dataset,graphfile,communityfile,community_center,ratingfile,overlap):
+    curr_directory = os.getcwd()
+    graphfile = pjoin(curr_directory,dataset, graphfile)
+    communityfile = pjoin(curr_directory,dataset, communityfile)
+    community_center = pjoin(curr_directory,dataset, community_center)
+    ratingfile = pjoin(curr_directory,dataset, ratingfile)
+    
     column_names = ['Column1','Column2']
     
     G = nx.read_edgelist(graphfile,delimiter=' ', nodetype=int)
     #G = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv",sep = ' ',names=column_names)
     #louvain = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/community_clusters/renumbered_graph_ciao_label_prop.csv',sep= ',')
-    cd_algo = pd.read_csv(communityfile,sep = ',')
+    cd_algo = pd.read_csv(communityfile,sep = ' ')
     cc = pd.read_csv(community_center)
     rating = pd.read_csv(ratingfile)
 #    print(cd_algo, cc, ratingfile)
     print(ratingfile)
-    
-    '''
-    G = nx.read_edgelist('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv',delimiter=' ', nodetype=int)
-    #G = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv",sep = ' ',names=column_names)
-    #louvain = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/community_clusters/renumbered_graph_ciao_label_prop.csv',sep= ',')
-    cd_algo = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/community_clusters/louvain_ciao.csv",sep = ' ')
-    cc = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/propensity_subgraph_louvain/centerclusters.csv')
-    rating = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/ciao_rating.csv')
-
-
-    
-    ciao = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv",sep = ' ',names=column_names)
-    cd_algo = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/ego_splitting_ciao.csv")
-    cc = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/propensity_subgraph_egosplit/centerclusters_egosplit.csv')
-    rating = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/ciao_rating.csv')
-    # print(rating.shape)
-
-    #G = nx.read_edgelist('/Users/shrabanighosh/Downloads/data/trust_prediction/epinions/renumbered_graph_epinions.csv',delimiter=' ', nodetype=int)
-    #cd_algo = pd.read_csv("/Users/shrabanighosh/Downloads/data/trust_prediction/epinions/ego_splitting_epinions.csv")
-    #cc = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/epinions/propensity_subgraph_egosplit/centerclusters_egosplit.csv')
-    #rating = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/epinions/epinions_rating.csv')
-    #print(rating.shape)
-    '''
-
-    '''
-    user_pairs = list(itertools.combinations(G.nodes(), 2))
-
-    # Shuffle the user pairs randomly
-    random.shuffle(user_pairs)
-
-    # Calculate the size for the 'N' set (e.g., 50% of the pairs)
-    N_size = int(0.0050 * len(user_pairs))
-    #
-    ## Take the first N_size pairs for setting trust values to 0
-    N = user_pairs[:N_size]
-    print('pairs', len(N))
-    '''
 
     x = [50,60,70,80,90]
-
-    df = pd.read_csv('/Users/shrabanighosh/Downloads/data/trust_prediction/ciao/ground_truth.csv')
+    
+    fname = pjoin(curr_directory,dataset, 'ground_truth.csv')
+    df = pd.read_csv(fname)
+    
     ground_truth = df.sample(frac=0.5, random_state=42)
-
-    '''
-    cols=['Node1', 'Node2', 'TrustValue']
-    ground_truth_1 = pd.DataFrame(G.edges(), columns=['Node1', 'Node2'])
-    ground_truth_1['TrustValue'] = 1
-
-    percentage = x[0]
-    sampled_df = df.sample(frac=percentage)
-    #rest_df = df.drop(sampled_df.index)
-
-    #not_in_edges = [(i, j) for i, j in user_pairs if (i, j) not in G.edges()]
-
-    ground_truth_0 = pd.DataFrame(not_in_edges, columns=['Node1', 'Node2'])
-
-    ground_truth_0['TrustValue'] = 0
-
-    # shuffled_df = ground_truth_0.sample(frac=1, random_state=42)  # Use random_state for reproducibility
-    #shuffled_df = df_C.sample(frac=1).reset_index(drop=True)
-    #ground_truth_0 = shuffled_df.sample(n=84543, random_state=42)
-    ground_truth_0 = ground_truth_0.sample(n=284590, random_state=42)
-
-
-    print("ground_truth_0",ground_truth_0)
-    print("ground_truth_1",ground_truth_1)
-
-
-    ground_truth = pd.concat([ground_truth_1, ground_truth_0])
-
-    print("ground_truth",ground_truth.shape)
-
-    '''
             
     user_ratings = rating.groupby('userid')['rating'].agg(list).reset_index()
     user_ratings['rating_vector'] = user_ratings['rating'].apply(np.array)
@@ -201,31 +143,7 @@ def prediction(graphfile,communityfile,community_center,ratingfile,overlap):
                         predicted_value = np.mean([R_ic_i, R_jc_j, R_c_i_c_j])
                         avg_predicted_values.append(predicted_value)
 
-                # for cmid in comm_id_i:
-                #     representative_node = cc[cc['Cluster'] == cmid][cmeasure].iloc[0]
-                #     center_vector = user_ratings[user_ratings['userid'] == representative_node]['rating_vector'].iloc[0]
-                #     sum += calculate_rating_similarity(user_vector_i,center_vector)
-                #     sum 
 
-
-
-                # for id1, id2 in combinations:
-                #     representative_node_of_i = cc[cc['Cluster'] == id1][cmeasure].iloc[0]
-                #     representative_node_of_j = cc[cc['Cluster'] == id2][cmeasure].iloc[0]
-                #     user_vector = user_ratings[user_ratings['userid'] == i]['rating_vector'].iloc[0]
-                #     center_vector_i = user_ratings[user_ratings['userid'] == representative_node_of_i]['rating_vector'].iloc[0]
-                    
-                #     Rici = calculate_rating_similarity(user_vector,center_vector_i)
-                #     user_vector = user_ratings[user_ratings['userid'] == j]['rating_vector'].iloc[0]
-                #     center_vector_j = user_ratings[user_ratings['userid'] == representative_node_of_j]['rating_vector'].iloc[0]
-                #     Rjcj = calculate_rating_similarity(user_vector,center_vector_j)
-                #     CiCj = calculate_rating_similarity(center_vector_i,center_vector_j)
-                #     # print(i,j)
-                # #    print(representative_node_of_i,representative_node_of_j,CiCj)
-                #     # this one for non overlapping cluster. For ovelapping sum up with other cluster center as well.
-                #     valuelist = [Rici,Rjcj,CiCj]
-                #     predicted_value = (statistics.mean([Rici, Rjcj, CiCj]))
-                #     avg_predicted_values.append(predicted_value)
                 max_predict = max(avg_predicted_values)
                 lst.append([i,j,max_predict])
 
@@ -316,6 +234,7 @@ def prediction(graphfile,communityfile,community_center,ratingfile,overlap):
     
 def parse_args():
    parser = argparse.ArgumentParser(description="Read File")
+   parser.add_argument("--dataset",type = str)
    parser.add_argument("--graphfile",type = str)
    parser.add_argument("--communityfile",type = str)
    parser.add_argument("--community_center",type = str)
@@ -327,7 +246,7 @@ def parse_args():
 def main():
    inputs=parse_args()
    start_time = time.time()
-   prediction(inputs.graphfile,inputs.communityfile,inputs.community_center,inputs.ratingfile,inputs.overlap)
+   prediction(inputs.dataset,inputs.graphfile,inputs.communityfile,inputs.community_center,inputs.ratingfile,inputs.overlap)
    end_time = time.time()
    elapsed_time_seconds = end_time - start_time
 
