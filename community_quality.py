@@ -16,6 +16,20 @@ def community_comparison(graphfile,directory_path):
 
     graph = nx.read_edgelist(graphfile, nodetype=int)
 
+
+    
+
+    # Initialize an empty list to store communities
+    # communities = []
+
+    # Iterate through each file in the directory
+    # for filename in os.listdir(directory_path):
+    #     if filename.endswith(".json"):
+    #         file_path = os.path.join(directory_path, filename)
+    #         with open(file_path, "r") as f:
+    #             community_data = json.load(f)
+    #             communities.append(community_data)  # Append each community data to the list
+
     communities = {}
 
     no_comm = len([f for f in os.listdir(directory_path) if os.path.isfile(os.path.join(directory_path, f))]) - 1
@@ -168,6 +182,11 @@ def community_comparison(graphfile,directory_path):
     'normalized_cut_lis': normalized_cut_lis
     }
     
+    # data = {
+    #     'Number of communities', 'Modularity', 'cluster_coeff_lis', 'overall_avg_clustering_coefficient', 'density_lis',
+    #              'overall_internal_density', 'conductance_lis','coverage_lis',  'overall_coverage_value', 'edge_cut_lis',
+    #                'normalized_cut_lis'
+    # }
 
     # Convert all single values to lists
     data = {key: value if isinstance(value, list) else [value] for key, value in data.items()}
@@ -201,11 +220,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-'''
-python3 /Users/shrabanighosh/Downloads/data/recommendation_system/comm_quality.py --graphfile /Users/shrabanighosh/Downloads/data/recommendation_system/ciao/renumbered_graph_ciao.csv --directory_path /Users/shrabanighosh/Downloads/data/recommendation_system/ciao/spectral
-'''
