@@ -28,6 +28,7 @@ def raw_file_read(directory,dataset):
     trustnetwork_array = mat_contents['trustnetwork']
     trustnet_df = pd.DataFrame(trustnetwork_array)
     csv_fname = mat_fname.replace(".mat", ".csv")
+    trustnet_df.to_csv(csv_fname,sep = ' ' ,index = False)
     
 
     ### Renumber nodes
