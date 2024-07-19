@@ -7,13 +7,16 @@ import argparse
 import sys
 import re
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-import random 
+import random
+from os.path import dirname, join as pjoin
 
 def center_of_cluster(dataset):
+
     features = []
     clusters = []
     nodes = []
     values = []
+
     outfile = dataset+ '_ClusterCenter.csv'
     file_path = dataset+ '_ClusterCenter.txt'
     folder_list = ['betweenness','inCentrality','outCentrality','sameAsDegreeCentrality']
@@ -53,13 +56,10 @@ def center_of_cluster(dataset):
     }
     df = pd.DataFrame(data)
     df.to_csv(outfile)
-#                        file.write('Center of Cluster {}: {}\n'.format(cluster,max_row['Node']))
-
-# def trust_prediction(inputfile):
-
-                    
-def center_cluster_calculate(directory):
-    print()
+             
+def center_cluster_calculate(dataset,directory):
+    curr_directory = os.getcwd()
+    directory = pjoin(curr_directory,dataset, directory)
     center_of_cluster = {}
     files = os.listdir(directory)  
     clusters = []
@@ -95,10 +95,8 @@ def center_cluster_calculate(directory):
             max_inCentrality = float('-inf')
             max_outCentrality = float('-inf')
 
-#            print(list(data.items()))
             # Randomly select a node
             random_node = random.choice(list(data.items()))
-#            print(random_node[0])
             random_nodes.append(random_node[0])
             for node, attributes in data.items():
                 closeness = attributes.get("closeness", 0)
@@ -136,11 +134,6 @@ def center_cluster_calculate(directory):
             max_betweenness_nodes.append(max_betweenness_node)
             max_inCentrality_nodes.append(max_inCentrality_node)
             max_outCentrality_nodes.append(max_outCentrality_node)
-
-#            print(len(clusters),len(max_closeness_nodes),len(max_sameAsDegreeCentrality_nodes),
-#          len(max_outCentrality_nodes),len(max_inCentrality_nodes),len(random_nodes))
-        #     print(clusters,max_closeness_nodes, max_inCentrality_nodes )
-            # Print the results
             print(f"Highest closeness: {max_closeness} (Node: {max_closeness_node})")
             print(f"Highest sameAsDegreeCentrality: {max_sameAsDegreeCentrality} (Node: {max_sameAsDegreeCentrality_node})")
             print(f"Highest betweenness: {max_betweenness} (Node: {max_betweenness_node})")
@@ -162,7 +155,7 @@ def center_cluster_calculate(directory):
     outfile = directory + '/centerclusters.csv'
     print(outfile)
     df.to_csv(outfile)
-    # trust_prediction(outfile)
+
 
     
             
@@ -170,20 +163,15 @@ def center_cluster_calculate(directory):
 def parse_args():
    
     parser = argparse.ArgumentParser(description="Read File")
+    parser.add_argument("--dataset",type = str)
     parser.add_argument("--directory",type = str)
-    # parser.add_argument("--outfile",type = str)
+     
     return parser.parse_args()
 
 def main():
     inputs=parse_args()
-    print(inputs.directory)
-    # print(input.outfile)
-    center_cluster_calculate(inputs.directory)
+    center_cluster_calculate(inputs.dataset,inputs.directory)
 
 if __name__ == '__main__':
     main()
 
-
-
-#code run 
-# python find_center_of_communities.py --directory /Users/shrabanighosh/Downloads/data/trust_prediction/ciao/propensity_subgraph
