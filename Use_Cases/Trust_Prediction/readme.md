@@ -1,11 +1,11 @@
 ## Run Commands
 
-python3 subgraph_create.py --graphfile /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/renumbered_graph_epinions.csv --inputfilename /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/louvain_epinions_trustnet.csv --overlapping nonoverlapping --outdirectory /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/louvain
+python --version ---> Python 3.8.16
 
-### To run this python file, this module "https://github.com/srbnghosh99/Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality" is required. 
-python3 node_propensity.py --inDirectory /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/louvain --outDirectory /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/propensity_subgraph_louvain
+node --version ---> v18.17.1
 
 
-python3 find_center_of_communities.py --directory /Users/shrabanighosh/Downloads/data/trust_prediction/epinions/propensity_subgraph_louvain
+#### To run this bash file, this module "https://github.com/srbnghosh99/Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality" is required.
+#### Put the directory that contains the myscript.js file from the module under "Trust_Prediction" python file node_propensity.py
 
-python3 trust_prediction.py --graphfile /Users/shrabanighosh/Downloads/data/trust_prediction/ciao/renumbered_graph_ciao.csv --communityfile /Users/shrabanighosh/Downloads/data/trust_prediction/community_clusters/spectral_ciao_c10.csv --community_center /Users/shrabanighosh/Downloads/data/trust_prediction/ciao/propensity_subgraph_spectral/centerclusters.csv --ratingfile /Users/shrabanighosh/Downloads/data/trust_prediction/ciao/ciao_rating.csv --overlap nonoverlap
+run bash file -->   ./script.sh
