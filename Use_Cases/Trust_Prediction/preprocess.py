@@ -45,11 +45,11 @@ def raw_file_read(directory,dataset):
     output_file = "renumbered_graph_" + dataset + ".csv"
     filename = pjoin(directory,dataset, output_file)
     #distribution of trustor and trustee
-    column_names = ['Trustor', 'Trustee']
-    trustnet_df = pd.read_csv(filename,names=column_names,delimiter=' ')
+    
+    
     
     nx.write_edgelist(G_renumbered, filename, delimiter=' ', data=False)
-#    print("Done")
+    print("Done")
 
 
     #rating dataset
@@ -61,8 +61,8 @@ def raw_file_read(directory,dataset):
 
 
 
-    
-    
+    column_names = ['Trustor', 'Trustee']
+    trustnet_df = pd.read_csv(filename,names=column_names,delimiter=' ')
     freq = trustnet_df['Trustor'].value_counts().reset_index()
     graph = G_renumbered
     freq = trustnet_df['Trustor'].value_counts().reset_index()

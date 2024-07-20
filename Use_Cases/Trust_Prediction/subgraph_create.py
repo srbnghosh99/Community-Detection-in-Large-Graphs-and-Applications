@@ -63,7 +63,7 @@ def create_community_propensity(dataset, graph_file, cd_file, outdirectory, over
     #number of users = 7317
     #number of edges = 5205
 
-    detected_community_df = pd.read_csv(cd_file)
+    detected_community_df = pd.read_csv(cd_file,sep = ' ')
 
     #number of communities = 9056 (higher than number of nodes)
 
@@ -107,7 +107,7 @@ def create_community_propensity(dataset, graph_file, cd_file, outdirectory, over
             subgraph = G.subgraph(nodes_to_include)
         #         subgraph.number_of_edges(),subgraph.number_of_nodes()
             json_data = json_graph.node_link_data(subgraph, {'source': 'fromId', 'target': 'toId'})
-            outputfile = outdirectory + "comm_"+ str(i)+ ".json"
+            outputfile = outdirectory + "/comm_"+ str(i)+ ".json"
             with open(outputfile,'w') as json_file:
                 json.dump(json_data,json_file,separators=(',', ':'))
         #    break
@@ -139,7 +139,7 @@ def create_community_propensity(dataset, graph_file, cd_file, outdirectory, over
             subgraph = G.subgraph(nodes_to_include)
         #         subgraph.number_of_edges(),subgraph.number_of_nodes()
             json_data = json_graph.node_link_data(subgraph, {'source': 'fromId', 'target': 'toId'})
-            outputfile = outdirectory +  "comm_"+ str(i)+ ".json"
+            outputfile = outdirectory +  "/comm_"+ str(i)+ ".json"
             with open(outputfile,'w') as json_file:
                 json.dump(json_data,json_file,separators=(',', ':'))
         #    break
@@ -152,7 +152,7 @@ def parse_args():
     parser.add_argument("--dataset",type = str)
     parser.add_argument("--graphfile",type = str)
     parser.add_argument("--cdfile",type = str)
-    parser.add_argument("--outdir",type = str)
+    parser.add_argument("--outdirectory",type = str)
     parser.add_argument("--overlap",type = str)
     return parser.parse_args()
 
@@ -160,10 +160,10 @@ def main():
 
     start_time = time.time()
     inputs=parse_args()
-    print(inputs.graphfile)
-    print(inputs.cdfile)
-    print(inputs.outdir)
-    create_community_propensity(inputs.dataset,inputs.graphfile,inputs.cdfile,inputs.outdir,inputs.overlap)
+#    print(inputs.graphfile)
+#    print(inputs.cdfile)
+#    print(inputs.outdir)
+    create_community_propensity(inputs.dataset,inputs.graphfile,inputs.cdfile,inputs.outdirectory,inputs.overlap)
     # Get the end time
     end_time = time.time()
     elapsed_time_seconds = end_time - start_time

@@ -17,7 +17,7 @@ python3 preprocess.py --dataset ciao
 
 #python3 ../jsontocsv.py --dataset ciao --inputfilename ego_splitting_res2.5_min10.json
 
-python3 subgraph_create.py --dataset ciao --graphfile renumbered_graph_ciao.csv --inputfilename louvain_ciao.csv --overlapping nonoverlapping --outdirectory louvain
+python3 subgraph_create.py --dataset ciao --graphfile renumbered_graph_ciao.csv --cdfile louvain_ciao.csv --outdirectory louvain --overlap nonoverlapping
 
 python3 create_node_propensity.py --dataset ciao --inDirectory louvain --outDirectory propensity_subgraph_louvain
 
