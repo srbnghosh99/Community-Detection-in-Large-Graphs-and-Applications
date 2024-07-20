@@ -30,7 +30,7 @@ def raw_file_read(directory,dataset):
     csv_fname = mat_fname.replace(".mat", ".csv")
     trustnet_df.to_csv(csv_fname,sep = ' ' ,index = False)
     
-
+    print(csv_fname)
     ### Renumber nodes
     G = nx.read_edgelist(csv_fname,delimiter=' ', nodetype=int)
     print("Number of nodes",G.number_of_nodes(), "Number of edges",G.number_of_edges())
@@ -49,7 +49,7 @@ def raw_file_read(directory,dataset):
     trustnet_df = pd.read_csv(filename,names=column_names,delimiter=' ')
     
     nx.write_edgelist(G_renumbered, filename, delimiter=' ', data=False)
-    print("Done")
+#    print("Done")
 
 
     #rating dataset
@@ -75,6 +75,7 @@ def raw_file_read(directory,dataset):
 
     print("Degrees of vertices:", degrees)
     print("Average degree:", average_degree)
+    
     data_distribution(directory,dataset,filename)
 
 
