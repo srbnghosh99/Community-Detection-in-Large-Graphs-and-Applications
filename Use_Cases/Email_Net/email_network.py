@@ -1,4 +1,3 @@
-import igraph as ig
 import matplotlib.pyplot as plt
 import pandas as pd
 from networkx.readwrite import json_graph
@@ -138,11 +137,11 @@ def community_vis(graphfile,inputdir,outdir,overlapping):
 
 
                 print(df_clustering_coefficients,df_centralization)
-                df_clustering_coefficients.to_csv(outdir+'/df_clustering_coefficients.csv', index = False)
-                df_centralization.to_csv(outdir+'/df_centralization.csv', index = False)
-                df_degree.to_csv(outdir+'/df_degree.csv', index = False)
-                df_density.to_csv(outdir+'/df_density.csv', index = False)
-                df_nodes.to_csv(outdir+'/df_nodes_count.csv', index = False)
+                df_clustering_coefficients.to_csv(outdir+'/Clustering_coefficients.csv', index = False)
+                df_centralization.to_csv(outdir+'/Centralization.csv', index = False)
+                df_degree.to_csv(outdir+'/Degree.csv', index = False)
+                df_density.to_csv(outdir+'/Density.csv', index = False)
+                df_nodes.to_csv(outdir+'/Nodes_count_each_community.csv', index = False)
 
             else:
                 print("Overlapping")
@@ -210,11 +209,11 @@ def community_vis(graphfile,inputdir,outdir,overlapping):
 
 
                 print(df_clustering_coefficients,df_centralization)
-                df_clustering_coefficients.to_csv(outdir+'df_clustering_coefficients.csv', index = False)
-                df_centralization.to_csv(outdir +'/df_centralization.csv', index = False)
-                df_degree.to_csv(outdir +'/df_degree.csv', index = False)
-                df_density.to_csv(outdir +'/df_density.csv', index = False)
-                df_nodes.to_csv(outdir +'/df_nodes_count.csv', index = False)
+                df_clustering_coefficients.to_csv(outdir+'Clustering_coefficients.csv', index = False)
+                df_centralization.to_csv(outdir +'/Centralization.csv', index = False)
+                df_degree.to_csv(outdir +'/Avg_neighbor_degree.csv', index = False)
+                df_density.to_csv(outdir +'/Density.csv', index = False)
+                df_nodes.to_csv(outdir +'/Nodes_count_each_community.csv', index = False)
         
 def parse_args():
     parser = argparse.ArgumentParser(description="Read File")
