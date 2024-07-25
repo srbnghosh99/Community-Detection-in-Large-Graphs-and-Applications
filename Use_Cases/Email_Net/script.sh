@@ -21,3 +21,5 @@ python3 plot_metrics.py --inputdir overlapping_metrics
 
 python3 plot_metrics.py --inputdir nonoverlapping_metrics
 
+python3 overlapping_density.py --filename overlapping/ego-splitting-email-Eu-core.csv
+
