@@ -20,18 +20,18 @@ def overlap_density(filename):
     # Get the top 50 communities
     top_communities = [community for community, _ in community_counter.most_common(10)]
 
-    print((top_communities))
+    # print((top_communities))
 
     # Filter the DataFrame to include only nodes belonging to the top 50 communities
     # df['Filtered_Community'] = df[df['Community'].apply(lambda x: any(item in top_communities for item in x))]
     df['Filtered_Community'] = df['Community'].apply(lambda x: [item for item in x if item in top_communities])
 
-    print(df)
+    # print(df)
 
     # Extract unique communities
     unique_communities = sorted(set(c for sublist in df['Filtered_Community'] for c in sublist))
 
-    print(unique_communities)
+    # print(unique_communities)
 
     # Initialize the overlap matrix
     overlap_matrix = np.zeros((len(unique_communities), len(unique_communities)))
@@ -51,21 +51,27 @@ def overlap_density(filename):
         for j, comm_j in enumerate(unique_communities):
             if i <= j:
                 shared_nodes = len(community_to_nodes[comm_i].intersection(community_to_nodes[comm_j]))
+                shared_nodes = int(shared_nodes)
+                # print('shared_nodes',shared_nodes)
                 overlap_matrix[i, j] = shared_nodes
                 overlap_matrix[j, i] = shared_nodes  # Symmetric matrix
 
+    overlap_matrix = overlap_matrix.astype(int)
     # Convert the overlap matrix to a DataFrame for better readability
     overlap_df = pd.DataFrame(overlap_matrix, index=unique_communities, columns=unique_communities)
+    overlap_df = overlap_df.astype(int)
 
     # Display the overlap matrix
-    print(overlap_df)
+    # print(overlap_df.dtypes)
+
 
     plt.figure(figsize=(8, 6))
-    sns.heatmap(overlap_df, annot=True, cmap='coolwarm', cbar=True)
+    sns.heatmap(overlap_df, fmt='d', annot=True, cmap='coolwarm', cbar=True)
 
     plt.title('Heatmap of Overlapping Densities')
     plt.xlabel('Communities')
     plt.ylabel('Communities')
+    plt.savefig('Overlapping Densities.png')
     plt.show()
 
 def parse_args():
@@ -80,4 +86,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
