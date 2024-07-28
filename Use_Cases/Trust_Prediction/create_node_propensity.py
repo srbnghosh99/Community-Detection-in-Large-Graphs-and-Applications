@@ -80,6 +80,15 @@ def node_propensity(dataset,inDirectory,outdirectory,path_to_ngraph):
 
             # Construct the command to run the Node.js script
             command = ['node', node_script_path, input_file_name, output_file_name]
+            script_directory = os.path.dirname(os.path.realpath(__file__))
+
+            # Ensure the PATH includes the directory where nvm installs node
+            nvm_dir = os.path.expanduser('~/.nvm')
+            node_version = 'v18.17.1'  # Adjust this to the version you installed
+            node_path = os.path.join(nvm_dir, 'versions/node', node_version, 'bin')
+
+            # Add the node path to the PATH environment variable
+            os.environ['PATH'] = node_path + os.pathsep + os.environ.get('PATH', '')
 
             # Run the command
             try:
