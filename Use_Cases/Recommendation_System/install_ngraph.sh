@@ -16,5 +16,6 @@ npm install ngraph.fromjson
 npm install ngraph.centrality
 echo "Installation complete"
 
-~                                                                                                                                                               
-~      
+git clone https://github.com/srbnghosh99/Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality
+mv Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality ngraph_centrality
+    
