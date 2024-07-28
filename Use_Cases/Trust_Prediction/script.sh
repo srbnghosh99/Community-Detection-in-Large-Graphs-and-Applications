@@ -9,6 +9,9 @@
 #    curl -O "$url"
 #done
 
+git clone https://github.com/srbnghosh99/Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality
+mv Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality ngraph_centrality
+
 curl -O http://www.cse.msu.edu/~tangjili/datasetcode/ciao.zip
 
 unzip ciao.zip
