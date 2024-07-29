@@ -73,7 +73,7 @@ def node_propensity(dataset,inDirectory,outdirectory,path_to_ngraph):
             print("Put your path_to_ngraph folder as a parameter properly")
 
             # Get the directory of the Node.js script
-            script_directory = os.path.dirname(os.path.abspath(node_script_path))
+           # script_directory = os.path.dirname(os.path.abspath(node_script_path))
 #            print("Script Directory:", script_directory)
             # Replace 'file_name.json' and 'output_file.json' with your actual parameters
     
