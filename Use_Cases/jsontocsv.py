@@ -17,7 +17,7 @@ def jsontocsv(dataset,inputfilename):
 # Open and read the JSON file
 
     current_directory = os.getcwd()
-    json_file_path = os.path.join(current_directory, dataset, inputfilename)
+    json_file_path = os.path.join(current_directory, inputfilename)
     with open(json_file_path, 'r') as json_file:
         data = json.load(json_file)
 
@@ -42,6 +42,7 @@ def jsontocsv(dataset,inputfilename):
 
     #     csvwriter.writeheader()
     #     csvwriter.writerows(rows)
+    inputfilename = os.path.basename(inputfilename)
     base_filename = os.path.splitext(inputfilename)[0]  # Remove extension
     csv_file_name = base_filename + ".csv"
     
