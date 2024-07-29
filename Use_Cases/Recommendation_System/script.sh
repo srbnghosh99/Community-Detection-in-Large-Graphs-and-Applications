@@ -15,7 +15,7 @@ unzip ciao.zip
 
 python3 process_rawfile.py --dataset ciao
 
-python3 ../jsontocsv.py --dataset ciao --inputfilename ego_splitting_res2.5_min10.json
+python3 ../jsontocsv.py --dataset ciao --inputfilename community_clusters/ego_splitting_res2.5_min10.json
 
 ##python3 overlapping_processing.py --dataset ciao --inputfilename ego_splitting_res2.5_min10.csv
 
