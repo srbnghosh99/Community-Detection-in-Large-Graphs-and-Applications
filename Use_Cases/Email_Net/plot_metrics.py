@@ -24,6 +24,10 @@ def plot_metrics(inputdir):
 
     # List to store all CSV files in the directory
     csv_files = [filename for filename in os.listdir(directory) if filename.endswith('.csv')]
+    
+#    df = pd.read_csv(filename)
+    max_rows = max(len(pd.read_csv(os.path.join(directory, filename))) for filename in csv_files)
+    print('max_rows',max_rows)
 
     # Determine the number of rows and columns for subplots (e.g., 2 columns)
     n_files = len(csv_files)
@@ -46,12 +50,23 @@ def plot_metrics(inputdir):
             ax.plot(df[column], marker='o', linestyle='-', label=column)
         
         filename_no_underscore = os.path.splitext(filename)[0].replace('_', ' ').title()
+        
         ax.set_title(f"{filename_no_underscore} Comparison")
         ax.set_xlabel('Index')
         ax.set_ylabel(filename_no_underscore)
         ax.legend()
         ax.grid(True)
+        ax.set_xticks(range(1, max_rows))
+        ax.set_xlim(left=0)
+        ax.set_ylim(bottom=0)
 
+#        plt.xticks(range(1,18))
+    
+    # Set x-axis to show only integer ticks
+#    ax.xaxis.set_major_locator(plt.MaxNLocator(integer=True))
+#    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+
+    
     # Hide any unused subplots
     for j in range(i + 1, len(axes)):
         fig.delaxes(axes[j])
