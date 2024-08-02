@@ -9,7 +9,7 @@ This repository implements a recommendation system based on the principles outli
 ## How It Works
 
 1. **Community Detection**: 
-   - Communities are detected using both the trust and rating networks. This step is crucial as it groups users with similar trust and rating behaviors together.
+   - Communities are detected using trust networks. Different community detections models can be used for this step. 
    
 2. **Identifying Community Centers**:
    - Community centers are identified using centrality measures to find representative users within each community.
