@@ -25,7 +25,7 @@ This repository provides a comprehensive framework for community detection and a
 - **Models Directory**:
   - This directory contains different community detection algorithms. Select the model that best fits your analysis needs.
   
-- **USE Cases Directory**:
+- **Use Cases Directory**:
   - Each folder in this directory corresponds to a different downstream task. Follow the specific instructions provided in each folder to carry out the analysis.
 
 ## Example Workflow
