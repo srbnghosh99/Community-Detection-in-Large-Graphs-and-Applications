@@ -6,8 +6,6 @@ This repository implements a recommendation system based on the principles outli
 
 ## How It Works
 
-## How It Works
-
 1. **Community Detection**: 
    - Communities are detected using trust networks. Different community detections models can be used for this step. 
    
