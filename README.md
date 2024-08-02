@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository provides a comprehensive framework for community detection and analysis using various models. The workflow involves using community detection models from the `models` directory and applying them to different downstream tasks located in the `Use_Cases` directory. Each application folder contains specific instructions to guide you through the process.
+This repository provides a comprehensive framework for community detection and downstream task analysis using various models. The workflow involves using community detection models from the `models` directory and applying them to different downstream tasks located in the `Use_Cases` directory. Each application folder contains specific instructions to guide you through the process.
 
 ## Steps to Use
 
@@ -11,7 +11,7 @@ This repository provides a comprehensive framework for community detection and a
 
 2. **Run the Bash Script**
    - The script performs the following actions:
-     1. **Download the Test Dataset**: Retrieves the dataset from a provided link.
+     1. **Download the Dataset**: Retrieves the dataset from a provided link.
      2. **Generate Communities File**: Creates a communities file in JSON/CSV format using the selected community detection model.
 
 2. **Navigate to the Application Folder**
