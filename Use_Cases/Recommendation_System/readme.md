@@ -2,12 +2,12 @@
 
 ## Overview
 
-This repository implements a recommendation system based on the principles outlined in the paper "A Community-Based Collaborative Filtering Method for Social Recommender Systems". At a high level, our system leverages community detection algorithms to enhance the collaborative filtering process, providing more accurate and relevant recommendations by considering the social context of users.
+This repository implements a recommendation system based on the principles outlined in the paper "A Community-Based Collaborative Filtering Method for Social Recommender Systems". At a high level, our system leverages community detection algorithms by replacing with different methods for comparative analysis.
 
 ## How It Works
 
 1. **Community Detection**: 
-   - The system first identifies communities within the user base using various community detection algorithms. This step is crucial as it groups users with similar interests or behaviors together. We are replacing the mentioned community detection method in the paper by the methods in 'models' directory from non-overlapping to overlapping. 
+   - The system first identifies communities within the user base using various community detection algorithms. This step is crucial as it groups users with similar interests or behaviors together. We are replacing the mentioned community detection methods in the paper by the methods in 'models' directory from non-overlapping to overlapping. 
    
 2. **Collaborative Filtering**:
    - Within these identified communities, the system applies collaborative filtering techniques to recommend items. This approach ensures that the recommendations are more relevant by considering the preferences of similar users within the same community.
