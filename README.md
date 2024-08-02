@@ -35,13 +35,15 @@ This repository provides a comprehensive framework for community detection and d
    cd models
    # Select the model and follow any setup instructions if required
 
-2.Compare communities and plot
+2. ***Compare communities***
    ```bash
-   python3 comm_quality.py --graphfile graph.csv --directory_path path-to-folder
+   python3 comm_quality.py --graphfile graph.csv --directory_path path-to-communities-folder
+
+3. ***Plot comparison of communities***
    ```bash
-   python3 plot_community_metrices.py --directory_path path-to-community_metrics-folder
+   python3 plot_community_metrices.py --directory_path path-to-communities_metrics-folder
    
-3. cd Use_Cases
+3. **Choose downstream task**:
    ```bash
    cd Use_Cases
    # Select the use case and follow setup instructions if required 
