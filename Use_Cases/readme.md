@@ -12,3 +12,5 @@ For linux version, run bash file -> ./install_node.sh [node installation]
 
 To install libraries run -> pip3 install -r requirement.txt
 
+To get ngraph modules --> ./install_ngraph.sh
+
