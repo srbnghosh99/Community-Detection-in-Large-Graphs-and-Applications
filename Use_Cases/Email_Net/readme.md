@@ -1,5 +1,3 @@
-## Run Commands
-
 # Personalized Email Community Detection
 
 ## Overview
