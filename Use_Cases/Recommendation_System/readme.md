@@ -31,31 +31,16 @@ To evaluate whether your recommendation framework is better or not, you need to 
 
 This codebase implements the concepts from the paper "A Community-Based Collaborative Filtering Method for Social Recommender Systems" with some modifications to suit our specific use case.
 
-1. **Setup and Dependencies**:
-   - Ensure all dependencies are installed by running:
+1. **Overlapping Communitiess**:
+   - Ensure the output file of communities in json format:
      ```bash
-     pip install -r requirements.txt
+     ./script.sh
      ```
-
-2. **Data Preparation**:
-   - Prepare your dataset according to the format specified in the `data/` directory. Ensure the data includes user interactions and relevant metadata.
-
-3. **Running the Community Detection**:
-   - Navigate to the appropriate script for community detection in the `models/` directory and run:
+     
+2. **Non-Overlapping Communities**:
+   - Ensure the output file of communities in csv format:
      ```bash
-     python community_detection.py
-     ```
-
-4. **Collaborative Filtering**:
-   - Use the detected communities to perform collaborative filtering by running:
-     ```bash
-     python collaborative_filtering.py
-     ```
-
-5. **Generating Recommendations**:
-   - Finally, generate the recommendations by combining the results from the collaborative filtering step:
-     ```bash
-     python generate_recommendations.py
+     ./script.sh
      ```
 
 ## Reference
@@ -66,6 +51,3 @@ This code is based on the methodologies and concepts presented in the paper:
 By following these steps and utilizing the provided scripts, you can implement a powerful recommendation system tailored to your specific needs. Feel free to modify the code to better suit your application and improve the recommendation quality.
 
 
-### Run Commands
-
-run bash file -->   ./script.sh
