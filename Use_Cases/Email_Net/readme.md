@@ -17,7 +17,7 @@ This repository implements a personalized email community detection system based
 
 ## Evaluating Process
 
-The effectiveness of the detected communities is evaluated using metrics such as density, entropy, and f-measure to ensure the communities are meaningful and well-formed.
+The effectiveness of the detected communities is evaluated using metrics such as density, entropy, f-measure and other network analysis metrics to ensure the communities are meaningful and well-formed.
 
 ## How This Code Works
 
@@ -32,6 +32,6 @@ This codebase implements the concepts from the paper "A Community-Based Collabor
 This code is based on the methodologies and concepts presented in the paper:
 - "Personalized Email Community Detection using Collaborative Similarity Measure"
 
-By following these steps and utilizing the provided scripts, you can implement a robust email community detection system tailored to enhance personalized email interactions. Feel free to modify the code to better fit your specific use case and improve the system's effectiveness.
+By following these steps and utilizing the provided scripts, you can implement a robust email community detection system tailored to enhance personalized email interactions.
 
 
