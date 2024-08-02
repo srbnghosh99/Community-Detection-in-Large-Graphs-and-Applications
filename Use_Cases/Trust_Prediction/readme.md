@@ -6,15 +6,16 @@ This repository implements a recommendation system based on the principles outli
 
 ## How It Works
 
+## How It Works
+
 1. **Community Detection**: 
-   - The system first identifies communities within the user base using various community detection algorithms. This step is crucial as it groups users with similar trust relationships together.
+   - Communities are detected using both the trust and rating networks. This step is crucial as it groups users with similar trust and rating behaviors together.
    
-2. **Trust Prediction**:
-   - Within these identified communities, the system predicts trust relationships between users. This step helps in understanding the trust dynamics within each community based on the center of community.
-
-## Evaluating the Model
-
-To evaluate whether our trust prediction framework is better or not, we use the following metrics:
+2. **Identifying Community Centers**:
+   - Community centers are identified using centrality measures to find representative users within each community.
+   
+3. **Trust Prediction**:
+   - Trust prediction is performed by selecting corresponding communities from the users’ membership vectors that 1) are similar to each other and 2) match the users well, as measured by similarity between the users and the community centers.
 
 ### Evaluation Process
 
