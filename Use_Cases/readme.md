@@ -8,6 +8,23 @@ node --version ---> v18.17.1
 
 ## Library installation Run Commands
 
+## How This Works
+
+This codebase implements the concepts from the paper "A Community-Based Collaborative Filtering Method for Social Recommender Systems" with some modifications to suit our specific use case.
+
+1. **Install node**
+   ```bash
+     ./install_node.sh [node installation]
+     ```
+2. **Setup and Dependencies**:
+   - Ensure all dependencies are installed by running:
+     ```bash
+     pip install -r requirements.txt
+     ```
+3. **Install ngraph modules**
+   ```bash
+     ./install_ngraph.sh
+     ```
 For linux version, run bash file -> ./install_node.sh [node installation]
 
 To install libraries run -> pip3 install -r requirement.txt
