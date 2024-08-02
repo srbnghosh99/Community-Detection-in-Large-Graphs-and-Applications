@@ -48,6 +48,6 @@ This codebase implements the concepts from the paper "A Community-Based Collabor
 This code is based on the methodologies and concepts presented in the paper:
 - "A Community-Based Collaborative Filtering Method for Social Recommender Systems"
 
-By following these steps and utilizing the provided scripts, you can implement a powerful recommendation system tailored to your specific needs. Feel free to modify the code to better suit your application and improve the recommendation quality.
+By following these steps and utilizing the provided scripts, you can tailor any recomendation system to your specific needs. Feel free to modify the code to better suit your application and improve the recommendation quality.
 
 
