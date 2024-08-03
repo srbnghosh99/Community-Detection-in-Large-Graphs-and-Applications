@@ -73,7 +73,7 @@ def raw_file_read(directory,dataset):
     # Calculate the average degree
     average_degree = sum(degrees.values()) / len(degrees)
 
-    print("Degrees of vertices:", degrees)
+    #print("Degrees of vertices:", degrees)
     print("Average degree:", average_degree)
     
     data_distribution(directory,dataset,filename)
