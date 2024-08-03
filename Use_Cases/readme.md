@@ -10,6 +10,7 @@ node --version ---> v18.17.1
 
 1. **Install node**
    ```bash
+     chmod +x install_node.sh 
      ./install_node.sh 
      ```
 2. **Setup and Dependencies**:
@@ -19,6 +20,7 @@ node --version ---> v18.17.1
      ```
 3. **Install ngraph modules**
    ```bash
+     chmod +x install_node.sh 
      ./install_ngraph.sh
      ```
    
