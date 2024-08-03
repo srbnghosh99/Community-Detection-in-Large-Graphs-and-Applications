@@ -21,7 +21,7 @@ python3 ../jsontocsv.py --dataset ciao --inputfilename community_clusters/ego_sp
 
 python3 subgraph_create.py --dataset ciao --graphfile renumbered_graph_ciao.csv --cdfile louvain_ciao.csv --outdirectory louvain --overlap nonoverlapping
 
-python3 create_node_propensity.py --dataset ciao --inDirectory louvain --outDirectory propensity_subgraph_louvain --path_to_ngraph ~/work/community_detection/Community-Detection-in-Large-Graphs-and-Applications-ngraph.centrality/
+python3 create_node_propensity.py --dataset ciao --inDirectory louvain --outDirectory propensity_subgraph_louvain 
 
 python3 find_center_of_communities.py --dataset ciao --directory propensity_subgraph_louvain
 
