@@ -68,8 +68,12 @@ def node_propensity(dataset,inDirectory,outdirectory,path_to_ngraph):
             print('input_file_name',input_file_name)
             # with open(json_file, 'r') as file:
             #     data = json.load(file)
+            path_to_ngraph = os.path.abspath(os.path.join(directory, os.pardir,'ngraph_centrality','myscript.js'))
+
+            node_script_path = path_to_ngraph
+            
             #node_script_path = '/Users/shrabanighosh/Downloads/ngraph.centrality-main/myscript_copy.js'
-            node_script_path = path_to_ngraph+'/myscript.js'
+            #node_script_path = path_to_ngraph+'/myscript.js'
             print("Put your path_to_ngraph folder as a parameter properly")
 
             # Get the directory of the Node.js script
@@ -104,7 +108,7 @@ def parse_args():
     parser.add_argument("--dataset",type = str)
     parser.add_argument("--inDirectory",type = str)
     parser.add_argument("--outDirectory",type = str)
-    parser.add_argument("--path_to_ngraph",type = str)
+    #parser.add_argument("--path_to_ngraph",type = str)
     return parser.parse_args()
 
 def main():
@@ -112,7 +116,7 @@ def main():
     inputs=parse_args()
     print(inputs.inDirectory)
     print(inputs.outDirectory)
-    node_propensity(inputs.dataset,inputs.inDirectory,inputs.outDirectory,inputs.path_to_ngraph)
+    node_propensity(inputs.dataset,inputs.inDirectory,inputs.outDirectory)
     end_time = time.time()
     elapsed_time_seconds = end_time - start_time
     elapsed_hours = int(elapsed_time_seconds // 3600)
