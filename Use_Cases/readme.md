@@ -23,6 +23,10 @@ node --version ---> v18.17.1
      chmod +x install_node.sh 
      ./install_ngraph.sh
      ```
+4. **Go to directory**
+   ```bash
+     cd 'use_case_directory'
+     ```
    
 ## Application execution
 
