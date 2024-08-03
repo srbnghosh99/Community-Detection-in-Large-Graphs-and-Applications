@@ -48,7 +48,7 @@ def clear_folder(outdirectory):
     else:
         print(f"The folder {outdirectory} does not exist.")
 
-def node_propensity(dataset,inDirectory,outdirectory,path_to_ngraph):
+def node_propensity(dataset,inDirectory,outdirectory):
     
     directory = os.getcwd()
     inDirectory = pjoin(directory,dataset, inDirectory)
@@ -74,7 +74,7 @@ def node_propensity(dataset,inDirectory,outdirectory,path_to_ngraph):
             
             #node_script_path = '/Users/shrabanighosh/Downloads/ngraph.centrality-main/myscript_copy.js'
             #node_script_path = path_to_ngraph+'/myscript.js'
-            print("Put your path_to_ngraph folder as a parameter properly")
+            #print("Put your path_to_ngraph folder as a parameter properly")
 
             # Get the directory of the Node.js script
            # script_directory = os.path.dirname(os.path.abspath(node_script_path))
