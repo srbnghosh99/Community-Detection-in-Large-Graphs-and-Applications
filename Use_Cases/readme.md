@@ -32,6 +32,6 @@ node --version ---> v18.17.1
 
 Each application folder contains a bash script. Running the script will:
 
-1.  Download the dataset from the provided link.
+1.  Download the dataset.
 
 2.  The communities file generated from previous steps, is used to analyze the specific tasks of the application.
