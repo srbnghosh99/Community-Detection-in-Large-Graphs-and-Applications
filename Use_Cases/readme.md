@@ -33,7 +33,7 @@ node --version ---> v18.17.1
    
 ## Application execution
 
-Each application folder contains a bash script. Running the script will:
+Each application folder contains a bash script. (see detail in the applicatino readme file.) Running the script will:
 
 1.  Download the dataset.
 
