@@ -16,7 +16,7 @@ node --version ---> v18.17.1
 2. **Setup and Dependencies**:
    - (optional) set up python virtual environmnet
       - ```
-        python -m venv myenv
+        /path/to/the/write/python/version -m venv myenv
         . ./myenv/bin/activate # you will nee to run that script in each termainl session you are using```
         
    - Ensure all dependencies are installed by running:
