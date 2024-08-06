@@ -7,12 +7,12 @@ This repository provides a comprehensive framework for community detection and d
 ## Steps to Use
 
 1. **Choose a Community Detection Model**
-   - Navigate to the `models` directory. You will find subdirectories for different community detection algortihms. Choose which one you want to use. Navigate to that directory and follow the steps listed in the read me file there.
+   - Navigate to the `models` directory. You will find subdirectories for different community detection algortihms. Choose which one you want to use. Navigate to that directory and follow the steps listed in the read me file there. This will usually look like:
 
-2. **Run the Bash Script**
-   - The script performs the following actions:
-     1. **Download the Dataset**: Retrieves the dataset from a provided link.
-     2. **Generate Communities File**: Creates a communities file in JSON/CSV format using the selected community detection model.
+     - **Run the Bash Script**
+     - The script performs the following actions:
+       1. **Download the Dataset**: Retrieves the dataset from a provided link.
+       2. **Generate Communities File**: Creates a communities file in JSON/CSV format using the selected community detection model.
 
 2. **Navigate to the Application Folder**
    - Each application folder contains a bash script that facilitates the entire process. 
