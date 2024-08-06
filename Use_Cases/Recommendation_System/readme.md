@@ -7,7 +7,8 @@ This repository implements a recommendation system based on the principles outli
 ## How It Works
 
 1. **Community Detection**: 
-   - The system first identifies communities within the user base using various community detection algorithms. This step is crucial as it groups users with similar interests or behaviors together. We are replacing the mentioned community detection methods in the paper by the methods in 'models' directory from non-overlapping to overlapping. 
+   - The system first identifies communities within the user base using various community detection algorithms. This step is crucial as it groups users with similar interests or behaviors together. We are replacing the mentioned community detection methods in the paper by the methods in 'models' directory from non-overlapping to overlapping.
+   - Note that this code DOES NOT run the community detection algorithms. This code reads the output of a previously run algorithm which stored the resulting communities in the models directory.
    
 2. **Collaborative Filtering**:
    - Within these identified communities, the system applies collaborative filtering techniques to recommend items. This approach ensures that the recommendations are more relevant by considering the preferences of similar users within the same community.
