@@ -7,7 +7,7 @@ This repository provides a comprehensive framework for community detection and d
 ## Steps to Use
 
 1. **Choose a Community Detection Model**
-   - Navigate to the `models` directory and select the appropriate community detection algorithm based on your requirements.
+   - Navigate to the `models` directory. You will find subdirectories for different community detection algortihms. Choose which one you want to use. Navigate to that directory and follow the steps listed in the read me file there.
 
 2. **Run the Bash Script**
    - The script performs the following actions:
