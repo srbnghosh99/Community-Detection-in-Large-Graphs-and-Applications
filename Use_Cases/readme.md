@@ -10,13 +10,12 @@ node --version ---> v18.17.1
 
 1. **Install node**
    ```bash
-     chmod +x install_node.sh 
      ./install_node.sh 
      ```
 2. **Setup and Dependencies**:
    - (optional) set up python virtual environmnet
       - ```
-        /path/to/the/write/python/version -m venv myenv
+        /path/to/the/right/version/of/python -m venv myenv
         . ./myenv/bin/activate # you will nee to run that script in each termainl session you are using```
         
    - Ensure all dependencies are installed by running:
