@@ -24,7 +24,6 @@ node --version ---> v18.17.1
      ```
 4. **Install ngraph modules**
    ```bash
-     chmod +x install_node.sh 
      ./install_ngraph.sh
      ```
 5. **Go to directory**
