@@ -15,7 +15,9 @@ This repository provides a comprehensive framework for community detection and d
        2. **Generate Communities File**: Creates a communities file in JSON/CSV format using the selected community detection model.
 
 2. **Navigate to the Application Folder**
-   - Each application folder contains a bash script that facilitates the entire process. 
+   - In the `Use_cases` directory, you will see subfolder for the different applications.
+   - Navigate to the application folder that you are interested in.
+   - Each application folder contains a bash script that facilitates the entire process. See details in each application folder `readme` file.
 
 4. **Analyze with Downstream Tasks**
    - Utilize the generated communities file to perform analysis as per the specific tasks described in the `Use_Cases` directory.
