@@ -10,13 +10,13 @@ filename = 'graph_edges.csv';
 writetable(edgesTable, filename);
  ###
 
-df = pd.read_csv("/Users/shrabanighosh/Downloads/ACT-main/datasets/YelpHotel/graph_edges.csv")
+df = pd.read_csv("YelpHotel/graph_edges.csv")
 
 df = df[df['Weight'] > 0]
 
 df.to_csv("YelpHotel_graph.csv")
 
-df_nodes = pd.read_csv('/Users/shrabanighosh/Downloads/ACT-main/datasets/YelpHotel/YelpHotel.csv',header = None)
+df_nodes = pd.read_csv('YelpHotel/YelpHotel.csv',header = None)
 df_nodes = df_nodes.reset_index()
 # df_reset = df_nodes.reset_index()
 
