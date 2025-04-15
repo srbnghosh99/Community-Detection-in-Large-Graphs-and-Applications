@@ -61,6 +61,7 @@ def get_Iu(uid,trainset):
         return 0
 
 def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,output_dir,overlap):
+    print('communityfile------------------------------------------',communityfile)
     directory = os.getcwd()
     trustnetfile = pjoin(directory,dataset, trustnetfile)
     ratingfile = pjoin(directory,dataset, ratingfile)
@@ -131,7 +132,7 @@ def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,outpu
         user_interests_df = pd.read_csv(output_dir + dataset +"_user_interests_df.csv")
         community_preference_vector_df = pd.read_csv(output_dir + dataset + "_community_preference_vector_df.csv")
         #column_names = ['userid', 'Closeness', 'SameAsDegreeCentrality','Betweenness']
-        node_propensity_df = pd.read_csv(output_dir + "/node_propensity_dataframe_test.csv") 
+        node_propensity_df = pd.read_csv(output_dir + "node_propensity_dataframe.csv")
         node_propensity_df.rename(columns={'Node':'userid'}, inplace=True) 
         print(node_propensity_df.columns)
         print('node_propensity_df',node_propensity_df)
@@ -189,137 +190,141 @@ def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,outpu
         kf = KFold(n_splits=2, random_state=42, shuffle=True)
         predicted_ratings_set = set()
         # 'Closeness',  'SameAsDegreeCentrality', 'Betweenness'
-        propensity_variable = 'Betweenness'
-        print('propensity_variable', propensity_variable)
-        fold = 0
-        losses = []
-        num_iterations = 5
-        overall_losses = []
-        overall_rmse = []
-        overall_mae = []
-        for iteration in range(num_iterations):
-            print(f"Iteration {iteration + 1}/{num_iterations}")
-            iteration_losses = []
+        propensity_list = ['Closeness',  'SameAsDegreeCentrality', 'Betweenness']
+        for propensity_variable in propensity_list:
+        # propensity_variable = 'Betweenness'
+
+            # print('propensity_variable', propensity_variable)
             fold = 0
+            losses = []
+            num_iterations = 5
+            overall_losses = []
+            overall_rmse = []
+            overall_mae = []
+            for iteration in range(num_iterations):
+                print(f"Iteration {iteration + 1}/{num_iterations}")
+                iteration_losses = []
+                fold = 0
 
-            for trainset, testset in tqdm(kf.split(filtered_data)): 
+                for trainset, testset in tqdm(kf.split(filtered_data)): 
 
-                num_users = trainset.n_users
-                num_items = trainset.n_items
-                global_mean = trainset.global_mean
-                total_loss = 0
-                regularization_loss = 0
-                bu = bi = 0
-                # bu_grad = np.zeros(num_users)
-                # bi_grad = np.zeros(num_items)
-                qi = np.zeros(model.n_factors)
-                pu = np.zeros(model.n_factors)
+                    num_users = trainset.n_users
+                    num_items = trainset.n_items
+                    global_mean = trainset.global_mean
+                    total_loss = 0
+                    regularization_loss = 0
+                    bu = bi = 0
+                    # bu_grad = np.zeros(num_users)
+                    # bi_grad = np.zeros(num_items)
+                    qi = np.zeros(model.n_factors)
+                    pu = np.zeros(model.n_factors)
 
-                bu_grad = np.zeros(total_num_users)
-                bi_grad = np.zeros(total_num_items)
-                pu_grad = np.zeros((total_num_users, latent_dim))
-                qi_grad = np.zeros((total_num_items, latent_dim))
+                    bu_grad = np.zeros(total_num_users)
+                    bi_grad = np.zeros(total_num_items)
+                    pu_grad = np.zeros((total_num_users, latent_dim))
+                    qi_grad = np.zeros((total_num_items, latent_dim))
 
-                # Initialize gradients
-                # bu_grad = np.zeros(num_users)
-                # bi_grad = np.zeros(num_items)
-                # pu_grad = np.zeros((num_items, latent_dim))
-                # qi_grad = np.zeros((num_items, latent_dim))
+                    # Initialize gradients
+                    # bu_grad = np.zeros(num_users)
+                    # bi_grad = np.zeros(num_items)
+                    # pu_grad = np.zeros((num_items, latent_dim))
+                    # qi_grad = np.zeros((num_items, latent_dim))
 
-                model.fit(trainset)
-                fold += 1
-                print('kfold',fold)
-                count = 0
-                squarred_error_sum = 0
+                    model.fit(trainset)
+                    fold += 1
+                    print('kfold',fold)
+                    count = 0
+                    squarred_error_sum = 0
 
-                for userid, productid, rating in set((user,item,rating) for user, item, rating in testset):
-                    is_userid_in_dataframe = userid in node_propensity_df['userid'].values
-                    if is_userid_in_dataframe is False:
-                        count = count + 1
-                        continue
-                    actual_ratings.append(rating)
-                    communities = ast.literal_eval(node_propensity_df[node_propensity_df['userid'] == userid]['Community'].iloc[0])
-                    propensity = ast.literal_eval(node_propensity_df[node_propensity_df['userid'] == userid][propensity_variable].iloc[0])
-                    p_tilde_c_grad = 0
-                    for index, prop in enumerate(propensity):
-                        comm = communities[index]
-                        # print('comm',comm)
-                        # print(community_preference_vector_df[community_preference_vector_df['Community'] == comm]['Rating_mean'].iloc[0])
-                        p_tilde_c_grad += prop * community_preference_vector_df[community_preference_vector_df['Community'] == comm]['Rating_mean'].iloc[0]
-                    
-                    
-                    # print('p_tilde_c_grad',p_tilde_c_grad)
-                    
-                    if trainset.knows_user(userid):
-                        # print('userid',userid)
-                        inner_user_id = get_Iu(userid,trainset)
-                        # inner_user_id = trainset.to_inner_uid(userid)
-                        bu_grad[userid] = model.bu[inner_user_id]
-                        pu_grad[userid] = model.pu[inner_user_id]
-                        result = pu_grad[userid] + p_tilde_c_grad
-                    else: 
-                        bu_grad[userid] = bu
-                        pu_grad[userid] = pu
-                        result = pu + p_tilde_c_grad
+                    for userid, productid, rating in set((user,item,rating) for user, item, rating in testset):
+                        is_userid_in_dataframe = userid in node_propensity_df['userid'].values
+                        if is_userid_in_dataframe is False:
+                            count = count + 1
+                            continue
+                        actual_ratings.append(rating)
+                        communities = ast.literal_eval(node_propensity_df[node_propensity_df['userid'] == userid]['Community'].iloc[0])
+                        propensity = ast.literal_eval(node_propensity_df[node_propensity_df['userid'] == userid][propensity_variable].iloc[0])
+                        p_tilde_c_grad = 0
+                        for index, prop in enumerate(propensity):
+                            comm = communities[index]
+                            # print('comm',comm)
+                            # print(community_preference_vector_df[community_preference_vector_df['Community'] == comm]['Rating_mean'].iloc[0])
+                            p_tilde_c_grad += prop * community_preference_vector_df[community_preference_vector_df['Community'] == comm]['Rating_mean'].iloc[0]
+                        
+                        
+                        # print('p_tilde_c_grad',p_tilde_c_grad)
+                        
+                        if trainset.knows_user(userid):
+                            # print('userid',userid)
+                            inner_user_id = get_Iu(userid,trainset)
+                            # inner_user_id = trainset.to_inner_uid(userid)
+                            bu_grad[userid] = model.bu[inner_user_id]
+                            pu_grad[userid] = model.pu[inner_user_id]
+                            result = pu_grad[userid] + p_tilde_c_grad
+                        else: 
+                            bu_grad[userid] = bu
+                            pu_grad[userid] = pu
+                            result = pu + p_tilde_c_grad
 
-                    if trainset.knows_item(productid):
-                        # print('productid',productid)
-                        inner_item_id = get_Ui(productid, trainset)
-                        bi_grad[productid] = model.bi[inner_item_id]
-                        qi_grad[productid] = model.qi[inner_item_id]
-                        qi_transposed = qi_grad[productid].T
-                    else: 
-                        bi_grad[productid] = bi
-                        qi_grad[productid] = qi
-                        qi_transposed = qi.T
-                                
-                    predicted_rating = model.trainset.global_mean + bu_grad[userid] + bi_grad[productid] + np.dot(qi_transposed, result)
-                    
-                    predicted_rating = np.clip(predicted_rating, 1, 5)
+                        if trainset.knows_item(productid):
+                            # print('productid',productid)
+                            inner_item_id = get_Ui(productid, trainset)
+                            bi_grad[productid] = model.bi[inner_item_id]
+                            qi_grad[productid] = model.qi[inner_item_id]
+                            qi_transposed = qi_grad[productid].T
+                        else: 
+                            bi_grad[productid] = bi
+                            qi_grad[productid] = qi
+                            qi_transposed = qi.T
+                                    
+                        predicted_rating = model.trainset.global_mean + bu_grad[userid] + bi_grad[productid] + np.dot(qi_transposed, result)
+                        
+                        predicted_rating = np.clip(predicted_rating, 1, 5)
 
-                    predicted_ratings.append(predicted_rating)
+                        predicted_ratings.append(predicted_rating)
 
-                    predicted_ratings_set.add((userid, productid, predicted_rating))  
-                    
-                    squarred_error_sum += (rating - predicted_rating) ** 2
-                print('squarred_error_sum',squarred_error_sum)
-                    # break
-                # Calculate loss for this fold
-                print(f"bu shape: {bu_grad.shape}, bi shape: {bi_grad.shape}, pu shape: {pu_grad.shape}, p_tilde_c_grad: {p_tilde_c_grad}, qi shape: {qi_grad.shape}, lambda shape: {lambda_}")
+                        predicted_ratings_set.add((userid, productid, predicted_rating))  
+                        
+                        squarred_error_sum += (rating - predicted_rating) ** 2
+                    # print('squarred_error_sum',squarred_error_sum)
+                        # break
+                    # Calculate loss for this fold
+                    # print(f"bu shape: {bu_grad.shape}, bi shape: {bi_grad.shape}, pu shape: {pu_grad.shape}, p_tilde_c_grad: {p_tilde_c_grad}, qi shape: {qi_grad.shape}, lambda shape: {lambda_}")
 
-                regularization_loss = objective_function(bu_grad, bi_grad, pu_grad, p_tilde_c_grad, qi_grad, lambda_)
-                total_loss = squarred_error_sum + regularization_loss
-                print('count',count)
-                #print('total_loss',total_loss)
-                iteration_losses.append(total_loss)
-            # Create a DataFrame
-            df = pd.DataFrame({'Predicted Rating': predicted_ratings, 'Actual Rating': actual_ratings})
-            # df.to_csv(output_dir + dataset + '_accuracy_epinions.csv',index = False)
-            # Display the DataFrame
-            # print(df)
+                    regularization_loss = objective_function(bu_grad, bi_grad, pu_grad, p_tilde_c_grad, qi_grad, lambda_)
+                    total_loss = squarred_error_sum + regularization_loss
+                    # print('count',count)
+                    #print('total_loss',total_loss)
+                    iteration_losses.append(total_loss)
+                # Create a DataFrame
+                df = pd.DataFrame({'Predicted Rating': predicted_ratings, 'Actual Rating': actual_ratings})
+                # df.to_csv(output_dir + dataset + '_accuracy_epinions.csv',index = False)
+                # Display the DataFrame
+                # print(df)
 
-            # df = pd.read_csv(output_dir+dataset+ "_accuracy_epinions.csv")
-            # Calculate Root Mean Squared Error (RMSE)
-            predicted_ratings = df['Predicted Rating'].tolist()
-            actual_ratings = df['Actual Rating'].tolist()
-            rmse = np.sqrt(np.mean((np.array(predicted_ratings) - np.array(actual_ratings)) ** 2))
+                # df = pd.read_csv(output_dir+dataset+ "_accuracy_epinions.csv")
+                # Calculate Root Mean Squared Error (RMSE)
+                predicted_ratings = df['Predicted Rating'].tolist()
+                actual_ratings = df['Actual Rating'].tolist()
+                rmse = np.sqrt(np.mean((np.array(predicted_ratings) - np.array(actual_ratings)) ** 2))
 
-            # Calculate Mean Absolute Error (MAE)
-            mae = np.mean(np.abs(np.array(predicted_ratings) - np.array(actual_ratings)))
+                # Calculate Mean Absolute Error (MAE)
+                mae = np.mean(np.abs(np.array(predicted_ratings) - np.array(actual_ratings)))
 
-            print("RMSE:", rmse)
-            print("MAE:", mae)
-            overall_mae.append(mae)
-            overall_rmse.append(rmse)
+                # print("RMSE:", rmse)
+                # print("MAE:", mae)
+                overall_mae.append(mae)
+                overall_rmse.append(rmse)
 
-        # final_loss = np.mean(overall_losses)
-        # print(f'Final average loss: {final_loss}')
-        final_mae = np.mean(overall_mae)
-        final_rmse = np.mean(overall_rmse)
-        print(f'Final average mae: {final_mae}')
-        final_loss = np.mean(overall_losses)
-        print("propensity_variable",propensity_variable)
-        print(f'Final average rmse: {final_rmse}')
+            # final_loss = np.mean(overall_losses)
+            # print(f'Final average loss: {final_loss}')
+            final_mae = np.mean(overall_mae)
+            print("propensity_variable", propensity_variable)
+            final_rmse = np.mean(overall_rmse)
+            print(f'Final average mae: {final_mae}')
+            final_loss = np.mean(overall_losses)
+
+            print(f'Final average rmse: {final_rmse}')
     
     else: 
         user_communities = detected_community_df.to_dict()
@@ -364,7 +369,7 @@ def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,outpu
         user_interests_df = pd.read_csv(output_dir + dataset +"_user_interests_df.csv")
         community_preference_vector_df = pd.read_csv(output_dir + dataset + "_community_preference_vector_df.csv")
         #column_names = ['userid', 'Closeness', 'SameAsDegreeCentrality','Betweenness']
-        node_propensity_df = pd.read_csv(output_dir + dataset + "_node_propensity_dataframe.csv")
+        node_propensity_df = pd.read_csv(output_dir + "node_propensity_dataframe.csv")
         node_propensity_df.rename(columns={'Node':'userid'}, inplace=True)
         
         reader = Reader(rating_scale=(0, 5))
@@ -421,123 +426,126 @@ def node_propensity(dataset,trustnetfile,ratingfile,communityfile,inputdir,outpu
          # Use Surprise's Reader to parse the DataFrame
         reader = Reader(rating_scale=(1, 5))  # Adjust the rating scale as needed
         filtered_data = Dataset.load_from_df(filtered_df, reader)
-        
-        actual_ratings = []
-        predicted_ratings = []
-        kf = KFold(n_splits=2, random_state=42, shuffle=True)
-        predicted_ratings_set = set()
-        losses = []
-        num_iterations = 5
-        overall_losses = []
-        overall_rmse = []
-        overall_mae = []
-        for iteration in range(num_iterations):
-            print(f"Iteration {iteration + 1}/{num_iterations}")
-            iteration_losses = []
-            fold = 0
+        propensity_list = ['Closeness',  'SameAsDegreeCentrality', 'Betweenness']
+        for propensity_variable in propensity_list:
+            actual_ratings = []
+            predicted_ratings = []
+            kf = KFold(n_splits=2, random_state=42, shuffle=True)
+            predicted_ratings_set = set()
+            losses = []
+            num_iterations = 5
+            overall_losses = []
+            overall_rmse = []
+            overall_mae = []
 
-            for trainset, testset in tqdm(kf.split(filtered_data)): 
+            for iteration in range(num_iterations):
+                print(f"Iteration {iteration + 1}/{num_iterations}")
+                iteration_losses = []
+                fold = 0
 
-                num_users = trainset.n_users
-                num_items = trainset.n_items
-                global_mean = trainset.global_mean
-                total_loss = 0
-                regularization_loss = 0
-                bu = bi = 0
+                for trainset, testset in tqdm(kf.split(filtered_data)): 
 
-                qi = np.zeros(model.n_factors)
-                pu = np.zeros(model.n_factors)
+                    num_users = trainset.n_users
+                    num_items = trainset.n_items
+                    global_mean = trainset.global_mean
+                    total_loss = 0
+                    regularization_loss = 0
+                    bu = bi = 0
 
-                bu_grad = np.zeros(total_num_users)
-                bi_grad = np.zeros(total_num_items)
-                pu_grad = np.zeros((total_num_users, latent_dim))
-                qi_grad = np.zeros((total_num_items, latent_dim))
+                    qi = np.zeros(model.n_factors)
+                    pu = np.zeros(model.n_factors)
+
+                    bu_grad = np.zeros(total_num_users)
+                    bi_grad = np.zeros(total_num_items)
+                    pu_grad = np.zeros((total_num_users, latent_dim))
+                    qi_grad = np.zeros((total_num_items, latent_dim))
 
 
-                model.fit(trainset)
-                fold += 1
-                print('kfold',fold)
-                count = 0
-                squarred_error_sum = 0
-            for userid, productid, rating in set((user,item,rating) for user, item, rating in testset):
-                is_userid_in_dataframe = userid in node_propensity_df['userid'].values
-                if is_userid_in_dataframe is False:
-                    count = count + 1
-                    continue
-                actual_ratings.append(rating)
-                comm = node_propensity_df[node_propensity_df['userid'] == userid]['Community'].iloc[0]
-                # 'Closeness',  'SameAsDegreeCentrality', 'Betweenness'
-                propensity_variable = 'Betweenness'
+                    model.fit(trainset)
+                    fold += 1
+                    print('kfold',fold)
+                    
+                    count = 0
+                    squarred_error_sum = 0
+                for userid, productid, rating in set((user,item,rating) for user, item, rating in testset):
+                    is_userid_in_dataframe = userid in node_propensity_df['userid'].values
+                    if is_userid_in_dataframe is False:
+                        count = count + 1
+                        continue
+                    actual_ratings.append(rating)
+                    comm = node_propensity_df[node_propensity_df['userid'] == userid]['Community'].iloc[0]
+                    
+                    # propensity_variable = 'Betweenness'
 
-                propensity = node_propensity_df[node_propensity_df['userid'] == userid][propensity_variable].iloc[0]
-                result = 0
-                p_tilde_c_grad = propensity * community_preference_vector_df[community_preference_vector_df['Community'] == comm]['Rating_mean'].iloc[0]
+                    propensity = node_propensity_df[node_propensity_df['userid'] == userid][propensity_variable].iloc[0]
+                    result = 0
+                    p_tilde_c_grad = propensity * community_preference_vector_df[community_preference_vector_df['Community'] == comm]['Rating_mean'].iloc[0]
 
-                if trainset.knows_user(userid):
-                        # print('userid',userid)
-                        inner_user_id = get_Iu(userid,trainset)
-                        # inner_user_id = trainset.to_inner_uid(userid)
-                        bu_grad[userid] = model.bu[inner_user_id]
-                        pu_grad[userid] = model.pu[inner_user_id]
-                        result = pu_grad[userid] + p_tilde_c_grad
-                else: 
-                    bu_grad[userid] = bu
-                    pu_grad[userid] = pu
-                    result = pu + p_tilde_c_grad
+                    if trainset.knows_user(userid):
+                            # print('userid',userid)
+                            inner_user_id = get_Iu(userid,trainset)
+                            # inner_user_id = trainset.to_inner_uid(userid)
+                            bu_grad[userid] = model.bu[inner_user_id]
+                            pu_grad[userid] = model.pu[inner_user_id]
+                            result = pu_grad[userid] + p_tilde_c_grad
+                    else: 
+                        bu_grad[userid] = bu
+                        pu_grad[userid] = pu
+                        result = pu + p_tilde_c_grad
 
-                if trainset.knows_item(productid):
-                    # print('productid',productid)
-                    inner_item_id = get_Ui(productid, trainset)
-                    bi_grad[productid] = model.bi[inner_item_id]
-                    qi_grad[productid] = model.qi[inner_item_id]
-                    qi_transposed = qi_grad[productid].T
-                else: 
-                    bi_grad[productid] = bi
-                    qi_grad[productid] = qi
-                    qi_transposed = qi.T
-                
+                    if trainset.knows_item(productid):
+                        # print('productid',productid)
+                        inner_item_id = get_Ui(productid, trainset)
+                        bi_grad[productid] = model.bi[inner_item_id]
+                        qi_grad[productid] = model.qi[inner_item_id]
+                        qi_transposed = qi_grad[productid].T
+                    else: 
+                        bi_grad[productid] = bi
+                        qi_grad[productid] = qi
+                        qi_transposed = qi.T
+                    
 
-                predicted_rating = model.trainset.global_mean + bu_grad[userid] + bi_grad[productid] + np.dot(qi_transposed, result)
-                        
-                predicted_rating = np.clip(predicted_rating, 1, 5)
+                    predicted_rating = model.trainset.global_mean + bu_grad[userid] + bi_grad[productid] + np.dot(qi_transposed, result)
+                            
+                    predicted_rating = np.clip(predicted_rating, 1, 5)
 
-                predicted_ratings.append(predicted_rating)
+                    predicted_ratings.append(predicted_rating)
 
-                predicted_ratings_set.add((userid, productid, predicted_rating))  
-                
-                squarred_error_sum += (rating - predicted_rating) ** 2
-            print('squarred_error_sum',squarred_error_sum)    
-            # Calculate loss for this fold
-            print(f"bu shape: {bu_grad.shape}, bi shape: {bi_grad.shape}, pu shape: {pu_grad.shape}, p_tilde_c_grad: {p_tilde_c_grad}, qi shape: {qi_grad.shape}, lambda shape: {lambda_}")
+                    predicted_ratings_set.add((userid, productid, predicted_rating))  
+                    
+                    squarred_error_sum += (rating - predicted_rating) ** 2
+                # print('squarred_error_sum',squarred_error_sum)
+                # Calculate loss for this fold
+                # print(f"bu shape: {bu_grad.shape}, bi shape: {bi_grad.shape}, pu shape: {pu_grad.shape}, p_tilde_c_grad: {p_tilde_c_grad}, qi shape: {qi_grad.shape}, lambda shape: {lambda_}")
 
-            regularization_loss = objective_function(bu_grad, bi_grad, pu_grad, p_tilde_c_grad, qi_grad, lambda_)
-            total_loss = squarred_error_sum + regularization_loss
-            print('count',count)
-            print('total_loss',total_loss)
-            iteration_losses.append(total_loss)
+                regularization_loss = objective_function(bu_grad, bi_grad, pu_grad, p_tilde_c_grad, qi_grad, lambda_)
+                total_loss = squarred_error_sum + regularization_loss
+                # print('count',count)
+                # print('total_loss',total_loss)
+                iteration_losses.append(total_loss)
 
-        # Create a DataFrame
-        df = pd.DataFrame({'Predicted Rating': predicted_ratings, 'Actual Rating': actual_ratings})
-        df.to_csv(output_dir + dataset + '_accuracy.csv',index = False)
-        # df = pd.read_csv(output_dir+dataset+ "_accuracy.csv")
-        # # Calculate Root Mean Squared Error (RMSE)
-        predicted_ratings = df['Predicted Rating'].tolist()
-        actual_ratings = df['Actual Rating'].tolist()
-        rmse = np.sqrt(np.mean((np.array(predicted_ratings) - np.array(actual_ratings)) ** 2))
+            # Create a DataFrame
+            df = pd.DataFrame({'Predicted Rating': predicted_ratings, 'Actual Rating': actual_ratings})
+            df.to_csv(output_dir + dataset + propensity_variable + '_accuracy.csv',index = False)
+            # df = pd.read_csv(output_dir+dataset+ "_accuracy.csv")
+            # # Calculate Root Mean Squared Error (RMSE)
+            predicted_ratings = df['Predicted Rating'].tolist()
+            actual_ratings = df['Actual Rating'].tolist()
+            rmse = np.sqrt(np.mean((np.array(predicted_ratings) - np.array(actual_ratings)) ** 2))
 
-        # Calculate Mean Absolute Error (MAE)
-        mae = np.mean(np.abs(np.array(predicted_ratings) - np.array(actual_ratings)))
+            # Calculate Mean Absolute Error (MAE)
+            mae = np.mean(np.abs(np.array(predicted_ratings) - np.array(actual_ratings)))
 
-        print("RMSE:", rmse)
-        print("MAE", mae)
-        overall_mae.append(mae)
-        overall_rmse.append(rmse)
+            # print("RMSE:", rmse)
+            # print("MAE", mae)
+            overall_mae.append(mae)
+            overall_rmse.append(rmse)
 
         final_mae = np.mean(overall_mae)
         final_rmse = np.mean(overall_rmse)
+        print("propensity_variable", propensity_variable)
         print(f'Final average mae: {final_mae}')
         final_loss = np.mean(overall_losses)
-        print("propensity_variable",propensity_variable)
         print(f'Final average rmse: {final_rmse}')
 
 def parse_args():
