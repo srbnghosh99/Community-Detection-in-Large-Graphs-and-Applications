@@ -7,6 +7,8 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import roc_auc_score
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import argparse
+import os
+from os.path import dirname, join as pjoin
 
 
 def evaluation(inputdir):
@@ -78,7 +80,9 @@ def parse_args():
 
 def main():
     inputs=parse_args()
-    evaluation(inputs.inputdir)
+    curr_directory = os.getcwd()
+    inputdir = pjoin(curr_directory,inputs.dataset, inputs.inputdir)
+    evaluation(inputdir)
   
 if __name__ == '__main__':
     main()
