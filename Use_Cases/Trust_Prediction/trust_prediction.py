@@ -35,7 +35,7 @@ def calculate_rating_similarity(rating_vector_i, rating_vector_j):
     return rating_similarity
 
 
-def prediction(G,overlap,ground_truth,cd_algo,cc,rating):
+def prediction(G,overlap,ground_truth,cd_algo,cc,rating,outdir):
 
     user_ratings = rating.groupby('userid')['rating'].agg(list).reset_index()
     user_ratings['rating_vector'] = user_ratings['rating'].apply(np.array)
@@ -70,16 +70,9 @@ def prediction(G,overlap,ground_truth,cd_algo,cc,rating):
                     lst.append([i,j,max_predict])
                 cols=['Node1', 'Node2', 'TrustValue']
                 predicted_values = pd.DataFrame(lst, columns=cols)
-                predicted_values['TrustValue_new'] = predicted_values['TrustValue'].apply(lambda avg: 1 if avg > 0.55 else 0)
-                common_pairs = pd.merge(ground_truth, predicted_values, on=['Node1', 'Node2'], how='inner')
-                common_pairs = common_pairs.rename(columns={'TrustValue_x': 'ground_truth', 'TrustValue_new': 'predicted_value','TrustValue_y':'score'})
-                filename =  cmeasure + "_predict_ground_truth.csv"
-                ground_truth_common = common_pairs['ground_truth'].tolist()
-                predicted_values_common = common_pairs['predicted_value'].tolist()
-                report = classification_report(ground_truth_common, predicted_values_common, labels=[0,1])
-                print(report)
-                
-                file.write(report)
+                ground_truth['Predicted_score'] = predicted_values['TrustValue']
+                filename =   outdir + cmeasure + "_predict_ground_truth.csv"
+                ground_truth.to_csv(filename)
 
     if overlap == 'overlapping':
         with open('report.txt', 'w') as file:
@@ -115,22 +108,11 @@ def prediction(G,overlap,ground_truth,cd_algo,cc,rating):
                             avg_predicted_values.append(predicted_value)
                     max_predict = max(avg_predicted_values)
                     lst.append([i,j,max_predict])
+                cols=['Node1', 'Node2', 'TrustValue']
                 predicted_values = pd.DataFrame(lst, columns=cols)
-                print('predicted_values', predicted_values)
-                predicted_values['TrustValue_new'] = predicted_values['TrustValue'].apply(lambda avg: 1 if avg > 0.80 else 0)
-
-                common_pairs = pd.merge(ground_truth, predicted_values, on=['Node1', 'Node2'], how='inner')
-                print(common_pairs.shape)
-                common_pairs = common_pairs.rename(columns={'TrustValue_x': 'ground_truth', 'TrustValue_new': 'predicted_value','TrustValue_y':'score'})
-                filename =   cmeasure + "_predict_ground_truth.csv"
-                common_pairs.to_csv(filename)
-
-                # Extract ground truth and predicted values for common pairs
-                ground_truth_common = common_pairs['ground_truth'].tolist()
-                predicted_values_common = common_pairs['predicted_value'].tolist()
-                report = classification_report(ground_truth_common, predicted_values_common, labels=[0,1])
-                print(report)
-                file.write(report)
+                ground_truth['Predicted_score'] = predicted_values['TrustValue']
+                filename =   outdir + cmeasure + "_predict_ground_truth.csv"
+                ground_truth.to_csv(filename)
 
 
 def parse_args():
@@ -142,6 +124,7 @@ def parse_args():
    parser.add_argument("--ratingfile",type = str)
    parser.add_argument("--overlap",type = str)
    parser.add_argument("--groundtruthfile",type = str)
+   parser.add_argument("--outdir",type = str)
    return parser.parse_args()
 
 
@@ -154,11 +137,12 @@ def main():
    ratingfile = pjoin(curr_directory,inputs.dataset, inputs.ratingfile)
    groundtruthfile = pjoin(curr_directory,inputs.dataset, inputs.groundtruthfile)
    ground_truth = pd.read_csv(groundtruthfile)
+   outdir= pjoin(curr_directory,inputs.dataset,input.outdir)
    G = nx.read_edgelist(graphfile,delimiter=',', nodetype=int)
    cd_algo = pd.read_csv(communityfile)
    cc = pd.read_csv(community_center) 
    rating = pd.read_csv(ratingfile)
-   prediction(G,inputs.overlap,ground_truth,cd_algo,cc,rating)
+   prediction(G,inputs.overlap,ground_truth,cd_algo,cc,rating,outdir)
 
 if __name__ == '__main__':
     main()
