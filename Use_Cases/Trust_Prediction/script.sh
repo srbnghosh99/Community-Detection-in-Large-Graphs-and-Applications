@@ -25,5 +25,5 @@ python3 create_node_propensity.py --dataset ciao --inDirectory louvain --outDire
 
 python3 find_center_of_communities.py --dataset ciao --directory propensity_subgraph_louvain
 
-python3 trust_prediction.py --dataset ciao --graphfile renumbered_graph_ciao.csv --communityfile louvain_ciao.csv --community_center propensity_subgraph_louvain/centerclusters.csv --ratingfile rating.csv --overlap nonoverlap
+python3 trust_prediction.py --dataset ciao --graphfile renumbered_graph_ciao.csv --communityfile louvain_ciao.csv --community_center propensity_subgraph_louvain/centerclusters.csv --ratingfile rating.csv --overlap nonoverlap --outdir louvain
 
