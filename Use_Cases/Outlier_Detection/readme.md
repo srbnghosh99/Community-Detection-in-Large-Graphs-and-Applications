@@ -8,16 +8,13 @@ This repository implements a anomaly detection based on the principles outlined 
 
 1. **Community Detection**: 
    - Communities are detected using social graph/financial transaction graph. Different community detections models can be used for this step. 
-   
 2. **Identifying Auxiliary Communities**:
    - Overlapping communities are identified using border nodes of non-overlapping communities.
-   - 
 3. **Anomaly Detection**:
    - Anomaly detection is performed by applying XGBoost classification model 
-   - 
 ### Evaluation Process
 
-1. **Performance Analysis**: Analyze the results to determine if our system provides significant improvements in prediction based on ground truth trust relations.
+1. **Performance Analysis**: Analyze the results to determine if our system provides significant improvements in prediction based on ground truth anomalies.
 
 
 ## How This Code Works
